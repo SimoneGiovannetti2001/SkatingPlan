@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.ControllerGrafici.HomeAtletaControllerG">
+   <children>
+      <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/HomeAtleta.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="ricerca" layoutX="192.0" layoutY="123.0" prefHeight="47.0" prefWidth="209.0" promptText="Ricerca evento">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </TextField>
+      <Button fx:id="prenota" layoutY="70.0" mnemonicParsing="false" onAction="#onPrenotaClick" opacity="0.0" prefHeight="119.0" prefWidth="168.0" />
+      <Button fx:id="gestisciPrenotazioni" layoutX="-1.0" layoutY="189.0" mnemonicParsing="false" onAction="#onGestisciPrenotazioniClick" opacity="0.0" prefHeight="123.0" prefWidth="170.0" />
+      <Button fx:id="button3" layoutY="313.0" mnemonicParsing="false" opacity="0.0" prefHeight="129.0" prefWidth="169.0" />
+   </children>
+</AnchorPane>

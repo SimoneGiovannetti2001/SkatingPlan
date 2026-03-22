@@ -5,4 +5,6 @@ module com.example.skatingplan {
 
     opens com.example.skatingplan to javafx.fxml;
     exports com.example.skatingplan;
+    exports com.example.skatingplan.ControllerGrafici;
+    opens com.example.skatingplan.ControllerGrafici to javafx.fxml;
 }
