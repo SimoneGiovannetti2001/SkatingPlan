@@ -1,10 +1,13 @@
 module com.example.skatingplan {
     requires javafx.controls;
     requires javafx.fxml;
+    requires java.sql;
 
 
     opens com.example.skatingplan to javafx.fxml;
     exports com.example.skatingplan;
     exports com.example.skatingplan.ControllerGrafici;
     opens com.example.skatingplan.ControllerGrafici to javafx.fxml;
+    exports com.example.skatingplan.model;
+    opens com.example.skatingplan.model to javafx.fxml;
 }
