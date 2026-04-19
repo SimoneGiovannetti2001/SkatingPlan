@@ -5,13 +5,13 @@ public class Utente {
     protected String nome;
     protected String cognome;
     protected String email;
-    //protected Role role;
+    protected Role role;
 
-    public Utente(String nome, String cognome, String email){
+    public Utente(String nome, String cognome, String email, Role role){
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
-        //this.role = role;
+        this.role = role;
     }
 
     public String getNome(){
@@ -26,4 +26,7 @@ public class Utente {
         return this.email;
     }
 
+    public Role getRole() {
+        return role;
+    }
 }

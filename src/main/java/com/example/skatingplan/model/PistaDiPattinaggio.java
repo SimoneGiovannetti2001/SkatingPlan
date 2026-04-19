@@ -12,8 +12,14 @@ public class PistaDiPattinaggio {
         this.tipoPavimento = tipoPavimento;
     }
 
+    public String getVia(){
+        return this.via;
+    }
+    public int getCivico() {
+        return civico;
+    }
+
     public TipoPavimento getTipoPavimento(){
         return this.tipoPavimento;
     }
-
 }

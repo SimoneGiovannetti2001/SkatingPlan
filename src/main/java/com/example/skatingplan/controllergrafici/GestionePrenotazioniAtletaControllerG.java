@@ -1,4 +1,4 @@
-package com.example.skatingplan.ControllerGrafici;
+package com.example.skatingplan.controllergrafici;
 
 import com.example.skatingplan.FxmlLoader;
 import javafx.fxml.FXML;

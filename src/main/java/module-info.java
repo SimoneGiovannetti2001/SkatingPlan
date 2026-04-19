@@ -6,8 +6,8 @@ module com.example.skatingplan {
 
     opens com.example.skatingplan to javafx.fxml;
     exports com.example.skatingplan;
-    exports com.example.skatingplan.ControllerGrafici;
-    opens com.example.skatingplan.ControllerGrafici to javafx.fxml;
+    exports com.example.skatingplan.controllergrafici;
+    opens com.example.skatingplan.controllergrafici to javafx.fxml;
     exports com.example.skatingplan.model;
     opens com.example.skatingplan.model to javafx.fxml;
 }
