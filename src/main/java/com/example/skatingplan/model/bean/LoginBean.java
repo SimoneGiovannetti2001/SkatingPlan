@@ -1,8 +1,8 @@
 package com.example.skatingplan.model.bean;
 
 public class LoginBean {
-    String user;
-    String pass;
+    private String user;
+    private String pass;
 
     public LoginBean(String user, String pass){
         this.user = user;
