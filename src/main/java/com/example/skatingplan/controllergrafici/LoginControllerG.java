@@ -19,15 +19,7 @@ public class LoginControllerG {
     @FXML
     private TextField passLabel;
 
-    @FXML
-    ComboBox<ModalitaPersistenza> modalitaPersistenza;
-    @FXML
-    ComboBox<ModalitaGui> modalitaGui;
-    @FXML
-    public void initialize() {
-        modalitaPersistenza.getItems().addAll(ModalitaPersistenza.values());
-        modalitaGui.getItems().addAll(ModalitaGui.values());
-    }
+
     @FXML
     private void onLoginClick() {
         String pass;

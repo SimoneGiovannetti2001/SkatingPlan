@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.controllergrafici.SceltaModalitàControllerG">
+   <children>
+      <ImageView fx:id="onConfermaClick" fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/Scelta.jpg" />
+         </image></ImageView>
+      <ComboBox fx:id="modalitaPersistenza" layoutX="238.0" layoutY="269.0" prefHeight="103.0" prefWidth="335.0" promptText="Modalità di persistenza" stylesheets="@../filecss/checkbox.css" />
+      <Button fx:id="conferma" layoutX="464.0" layoutY="439.0" mnemonicParsing="false" onAction="#onConfermaClick" prefHeight="110.0" prefWidth="335.0" style="-fx-background-color: #38bdf8;" text="Conferma" textFill="#000066">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Button>
+      <ComboBox fx:id="modalitaGui" layoutX="705.0" layoutY="266.0" prefHeight="110.0" prefWidth="335.0" promptText="Modalità GUI" stylesheets="@../filecss/checkbox.css" />
+      <Label layoutX="11.0" layoutY="1.0" prefHeight="80.0" prefWidth="335.0" text="SkatingPlan" textFill="#000066">
+         <font>
+            <Font size="55.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

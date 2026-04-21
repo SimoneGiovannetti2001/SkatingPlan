@@ -1,0 +1,5 @@
+.button {
+    -fx-alignment: center;
+    -fx-text-alignment: center;
+    -fx-wrap-text: true;
+}
