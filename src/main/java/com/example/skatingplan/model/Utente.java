@@ -1,5 +1,7 @@
 package com.example.skatingplan.model;
 
+import com.example.skatingplan.model.enumerazioni.Role;
+
 public class Utente {
 
     protected String nome;

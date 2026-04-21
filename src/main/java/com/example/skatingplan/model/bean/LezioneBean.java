@@ -1,7 +1,7 @@
 package com.example.skatingplan.model.bean;
 
 import com.example.skatingplan.model.Allenatore;
-import com.example.skatingplan.model.TipoPavimento;
+import com.example.skatingplan.model.enumerazioni.TipoPavimento;
 
 import java.sql.Time;
 import java.util.Date;

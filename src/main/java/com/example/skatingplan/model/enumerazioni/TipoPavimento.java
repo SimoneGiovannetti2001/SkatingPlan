@@ -1,4 +1,4 @@
-package com.example.skatingplan.model;
+package com.example.skatingplan.model.enumerazioni;
 
 public enum TipoPavimento {
     CEMENTO(1),

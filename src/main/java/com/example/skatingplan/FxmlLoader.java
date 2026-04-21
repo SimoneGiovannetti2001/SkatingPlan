@@ -14,7 +14,6 @@ public class FxmlLoader extends Application {
 
     private static Stage currentStage;
 
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         Stage stage;

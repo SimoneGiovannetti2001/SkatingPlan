@@ -25,4 +25,16 @@ public class FiltriBean {
     public String getProvincia() {
         return provincia;
     }
+
+    public void setData(Date data) {
+        this.data = data;
+    }
+
+    public void setOraInizio(Time oraInizio) {
+        this.oraInizio = oraInizio;
+    }
+
+    public void setProvincia(String provincia) {
+        this.provincia = provincia;
+    }
 }

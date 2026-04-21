@@ -1,6 +1,8 @@
 package com.example.skatingplan.model;
 
 
+import com.example.skatingplan.model.enumerazioni.Role;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -29,7 +31,7 @@ public class ConnectionFactory {
         }
     }
 
-    public static Connection getConnection() throws SQLException {
+    public static Connection getConnection() {
         return connection;
     }
 
@@ -37,7 +39,7 @@ public class ConnectionFactory {
         connection.close();
     }
 
-    /*
+
     public static void changeRole(Role role) throws SQLException {
         connection.close();
 
@@ -45,15 +47,15 @@ public class ConnectionFactory {
             Properties properties = new Properties();
             properties.load(input);
 
-            String connection_url = properties.getProperty("CONNECTION_URL");
+            String connectionUrl = properties.getProperty("CONNECTION_URL");
             String user = properties.getProperty(role.name() + "_USER");
             String pass = properties.getProperty(role.name() + "_PASS");
 
-            connection = DriverManager.getConnection(connection_url, user,pass);
+            connection = DriverManager.getConnection(connectionUrl, user,pass);
             
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
     }
-     */
+
 }
