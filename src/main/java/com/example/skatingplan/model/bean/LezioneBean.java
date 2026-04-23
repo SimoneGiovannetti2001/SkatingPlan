@@ -1,6 +1,7 @@
 package com.example.skatingplan.model.bean;
 
 import com.example.skatingplan.model.Allenatore;
+import com.example.skatingplan.model.Lezione;
 import com.example.skatingplan.model.enumerazioni.TipoPavimento;
 
 import java.sql.Time;
@@ -16,11 +17,11 @@ public class LezioneBean {
     private int civico;
     private TipoPavimento tipoPavimento;
 
-    public LezioneBean(Allenatore allenatore, Date data, Time oraInizio, int durata, String provincia, String via, int civico, TipoPavimento tipoPavimento){
-        this.allenatore = allenatore;
-        this.data = data;
-        this.oraInizio = oraInizio;
-        this.durata = durata;
+    public LezioneBean(Lezione lezione){
+        this.allenatore = lezione.getAllenatore();
+        this.data = lezione.getData();
+        this.oraInizio = lezione.getOraInizio();
+        this.durata = lezione.getDurata();
         this.provincia = provincia;
         this.via = via;
         this.civico = civico;
