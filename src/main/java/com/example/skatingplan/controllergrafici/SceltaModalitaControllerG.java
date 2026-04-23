@@ -7,7 +7,7 @@ import com.example.skatingplan.utili.AppConfig;
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
 
-public class SceltaModalitàControllerG {
+public class SceltaModalitaControllerG {
     @FXML
     private ComboBox<ModalitaPersistenza> modalitaPersistenza;
     @FXML
