@@ -1,26 +1,22 @@
-package com.example.skatingplan.controllergrafici;
+package com.example.skatingplan.controllergrafici1;
 
 import com.example.skatingplan.FxmlLoader;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
 
-
-
-public class HomeAtletaControllerG {
+public class PrenotaAtletaControllerG {
 
     @FXML
-    private TextField ricerca;
-
-    @FXML
-    private Button prenota;
+    private Button prenotaLezione;
 
     @FXML
     private Button gestisciPrenotazioni;
 
+    @FXML
+    private Button conferma;
 
     @FXML
-    private void onPrenotaClick(){
+    private void onPrenotaLezioneClick(){
         FxmlLoader.setPage("views/prenotaatleta-view");
     }
 
@@ -29,4 +25,8 @@ public class HomeAtletaControllerG {
         FxmlLoader.setPage("views/gestisciprenotazioniatleta-view");
     }
 
+    @FXML
+    private void onConfermaClick(){
+        FxmlLoader.setPage("views/dettagliprenotazioneatleta-view");
+    }
 }

@@ -1,7 +1,8 @@
-package com.example.skatingplan.model.dao;
+package com.example.skatingplan.model.dao.DBMS;
 
 import com.example.skatingplan.model.ConnectionFactory;
 import com.example.skatingplan.model.bean.LoginBean;
+import com.example.skatingplan.model.dao.LoginDAO;
 import com.example.skatingplan.model.enumerazioni.Role;
 
 import java.sql.CallableStatement;
@@ -9,7 +10,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Types;
 
-public class LoginDao {
+public class DBMSLoginDAO implements LoginDAO {
     public Role login(LoginBean loginBean) throws SQLException {
 
         try(Connection connection = ConnectionFactory.getConnection();
