@@ -1,14 +1,15 @@
-package com.example.skatingplan.model.dao.DEMO;
+package com.example.skatingplan.model.dao.dbms;
 
 import com.example.skatingplan.model.dao.DAOFactory;
 import com.example.skatingplan.model.dao.LezioniDAO;
 import com.example.skatingplan.model.dao.LoginDAO;
 import com.example.skatingplan.model.dao.PagamentiDAO;
 
-public class DEMOFactory extends DAOFactory {
+public class DBMSFactory extends DAOFactory {
+
     @Override
     public LoginDAO creaLoginDAO() {
-        return new DEMOLoginDAO();
+        return new DBMSLoginDAO();
     }
 
     @Override

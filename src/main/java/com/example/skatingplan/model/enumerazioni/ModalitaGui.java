@@ -1,6 +1,6 @@
 package com.example.skatingplan.model.enumerazioni;
 
 public enum ModalitaGui {
-    GRAFICA,
-    TESTUALE;
+    GRAFICA1,
+    GRAFICA2;
 }

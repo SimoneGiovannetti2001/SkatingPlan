@@ -16,17 +16,25 @@ public class PrenotaAtletaControllerG {
     private Button conferma;
 
     @FXML
+    private Button home;
+    @FXML
     private void onPrenotaLezioneClick(){
-        FxmlLoader.setPage("views/prenotaatleta-view");
+        FxmlLoader.setPage("views1/prenotaatleta1-view");
     }
 
     @FXML
     private void onGestisciPrenotazioniClick(){
-        FxmlLoader.setPage("views/gestisciprenotazioniatleta-view");
+        FxmlLoader.setPage("views1/gestisciprenotazioniatleta1-view");
     }
 
     @FXML
     private void onConfermaClick(){
-        FxmlLoader.setPage("views/dettagliprenotazioneatleta-view");
+        FxmlLoader.setPage("views1/dettagliprenotazioneatleta1-view");
     }
+
+    @FXML
+    private void onHomeClick(){
+        FxmlLoader.setPage("views1/homeatleta1-view");
+    }
+
 }

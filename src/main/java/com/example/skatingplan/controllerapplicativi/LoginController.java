@@ -9,7 +9,7 @@ import com.example.skatingplan.utili.FactoryConfig;
 
 public class LoginController {
     public Role autenticazione(LoginBean loginBean) {
-        LoginDAO loginDAO= FactoryConfig.getDaoFactory().creaLoginDAO();
+        LoginDAO loginDAO = FactoryConfig.getDaoFactory().creaLoginDAO();
         Role ruolo = null;
         try {
             ruolo = loginDAO.login(loginBean);

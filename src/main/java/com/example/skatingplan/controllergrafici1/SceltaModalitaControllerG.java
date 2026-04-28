@@ -6,9 +6,11 @@ import com.example.skatingplan.model.enumerazioni.ModalitaGui;
 import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
 import com.example.skatingplan.utili.FactoryConfig;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
 public class SceltaModalitaControllerG {
+    public Button conferma;
     @FXML
     private ComboBox<ModalitaPersistenza> modalitaPersistenza;
     @FXML
@@ -22,13 +24,10 @@ public class SceltaModalitaControllerG {
     @FXML
     private void onConfermaClick(){
         FactoryConfig.impostaFactory(CreatoreFactory.creaFactory(modalitaPersistenza.getValue()));
-        if(modalitaGui.getValue() == ModalitaGui.TESTUALE){
-            FxmlLoader.setPage("views/homeatleta-view");
+        if(modalitaGui.getValue() == ModalitaGui.GRAFICA2){
+            FxmlLoader.setPage("views2/login2-view");
         }else{
-            FxmlLoader.setPage("views/login-view");
+            FxmlLoader.setPage("views1/login1-view");
         }
     }
-
-
-
 }

@@ -4,7 +4,7 @@ import com.example.skatingplan.model.enumerazioni.TipoPavimento;
 
 public class PistaDiPattinaggio {
 
-    public String provincia;
+    private String provincia;
     private String via;
     private int civico;
     private TipoPavimento tipoPavimento;

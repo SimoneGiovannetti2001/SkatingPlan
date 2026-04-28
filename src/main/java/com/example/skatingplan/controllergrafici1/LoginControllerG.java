@@ -5,17 +5,19 @@ import com.example.skatingplan.controllerapplicativi.LoginController;
 import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.model.enumerazioni.Role;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 
 public class LoginControllerG {
 
+    public Button myButtony;
     @FXML
-    private TextField userLabel;
+    private TextField userField;
 
     @FXML
-    private TextField passLabel;
+    private TextField passField;
 
     @FXML
     private Label testoErrori;
@@ -24,26 +26,24 @@ public class LoginControllerG {
     private void onLoginClick() {
         String pass;
         String user;
-        pass = passLabel.getText();
-        user = userLabel.getText();
+        pass = userField.getText();
+        user = passField.getText();
         LoginBean loginBean = new LoginBean(user, pass);
 
         try{
             LoginController loginController = new LoginController();
             Role result = loginController.autenticazione(loginBean);
             if(result == Role.ATLETA) {
-                FxmlLoader.setPage("views/homeatleta-view");
+                FxmlLoader.setPage("views1/homeatleta1-view");
             }else if(result == Role.ALLENATORE) {
-                FxmlLoader.setPage("views/homeallenatore-view");
+                FxmlLoader.setPage("views1/homeallenatore1-view");
             }else if(result == Role.MANAGER) {
-                FxmlLoader.setPage("views/homemanager-view");
-            } else if (result == null) {
-                testoErrori.setText("Login fallito");
-                testoErrori.setVisible(true);
+                FxmlLoader.setPage("views1/homemanager1-view");
             }
 
         }catch(Exception e){
-            System.out.println("Errore Login");
+            testoErrori.setText("Login fallito");
+            testoErrori.setVisible(true);
         }
 
     }

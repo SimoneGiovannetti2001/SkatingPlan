@@ -1,4 +1,4 @@
-package com.example.skatingplan.model.dao.DBMS;
+package com.example.skatingplan.model.dao.dbms;
 
 import com.example.skatingplan.model.ConnectionFactory;
 import com.example.skatingplan.model.bean.LoginBean;
