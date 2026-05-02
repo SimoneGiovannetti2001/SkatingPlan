@@ -1,40 +1,44 @@
 package com.example.skatingplan.model.bean;
 
+import com.example.skatingplan.model.enumerazioni.Regione;
+
 import java.sql.Time;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 public class FiltriBean {
-    private Date data;
-    private Time oraInizio;
-    private String provincia;
+    private LocalDate data;
+    private LocalTime oraInizio;
+    private Regione regione;
 
-    public FiltriBean(Date data, Time oraInizio, String provincia){
+    public FiltriBean(LocalDate data, LocalTime oraInizio, Regione regione){
         this.data = data;
         this.oraInizio = oraInizio;
-        this.provincia = provincia;
+        this.regione = regione;
     }
 
-    public Date getData() {
+    public LocalDate getData() {
         return data;
     }
 
-    public Time getOraInizio() {
+    public LocalTime getOraInizio() {
         return oraInizio;
     }
 
-    public String getProvincia() {
-        return provincia;
+    public Regione getRegione() {
+        return regione;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
-    public void setOraInizio(Time oraInizio) {
+    public void setOraInizio(LocalTime oraInizio) {
         this.oraInizio = oraInizio;
     }
 
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
+    public void setRegione(Regione regione) {
+        this.regione = regione;
     }
 }

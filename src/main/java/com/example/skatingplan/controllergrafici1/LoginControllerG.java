@@ -7,6 +7,7 @@ import com.example.skatingplan.model.enumerazioni.Role;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 
@@ -17,7 +18,7 @@ public class LoginControllerG {
     private TextField userField;
 
     @FXML
-    private TextField passField;
+    private PasswordField passField;
 
     @FXML
     private Label testoErrori;
@@ -26,8 +27,8 @@ public class LoginControllerG {
     private void onLoginClick() {
         String pass;
         String user;
-        pass = userField.getText();
-        user = passField.getText();
+        user = userField.getText();
+        pass = passField.getText();
         LoginBean loginBean = new LoginBean(user, pass);
 
         try{

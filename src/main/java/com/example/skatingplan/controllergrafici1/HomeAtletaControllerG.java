@@ -9,9 +9,12 @@ import javafx.scene.control.TextField;
 
 
 public class HomeAtletaControllerG {
+    @FXML
+    private Button prenota;
 
-    public Button prenota;
-    public Button button3;
+    @FXML
+    private Button button3;
+
     @FXML
     private TextField ricerca;
 
@@ -37,5 +40,6 @@ public class HomeAtletaControllerG {
     private void onHomeClick(){
         FxmlLoader.setPage("views1/homeatleta1-view");
     }
+
 
 }

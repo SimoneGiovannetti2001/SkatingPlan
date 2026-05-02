@@ -1,13 +1,14 @@
 package com.example.skatingplan.model.dao;
 
 import com.example.skatingplan.model.Lezione;
+import com.example.skatingplan.model.enumerazioni.Regione;
 import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
 
-import java.sql.Time;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.List;
 
 public interface LezioniDAO {
-    public abstract List<Lezione> selezionaLezioni(Date data, Time oraInizio);
-    public abstract boolean aggiornastato(StatoPrenotazione statoPrenotazione);
+    List<Lezione> selezionaLezioni(LocalDate data, LocalTime oraInizio, String regione);
+    boolean aggiornastato(StatoPrenotazione statoPrenotazione);
 }

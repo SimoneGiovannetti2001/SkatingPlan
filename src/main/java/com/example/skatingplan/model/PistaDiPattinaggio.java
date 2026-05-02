@@ -1,23 +1,30 @@
 package com.example.skatingplan.model;
 
+import com.example.skatingplan.model.enumerazioni.Regione;
 import com.example.skatingplan.model.enumerazioni.TipoPavimento;
 
 public class PistaDiPattinaggio {
 
-    private String provincia;
+    private String nome;
+    private Regione regione;
     private String via;
     private int civico;
     private TipoPavimento tipoPavimento;
 
-    public PistaDiPattinaggio(String provincia, String via, int civico, TipoPavimento tipoPavimento){
-        this.provincia = provincia;
+    public PistaDiPattinaggio(String nome, Regione regione, String via, int civico, TipoPavimento tipoPavimento){
+        this.nome = nome;
+        this.regione = regione;
         this.via = via;
         this.civico = civico;
         this.tipoPavimento = tipoPavimento;
     }
 
-    public String getProvincia() {
-        return provincia;
+    public String getNome() {
+        return nome;
+    }
+
+    public Regione getRegione() {
+        return regione;
     }
     public String getVia(){
         return this.via;
@@ -26,12 +33,16 @@ public class PistaDiPattinaggio {
         return civico;
     }
 
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
     public TipoPavimento getTipoPavimento(){
         return this.tipoPavimento;
     }
 
-    public void setProvincia(String provincia) {
-        this.provincia = provincia;
+    public void setRegione(Regione regione) {
+        this.regione = regione;
     }
 
     public void setVia(String via) {

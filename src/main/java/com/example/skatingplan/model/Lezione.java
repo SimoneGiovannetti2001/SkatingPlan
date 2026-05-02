@@ -1,16 +1,20 @@
 package com.example.skatingplan.model;
 
-import java.sql.Time;
-import java.util.Date;
+import com.example.skatingplan.model.enumerazioni.Regione;
+
+import java.time.LocalDate;
+import java.time.LocalTime;
 
 public class Lezione {
+    private int id;
     private PistaDiPattinaggio pistaDiPattinaggio;
     private Allenatore allenatore;
-    private Date data;
-    private Time oraInizio;
+    private LocalDate data;
+    private LocalTime oraInizio;
     private int durata;
 
-    public Lezione(PistaDiPattinaggio pistaDiPattinaggio, Allenatore allenatore, Date data, Time oraInizio, int durata){
+    public Lezione(int id, PistaDiPattinaggio pistaDiPattinaggio, Allenatore allenatore, LocalDate data, LocalTime oraInizio, int durata){
+        this.id = id;
         this.pistaDiPattinaggio = pistaDiPattinaggio;
         this.allenatore = allenatore;
         this.data = data;
@@ -26,11 +30,11 @@ public class Lezione {
         return allenatore;
     }
 
-    public Date getData(){
+    public LocalDate getData(){
         return this.data;
     }
 
-    public Time getOraInizio(){
+    public LocalTime getOraInizio(){
         return this.oraInizio;
     }
 
@@ -46,11 +50,11 @@ public class Lezione {
         this.allenatore = allenatore;
     }
 
-    public void setData(Date data) {
+    public void setData(LocalDate data) {
         this.data = data;
     }
 
-    public void setOraInizio(Time oraInizio) {
+    public void setOraInizio(LocalTime oraInizio) {
         this.oraInizio = oraInizio;
     }
 
