@@ -1,7 +1,7 @@
 package com.example.skatingplan.model;
 
 import com.example.skatingplan.model.enumerazioni.Qualifica;
-import com.example.skatingplan.model.enumerazioni.Role;
+
 
 public class Allenatore extends Utente{
 
@@ -9,8 +9,8 @@ public class Allenatore extends Utente{
 
     private int tariffaOraria;
 
-    public Allenatore(String nome, String cognome, String email, Role role, int idUtente, String passw, Qualifica qualifica, int tariffaOraria){
-        super(nome, cognome, email, role, idUtente, passw);
+    public Allenatore(Utente utente, Qualifica qualifica, int tariffaOraria){
+        super(utente.getNome(), utente.cognome, utente.getEmail(), utente.getRuolo(), utente.getIdUtente(), utente.getPassw());
         this.qualifica = qualifica;
         this.tariffaOraria = tariffaOraria;
     }
