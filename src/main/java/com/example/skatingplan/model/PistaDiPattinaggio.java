@@ -8,10 +8,10 @@ public class PistaDiPattinaggio {
     private String nome;
     private Regione regione;
     private String via;
-    private int civico;
+    private String civico;
     private TipoPavimento tipoPavimento;
 
-    public PistaDiPattinaggio(String nome, Regione regione, String via, int civico, TipoPavimento tipoPavimento){
+    public PistaDiPattinaggio(String nome, Regione regione, String via, String civico, TipoPavimento tipoPavimento){
         this.nome = nome;
         this.regione = regione;
         this.via = via;
@@ -29,7 +29,7 @@ public class PistaDiPattinaggio {
     public String getVia(){
         return this.via;
     }
-    public int getCivico() {
+    public String getCivico() {
         return civico;
     }
 
@@ -49,7 +49,7 @@ public class PistaDiPattinaggio {
         this.via = via;
     }
 
-    public void setCivico(int civico) {
+    public void setCivico(String civico) {
         this.civico = civico;
     }
 

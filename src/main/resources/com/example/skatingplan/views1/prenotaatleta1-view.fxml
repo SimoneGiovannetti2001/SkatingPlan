@@ -12,16 +12,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.controllergrafici1.PrenotaAtletaControllerG">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../filecss/Button.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.controllergrafici1.PrenotaAtletaControllerG">
    <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../image/HomeAtleta.jpg" />
    </ImageView>
-   <Button fx:id="gestisciPrenotazioni" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="-1.0" layoutY="190.0" mnemonicParsing="false" onAction="#onGestisciPrenotazioniClick" prefHeight="108.0" prefWidth="170.0" style="-fx-background-color: blank;" stylesheets="@../filecss/Button.css" text="Gestisci&#10;prenotazione" textFill="#000066">
-      <font>
-         <Font size="22.0" />
-      </font>
-   </Button>
-   <Button fx:id="prenotaLezione" alignment="BASELINE_LEFT" graphicTextGap="1.0" layoutY="80.0" mnemonicParsing="false" onAction="#onPrenotaLezioneClick" prefHeight="108.0" prefWidth="169.0" style="-fx-background-color: #38bdf8;" stylesheets="@../filecss/Button.css" text="Prenota&#10;lezione" textFill="#000066">
+   <Button fx:id="prenotaLezione" alignment="BASELINE_LEFT" graphicTextGap="1.0" layoutY="80.0" mnemonicParsing="false" onAction="#onPrenotaLezioneClick" prefHeight="108.0" prefWidth="169.0" style="-fx-background-color: #38bdf8;" text="Prenota&#10;lezione" textFill="#000066">
       <font>
          <Font size="22.0" />
       </font>
@@ -45,7 +40,7 @@
             <DatePicker fx:id="data" prefHeight="69.0" prefWidth="263.0" stylesheets="@../filecss/date-picker.css" />
          </VBox>
          <ComboBox fx:id="oraComboBox" prefHeight="100.0" prefWidth="300.0" promptText="Ora" stylesheets="@../filecss/combobox.css" visibleRowCount="8" />
-         <Button fx:id="cerca" mnemonicParsing="false" onAction="#onConfermaClick" prefHeight="65.0" prefWidth="147.0" style="-fx-background-color: #38bdf8;" text="Cerca" textFill="#000066">
+         <Button fx:id="cerca" mnemonicParsing="false" onAction="#onCerccaClick" prefHeight="65.0" prefWidth="147.0" style="-fx-background-color: #38bdf8;" text="Cerca" textFill="#000066">
             <font>
                <Font size="15.0" />
             </font>
@@ -56,8 +51,13 @@
             <Font size="40.0" />
          </font>
       </Label>
-      <ScrollPane fx:id="scrollpane" layoutX="124.0" layoutY="206.0" prefHeight="350.0" prefWidth="900.0" vbarPolicy="NEVER">
-         <VBox fx:id="vBoxLezioniDisponibili" prefHeight="350.0" prefWidth="898.0" />
+      <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutX="76.0" layoutY="199.0" prefHeight="350.0" prefWidth="1000.0" stylesheets="@../filecss/focus-scrollpane.css">
+         <VBox fx:id="vBoxLezioniDisponibili" prefHeight="350.0" prefWidth="975.0" spacing="3.0" />
       </ScrollPane>
    </AnchorPane>
+   <Button fx:id="gestisciPrenotazioni" alignment="BASELINE_LEFT" graphicTextGap="1.0" layoutY="190.0" mnemonicParsing="false" onAction="#onGestisciPrenotazioniClick" prefHeight="108.0" prefWidth="169.0" style="-fx-background-color: white;" text="Gestisci&#10;prenotazione" textFill="#000066">
+      <font>
+         <Font size="22.0" />
+      </font>
+   </Button>
 </AnchorPane>

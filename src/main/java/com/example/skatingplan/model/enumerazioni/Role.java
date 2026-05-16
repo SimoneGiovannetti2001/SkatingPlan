@@ -1,9 +1,13 @@
 package com.example.skatingplan.model.enumerazioni;
 
+
+
 public enum Role {
     ATLETA(1),
     ALLENATORE(2),
-    MANAGER(3);
+    MANAGER(3),
+    LOGIN(4);
+
 
     private final int id;
 

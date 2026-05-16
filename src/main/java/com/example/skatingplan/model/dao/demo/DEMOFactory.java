@@ -1,11 +1,12 @@
 package com.example.skatingplan.model.dao.demo;
 
-import com.example.skatingplan.model.dao.DAOFactory;
-import com.example.skatingplan.model.dao.LezioniDAO;
-import com.example.skatingplan.model.dao.LoginDAO;
-import com.example.skatingplan.model.dao.PagamentiDAO;
+import com.example.skatingplan.model.dao.*;
+import com.example.skatingplan.model.dao.dbms.DBMSAllenatoreDAO;
+
 
 public class DEMOFactory extends DAOFactory {
+
+    private final LezioniDAO lezioniDAO = new DEMOLezioneDAO();
     @Override
     public LoginDAO creaLoginDAO() {
         return new DEMOLoginDAO();
@@ -13,11 +14,23 @@ public class DEMOFactory extends DAOFactory {
 
     @Override
     public PagamentiDAO creaPagamentiDAO() {
-        return null;
+        return new DEMOPagamentiDAO();
     }
 
     @Override
     public LezioniDAO creaLezioniDAO() {
-        return null;
+        return lezioniDAO;
     }
+
+    @Override
+    public AtletaDAO creaAtletaDAO() {
+        return new DEMOAtletaDAO();
+    }
+
+    @Override
+    public AllenatoreDAO creaAlleantoreDAO() {
+        return new DBMSAllenatoreDAO();
+    }
+
+
 }

@@ -8,7 +8,16 @@ public class LezioniDisponibiliBean {
     public LezioniDisponibiliBean(List<LezioneBean> listaLezioniDisponibili) {
         this.listaLezioniDisponibili = listaLezioniDisponibili;
     }
-     public LezioneBean getLezione(int i){
+    public LezioneBean getLezione(int i){
         return this.listaLezioniDisponibili.get(i);
+     }
+
+
+     public int lunghezza(){
+        int lunghezza = 0;
+        for (int i = 0; i < listaLezioniDisponibili.size(); i++) {
+            lunghezza++;
+        }
+        return lunghezza;
      }
 }

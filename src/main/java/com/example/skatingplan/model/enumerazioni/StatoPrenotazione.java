@@ -1,10 +1,11 @@
 package com.example.skatingplan.model.enumerazioni;
 
 public enum StatoPrenotazione {
+    DISPONIBILE(0),
     RICHIESTA(1),
     CONFERMATA(2),
     ANNULLATA(3),
-    PAGATA(4);
+    CANCELLATA(4);
 
     private final int id;
     private StatoPrenotazione(int id){

@@ -40,4 +40,19 @@ public enum Regione {
     public int getId(){
         return this.id;
     }
+
+
+    @Override
+    public String toString() {
+        String[] parole = name().toLowerCase().split("_");
+        StringBuilder risultato = new StringBuilder();
+
+        for (String parola : parole) {
+            risultato.append(Character.toUpperCase(parola.charAt(0)))
+                    .append(parola.substring(1))
+                    .append(" ");
+        }
+
+        return risultato.toString().trim();
+    }
 }

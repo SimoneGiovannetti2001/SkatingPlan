@@ -8,33 +8,23 @@ import javafx.scene.control.Button;
 
 import java.sql.SQLException;
 
-
-public class HomeAtletaControllerG {
+public class HomeAllenatoreControllerG {
+    @FXML
+    public Button home;
     @FXML
     public Button logout;
     @FXML
+    public Button confermaPrenotazioni;
+    @FXML
     public Button gestisciPrenotazioni;
-    @FXML
-    public Button prenotaLezione;
-    @FXML
-    public Button home;
+
 
     @FXML
-    private void onPrenotaLezioneClick(){
-        FxmlLoader.setPage("views1/prenotaatleta1-view");
+    public void onHomeClick() {
+        FxmlLoader.setPage("views1/homeallenatore1-view");
     }
 
     @FXML
-    private void onGestisciPrenotazioniClick(){
-        FxmlLoader.setPage("views1/gestisciprenotazioniatleta1-view");
-    }
-
-    @FXML
-    private void onHomeClick(){
-        FxmlLoader.setPage("views1/homeatleta1-view");
-    }
-
-
     public void onLogoutClick() {
         try {
             ConnectionFactory.changeRole(Role.LOGIN);
@@ -42,5 +32,15 @@ public class HomeAtletaControllerG {
             //gestisci errore logout
         }
         FxmlLoader.setPage("views1/login1-view");
+    }
+
+    @FXML
+    public void onGestisciPrenotazioniClick() {
+        FxmlLoader.setPage("views1/gestisciprenotazioniallenatore1-view");
+    }
+
+    @FXML
+    public void onConfermaPrenotazioniClick(){
+        FxmlLoader.setPage("views1/confermaprenotazioni1-view");
     }
 }

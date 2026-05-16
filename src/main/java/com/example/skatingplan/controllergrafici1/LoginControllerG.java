@@ -3,6 +3,7 @@ package com.example.skatingplan.controllergrafici1;
 import com.example.skatingplan.model.bean.LoginBean;
 import com.example.skatingplan.controllerapplicativi.LoginController;
 import com.example.skatingplan.FxmlLoader;
+import com.example.skatingplan.model.bean.UtenteBean;
 import com.example.skatingplan.model.enumerazioni.Role;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -10,10 +11,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+import java.sql.SQLException;
+
 
 public class LoginControllerG {
-
+    @FXML
     public Button myButtony;
+
     @FXML
     private TextField userField;
 
@@ -33,17 +37,17 @@ public class LoginControllerG {
 
         try{
             LoginController loginController = new LoginController();
-            Role result = loginController.autenticazione(loginBean);
-            if(result == Role.ATLETA) {
+            UtenteBean result = loginController.autenticazione(loginBean);
+            if(result.getRuolo() == Role.ATLETA) {
                 FxmlLoader.setPage("views1/homeatleta1-view");
-            }else if(result == Role.ALLENATORE) {
+            }else if(result.getRuolo() == Role.ALLENATORE) {
                 FxmlLoader.setPage("views1/homeallenatore1-view");
-            }else if(result == Role.MANAGER) {
+            }else if(result.getRuolo() == Role.MANAGER) {
                 FxmlLoader.setPage("views1/homemanager1-view");
             }
 
-        }catch(Exception e){
-            testoErrori.setText("Login fallito");
+        }catch(SQLException e){
+            testoErrori.setText("Utente o password errati");
             testoErrori.setVisible(true);
         }
 

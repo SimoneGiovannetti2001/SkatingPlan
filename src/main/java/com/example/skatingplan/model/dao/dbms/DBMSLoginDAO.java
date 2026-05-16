@@ -1,34 +1,36 @@
 package com.example.skatingplan.model.dao.dbms;
 
+
 import com.example.skatingplan.model.ConnectionFactory;
-import com.example.skatingplan.model.bean.LoginBean;
+import com.example.skatingplan.model.Utente;
 import com.example.skatingplan.model.dao.LoginDAO;
 import com.example.skatingplan.model.enumerazioni.Role;
 
-import java.sql.CallableStatement;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.*;
 
 public class DBMSLoginDAO implements LoginDAO {
-    public Role login(LoginBean loginBean) throws SQLException {
 
-        try(Connection connection = ConnectionFactory.getConnection();
-            CallableStatement cs = connection.prepareCall("call login(?,?,?)")){
+    public Utente login(String user, String passw) throws SQLException{
+        Connection connection = ConnectionFactory.getConnection();
 
-            int ruoloUtente;
-            Role ruolo;
-            cs.setString(1, loginBean.getUser());
-            cs.setString(2, loginBean.getPass());
-            cs.registerOutParameter(3, Types.NUMERIC);
-            cs.execute();
+        try(CallableStatement cs = connection.prepareCall("call login(?,?)")){
+            Utente utente = null;
+            cs.setString(1, user);
+            cs.setString(2, passw);
 
-            ruoloUtente = cs.getInt(3);
-            ruolo = Role.fromInt(ruoloUtente);
-            return ruolo;
+            ResultSet rs = cs.executeQuery();
+
+            if (rs.next()) {
+                utente = new Utente(rs.getString(1), rs.getString(2), rs.getString(3), Role.fromInt(rs.getInt(4)), rs.getInt(5), rs.getString(6));
+            }
+            if(utente == null){
+                throw new SQLException("Utente o Password errati");
+            }else{
+                return utente;
+            }
+
         }catch(SQLException e){
-            System.out.println("errore login");
+            throw new SQLException("Utente o Password errati");
         }
-        return null;
     }
 }

@@ -12,7 +12,7 @@
    <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../image/HomeAtleta.jpg" />
    </ImageView>
-   <Button fx:id="gestisciPrenotazioni" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="-1.0" layoutY="190.0" mnemonicParsing="false" onAction="#onGestisciPrenotazioniClick" prefHeight="108.0" prefWidth="170.0" style="-fx-background-color: blank;" stylesheets="@../filecss/Button.css" text="Gestisci&#10;prenotazione" textFill="#000066">
+   <Button fx:id="gestisciPrenotazioni" alignment="BASELINE_LEFT" contentDisplay="CENTER" layoutX="-1.0" layoutY="190.0" mnemonicParsing="false" onAction="#onGestisciPrenotazioniClick" prefHeight="108.0" prefWidth="170.0" style="-fx-background-color: white;" stylesheets="@../filecss/Button.css" text="Gestisci&#10;prenotazione" textFill="#000066">
       <font>
          <Font size="22.0" />
       </font>
@@ -41,6 +41,13 @@
       <graphic>
          <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
             <Image url="@../image/account.png" />
+         </ImageView>
+      </graphic>
+   </Button>
+   <Button fx:id="logout" layoutX="1127.0" layoutY="7.0" mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+      <graphic>
+         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../image/logoutjpg.jpg" />
          </ImageView>
       </graphic>
    </Button>

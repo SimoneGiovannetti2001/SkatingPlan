@@ -1,10 +1,10 @@
 package com.example.skatingplan.model.dao;
 
-import com.example.skatingplan.model.bean.LoginBean;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.Atleta;
+import com.example.skatingplan.model.Utente;
 
 import java.sql.SQLException;
 
 public interface LoginDAO {
-    public Role login(LoginBean loginBean) throws SQLException;
+    public Utente login(String user, String passw) throws SQLException;
 }

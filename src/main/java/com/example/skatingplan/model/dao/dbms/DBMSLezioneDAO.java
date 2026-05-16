@@ -1,43 +1,94 @@
 package com.example.skatingplan.model.dao.dbms;
 
-import com.example.skatingplan.model.ConnectionFactory;
-import com.example.skatingplan.model.Lezione;
+import com.example.skatingplan.model.*;
 import com.example.skatingplan.model.dao.LezioniDAO;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Qualifica;
+import com.example.skatingplan.model.enumerazioni.Regione;
 import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
+import com.example.skatingplan.model.enumerazioni.TipoPavimento;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class DBMSLezioneDAO implements LezioniDAO {
+
     @Override
     public List<Lezione> selezionaLezioni(LocalDate data, LocalTime oraInizio, String regione) {
-        try(Connection connection = ConnectionFactory.getConnection();
-            CallableStatement cs = connection.prepareCall("call seleziona_lezioni(?,?,?)")){
+        List<Lezione> lezioni = new ArrayList<>();
+        try(CallableStatement cs = getConnection().prepareCall("call seleziona_lezioni(?,?,?)")){
 
-            List<Lezione> lezioni = new ArrayList<>();
-            Lezione lezione = null;
+            Lezione lezione;
+
+            PistaDiPattinaggio pistaDiPattinaggio;
+            Allenatore allenatore;
+            
 
             cs.setObject(1, data);
             cs.setObject(2, oraInizio);
-            cs.setString(3, regione);
-            cs.execute();
+            cs.setString(3, regione.toUpperCase());
 
-            ResultSet rs = cs.getResultSet();
-            //sistemare prima stored su db
-            return lezioni;
+
+            if(cs.execute()) {
+                ResultSet rs = cs.getResultSet();
+                while (rs.next()) {
+                    pistaDiPattinaggio = new PistaDiPattinaggio(rs.getString(9), Regione.valueOf(rs.getString(12)), rs.getString(10), rs.getString(11), TipoPavimento.valueOf(rs.getString(13)));
+                    allenatore = new Allenatore(rs.getString(5), rs.getString(6), Qualifica.valueOf(rs.getString(7)), rs.getInt(8));
+
+                    lezione = new Lezione(rs.getInt(1), pistaDiPattinaggio, allenatore, rs.getDate(2).toLocalDate(), rs.getTime(3).toLocalTime(), rs.getInt(4), rs.getInt(14));
+                    lezioni.add(lezione);
+
+                }
+            }
         }catch(SQLException e){
-            System.out.println("errore login");
+            e.printStackTrace();
         }
-        return null;
+        return lezioni;
     }
 
     @Override
-    public boolean aggiornastato(StatoPrenotazione statoPrenotazione) {
-        return false;
+    public void aggiornastato(int idLezione, StatoPrenotazione statoPrenotazione) {
+
+        try(CallableStatement cs = getConnection().prepareCall("call cambia_stato(?,?)")) {
+
+            cs.setInt(1, idLezione);
+            cs.setString(2, statoPrenotazione.toString().toUpperCase());
+
+            if(cs.executeUpdate() != 1){
+                //vedi come gestire l'errore di salvataggio
+                //lancia magri un tipo di eccezione che crei
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    @Override
+    public void associaAtleta(Prenotazione prenotazione) {
+
+        try(CallableStatement cs = getConnection().prepareCall("call associa_atleta(?,?)")) {
+
+            cs.setInt(1, prenotazione.getLezione().getId());
+            cs.setInt(2, prenotazione.getAtleta().getIdUtente());
+            System.out.println(prenotazione.getLezione().getId());
+            System.out.println(prenotazione.getLezione().getId());
+            System.out.println(prenotazione.getAtleta().getIdUtente());
+
+            if(cs.executeUpdate() != 1){
+                //vedi come gestire l'errore di salvataggio
+                //lancia magri un tipo di eccezione che crei
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private Connection getConnection(){
+        return ConnectionFactory.getConnection();
     }
 }
