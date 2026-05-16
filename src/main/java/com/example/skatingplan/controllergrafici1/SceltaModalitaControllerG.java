@@ -10,11 +10,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 
 public class SceltaModalitaControllerG {
+    @FXML
     public Button conferma;
+
     @FXML
     private ComboBox<ModalitaPersistenza> modalitaPersistenza;
+
     @FXML
     private ComboBox<ModalitaGui> modalitaGui;
+
     @FXML
     public void initialize() {
         modalitaPersistenza.getItems().addAll(ModalitaPersistenza.values());

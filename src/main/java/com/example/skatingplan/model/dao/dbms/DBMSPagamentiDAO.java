@@ -2,7 +2,6 @@ package com.example.skatingplan.model.dao.dbms;
 
 import com.example.skatingplan.model.ConnectionFactory;
 import com.example.skatingplan.model.Pagamento;
-import com.example.skatingplan.model.bean.InfoPagamentoBean;
 import com.example.skatingplan.model.dao.PagamentiDAO;
 import com.example.skatingplan.model.enumerazioni.StatoPagamento;
 
@@ -10,7 +9,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.SQLException;
-import java.time.LocalDate;
+
 
 public class DBMSPagamentiDAO implements PagamentiDAO{
     @Override

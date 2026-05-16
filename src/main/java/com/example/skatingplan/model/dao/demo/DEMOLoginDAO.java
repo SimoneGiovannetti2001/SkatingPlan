@@ -1,11 +1,8 @@
 package com.example.skatingplan.model.dao.demo;
 
-import com.example.skatingplan.model.Allenatore;
-import com.example.skatingplan.model.Atleta;
+
 import com.example.skatingplan.model.Utente;
 import com.example.skatingplan.model.dao.LoginDAO;
-import com.example.skatingplan.model.enumerazioni.Livello;
-import com.example.skatingplan.model.enumerazioni.Qualifica;
 import com.example.skatingplan.model.enumerazioni.Role;
 
 import java.util.ArrayList;

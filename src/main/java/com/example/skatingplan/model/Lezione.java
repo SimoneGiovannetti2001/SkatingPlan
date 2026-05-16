@@ -1,8 +1,7 @@
 package com.example.skatingplan.model;
 
 import com.example.skatingplan.model.bean.LezioneBean;
-import com.example.skatingplan.model.enumerazioni.Regione;
-import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
+
 
 import java.time.LocalDate;
 import java.time.LocalTime;

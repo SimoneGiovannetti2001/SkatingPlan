@@ -2,10 +2,9 @@ package com.example.skatingplan.model.bean;
 
 import com.example.skatingplan.model.enumerazioni.Regione;
 
-import java.sql.Time;
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
+
 
 public class FiltriBean {
     private LocalDate data;

@@ -5,9 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 
 public class GestionePrenotazioniAtletaControllerG {
-
+    @FXML
     public Button gestisciPrenotazioni;
+
+    @FXML
     public Button prenotaLezione;
+
     @FXML
     private Button homeAtleta;
 

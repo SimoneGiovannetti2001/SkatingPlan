@@ -1,6 +1,5 @@
 package com.example.skatingplan.model.dao;
 
-import com.example.skatingplan.model.enumerazioni.Role;
 
 public abstract class DAOFactory {
     public abstract LoginDAO creaLoginDAO();
