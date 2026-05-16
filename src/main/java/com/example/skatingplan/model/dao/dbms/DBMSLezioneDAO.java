@@ -74,9 +74,7 @@ public class DBMSLezioneDAO implements LezioniDAO {
 
             cs.setInt(1, prenotazione.getLezione().getId());
             cs.setInt(2, prenotazione.getAtleta().getIdUtente());
-            System.out.println(prenotazione.getLezione().getId());
-            System.out.println(prenotazione.getLezione().getId());
-            System.out.println(prenotazione.getAtleta().getIdUtente());
+
 
             if(cs.executeUpdate() != 1){
                 //vedi come gestire l'errore di salvataggio
