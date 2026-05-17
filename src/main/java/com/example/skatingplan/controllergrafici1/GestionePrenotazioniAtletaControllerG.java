@@ -1,8 +1,16 @@
 package com.example.skatingplan.controllergrafici1;
 
 import com.example.skatingplan.FxmlLoader;
+import com.example.skatingplan.model.ConnectionFactory;
+import com.example.skatingplan.model.enumerazioni.ModalitaGui;
+import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
+import com.example.skatingplan.model.enumerazioni.Role;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
+
+import java.sql.SQLException;
 
 public class GestionePrenotazioniAtletaControllerG {
     @FXML
@@ -12,18 +20,17 @@ public class GestionePrenotazioniAtletaControllerG {
     public Button prenotaLezione;
 
     @FXML
-    private Button homeAtleta;
+    public Button logout;
 
     @FXML
-    private Button disdiciPrenotazione;
+    public ScrollPane scrollpane;
 
     @FXML
-    private Button home;
+    public VBox vBoxLezioniDisponibili;
 
     @FXML
-    public void onClickDisdiciPrenotazioneClick(){
-        FxmlLoader.setPage("views1/gestioneprenotazioniatleta1-view");
-    }
+    public Button home;
+
     @FXML
     private void onHomeClick(){
         FxmlLoader.setPage("views1/homeatleta1-view");
@@ -39,5 +46,17 @@ public class GestionePrenotazioniAtletaControllerG {
         FxmlLoader.setPage("views1/gestisciprenotazioniatleta1-view");
     }
 
+    @FXML
+    public void initialize() {
+        //implementa logica con controller gestisciPrenotazioni 
+    }
 
+    public void onLogoutClick() {
+        try {
+            ConnectionFactory.changeRole(Role.LOGIN);
+        }catch (SQLException e){
+            //gestisci errore logout
+        }
+        FxmlLoader.setPage("views1/login1-view");
+    }
 }

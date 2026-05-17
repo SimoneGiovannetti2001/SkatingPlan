@@ -2,9 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../filecss/Button.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.controllergrafici1.GestionePrenotazioniAtletaControllerG">
@@ -36,10 +38,11 @@
    <Button fx:id="logout" layoutX="1127.0" layoutY="7.0" mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
       <graphic>
          <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
-            <image>
-               <Image url="@../image/logoutjpg.jpg" />
-            </image>
+            <Image url="@../image/logoutjpg.jpg" />
          </ImageView>
       </graphic>
    </Button>
+   <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutX="219.0" layoutY="105.0" prefHeight="586.0" prefWidth="1000.0" stylesheets="@../filecss/focus-scrollpane.css">
+      <VBox fx:id="vBoxLezioniDisponibili" prefHeight="584.0" prefWidth="975.0" spacing="3.0" />
+   </ScrollPane>
 </AnchorPane>

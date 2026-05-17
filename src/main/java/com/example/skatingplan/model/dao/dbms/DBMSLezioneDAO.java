@@ -73,7 +73,7 @@ public class DBMSLezioneDAO implements LezioniDAO {
         try(CallableStatement cs = getConnection().prepareCall("call associa_atleta(?,?)")) {
 
             cs.setInt(1, prenotazione.getLezione().getId());
-            cs.setInt(2, prenotazione.getAtleta().getIdUtente());
+            cs.setInt(2, prenotazione.getAtleta().getIdUtente()); //devi avere l'id atleta
 
 
             if(cs.executeUpdate() != 1){

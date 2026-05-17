@@ -34,8 +34,9 @@ public class PrenotaController {
         Atleta atletaCorrente = new Atleta(utenteCorrente.getNome(), utenteCorrente.getCognome(), utenteCorrente.getEmail(), utenteCorrente.getRuolo(), utenteCorrente.getIdUtente(), utenteCorrente.getPassw());
         Prenotazione prenotazione = new Prenotazione(new Lezione(lezioneBean), atletaCorrente);
 
-        lezioniDAO.associaAtleta(prenotazione);
         lezioniDAO.aggiornastato(lezione.getId(), StatoPrenotazione.RICHIESTA);
+        prenotazione.setStatoPrenotazione(StatoPrenotazione.RICHIESTA);
+        lezioniDAO.associaAtleta(prenotazione);
 
     }
 
