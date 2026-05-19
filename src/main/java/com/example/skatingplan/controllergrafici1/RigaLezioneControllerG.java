@@ -41,7 +41,9 @@ public class RigaLezioneControllerG {
 
     public void setDati(LezioneBean lezioneBean){
         this.lezione = lezioneBean;
-        LezioneViewPopolatore.popola(lezioneBean, oraInizio, durata, allenatore, pista, indirizzo, data, regione, qualifica, costo);
+        LezioneViewPopolatore.popolaInfoTempo(lezioneBean, oraInizio, durata, data);
+        LezioneViewPopolatore.popolaInfoLuogo(lezioneBean, pista, indirizzo, regione);
+        LezioneViewPopolatore.popolaInfoAllenatore(lezioneBean, allenatore, qualifica, costo);
     }
     public void onSelezionaClick() {
         boolean confermato = RiepilogoLezioneControllerG.mostra(lezione);

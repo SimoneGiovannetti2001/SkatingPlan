@@ -10,25 +10,25 @@ public class LezioneViewPopolatore {
         //Non va istanziato
     }
 
-    public static void popola(
-            LezioneBean lezioneBean,
-            Label oraInizio,
-            Label durata,
-            Label allenatore,
-            Label pista,
-            Label indirizzo,
-            Label data,
-            Label regione,
-            Label qualifica,
-            Label costo) {
+    public static void popolaInfoTempo(LezioneBean lezioneBean, Label oraInizio, Label durata, Label data) {
+
         oraInizio.setText(lezioneBean.getOraInizio().toString());
         durata.setText(lezioneBean.getDurata() + " minuti");
-        allenatore.setText(lezioneBean.getAllenatore().getNome() + " " + lezioneBean.getAllenatore().getCognome());
+        data.setText(lezioneBean.getData().toString());
+    }
+
+    public static void popolaInfoLuogo(LezioneBean lezioneBean, Label pista, Label indirizzo, Label regione){
         pista.setText(lezioneBean.getPistaDiPattinaggio().getNome());
         indirizzo.setText(lezioneBean.getPistaDiPattinaggio().getVia() + " " + lezioneBean.getPistaDiPattinaggio().getCivico());
-        data.setText(lezioneBean.getData().toString());
         regione.setText(lezioneBean.getPistaDiPattinaggio().getRegione().toString());
+    }
+
+
+    public static void popolaInfoAllenatore(LezioneBean lezioneBean, Label allenatore, Label qualifica, Label costo){
+        allenatore.setText(lezioneBean.getAllenatore().getNome() + " " + lezioneBean.getAllenatore().getCognome());
+
         qualifica.setText(lezioneBean.getAllenatore().getQualifica().toString());
         costo.setText(String.valueOf(lezioneBean.getCosto())+ ".00€");
     }
+
 }
