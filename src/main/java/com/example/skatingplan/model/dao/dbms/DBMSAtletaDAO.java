@@ -1,7 +1,7 @@
 package com.example.skatingplan.model.dao.dbms;
 
 
-import com.example.skatingplan.model.ConnectionFactory;
+import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.dao.AtletaDAO;
 import com.example.skatingplan.model.enumerazioni.Livello;
 

@@ -1,6 +1,6 @@
 package com.example.skatingplan.model.dao.dbms;
 
-import com.example.skatingplan.model.ConnectionFactory;
+import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.Pagamento;
 import com.example.skatingplan.model.dao.PagamentiDAO;
 import com.example.skatingplan.model.enumerazioni.StatoPagamento;

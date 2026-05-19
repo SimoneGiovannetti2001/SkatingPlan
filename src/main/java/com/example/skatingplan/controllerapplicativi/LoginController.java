@@ -1,6 +1,7 @@
 package com.example.skatingplan.controllerapplicativi;
 
-import com.example.skatingplan.model.ConnectionFactory;
+
+import com.example.skatingplan.eccezioni.CredenzialiErrateException;
 import com.example.skatingplan.model.Sessione;
 import com.example.skatingplan.model.Utente;
 import com.example.skatingplan.model.bean.LoginBean;
@@ -14,11 +15,9 @@ import java.sql.SQLException;
 
 
 public class LoginController {
-    public UtenteBean autenticazione(LoginBean loginBean) throws SQLException {
+    public UtenteBean autenticazione(LoginBean loginBean) throws SQLException, CredenzialiErrateException {
         LoginDAO loginDAO = FactoryConfig.getDaoFactory().creaLoginDAO();
         Utente utente = loginDAO.login(loginBean.getUser(), loginBean.getPass());
-        ConnectionFactory.changeRole(utente.getRuolo());
-//        FactoryConfig.getDaoFactory().creaUte
         Sessione.setSessione(utente);
         return new UtenteBean(utente);
     }

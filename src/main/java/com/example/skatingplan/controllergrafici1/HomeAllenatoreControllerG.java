@@ -1,7 +1,7 @@
 package com.example.skatingplan.controllergrafici1;
 
 import com.example.skatingplan.FxmlLoader;
-import com.example.skatingplan.model.ConnectionFactory;
+import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.enumerazioni.Role;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

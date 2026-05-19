@@ -1,7 +1,7 @@
 package com.example.skatingplan.model.dao.dbms;
 
 import com.example.skatingplan.model.Allenatore;
-import com.example.skatingplan.model.ConnectionFactory;
+import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.dao.AllenatoreDAO;
 
 import java.sql.CallableStatement;

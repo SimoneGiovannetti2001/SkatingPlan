@@ -1,9 +1,7 @@
 package com.example.skatingplan.controllergrafici1;
 
 import com.example.skatingplan.FxmlLoader;
-import com.example.skatingplan.model.ConnectionFactory;
-import com.example.skatingplan.model.enumerazioni.ModalitaGui;
-import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
+import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.enumerazioni.Role;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -48,7 +46,7 @@ public class GestionePrenotazioniAtletaControllerG {
 
     @FXML
     public void initialize() {
-        //implementa logica con controller gestisciPrenotazioni 
+        //da implementare
     }
 
     public void onLogoutClick() {

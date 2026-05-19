@@ -88,7 +88,9 @@ public class RiepilogoLezioneControllerG {
     }
 
     private void setData(LezioneBean lezioneBean){
-        LezioneViewPopolatore.popola(lezioneBean, oraInizio, durata, allenatore, pista, indirizzo, data, regione, qualifica, costo);
+        LezioneViewPopolatore.popolaInfoTempo(lezioneBean, oraInizio, durata, data);
+        LezioneViewPopolatore.popolaInfoLuogo(lezioneBean, pista, indirizzo, regione);
+        LezioneViewPopolatore.popolaInfoAllenatore(lezioneBean, allenatore, qualifica, costo);
     }
 
 }

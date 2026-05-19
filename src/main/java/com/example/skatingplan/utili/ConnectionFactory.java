@@ -1,6 +1,7 @@
-package com.example.skatingplan.model;
+package com.example.skatingplan.utili;
 
 
+import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.enumerazioni.Role;
 
 import java.io.FileInputStream;
@@ -14,20 +15,30 @@ import java.util.Properties;
 public class ConnectionFactory {
     private static Connection connection;
 
-    private ConnectionFactory() {}
+    private ConnectionFactory() {
+        //non deve essere istanziata
+    }
 
-    static {
-        try (InputStream input = new FileInputStream("src/main/jdbc/db.properties")) {
+    public static void init()
+            throws SQLException, IOException, DatabaseNonRaggiungibileException {
+
+        try (InputStream input =
+                     new FileInputStream("src/main/jdbc/db.properties")) {
+
             Properties properties = new Properties();
             properties.load(input);
 
-            String connectionUrl = properties.getProperty("CONNECTION_URL");
+            String url = properties.getProperty("CONNECTION_URL");
             String user = properties.getProperty("LOGIN_USER");
             String pass = properties.getProperty("LOGIN_PASS");
 
-            connection = DriverManager.getConnection(connectionUrl, user, pass);
-        } catch (IOException | SQLException e) {
-            e.printStackTrace();
+            connection = DriverManager.getConnection(url, user, pass);
+
+        } catch (IOException e) {
+            throw new DatabaseNonRaggiungibileException();
+
+        } catch (SQLException e) {
+            throw new DatabaseNonRaggiungibileException();
         }
     }
 

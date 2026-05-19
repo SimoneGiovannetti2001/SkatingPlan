@@ -1,6 +1,7 @@
 package com.example.skatingplan;
 
 
+import com.example.skatingplan.utili.ConnectionFactory;
 import javafx.application.Application;
 
 import javafx.stage.Stage;

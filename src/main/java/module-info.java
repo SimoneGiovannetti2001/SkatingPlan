@@ -16,4 +16,5 @@ module com.example.skatingplan {
     opens com.example.skatingplan.model.enumerazioni to javafx.fxml;
     exports com.example.skatingplan.utili;
     opens com.example.skatingplan.utili to javafx.fxml;
+    exports com.example.skatingplan.eccezioni;
 }

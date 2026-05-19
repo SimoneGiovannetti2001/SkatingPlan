@@ -6,6 +6,7 @@ import com.example.skatingplan.model.enumerazioni.Qualifica;
 import com.example.skatingplan.model.enumerazioni.Regione;
 import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
 import com.example.skatingplan.model.enumerazioni.TipoPavimento;
+import com.example.skatingplan.utili.ConnectionFactory;
 
 import java.sql.*;
 import java.time.LocalDate;
