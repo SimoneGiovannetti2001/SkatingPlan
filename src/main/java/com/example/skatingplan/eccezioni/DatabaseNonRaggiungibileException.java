@@ -6,4 +6,8 @@ public class DatabaseNonRaggiungibileException extends Exception {
         super(message);
     }
 
+    public DatabaseNonRaggiungibileException(String message, Throwable cause){
+        super(message, cause);
+    }
+
 }

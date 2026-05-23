@@ -32,8 +32,8 @@ public class DBMSLoginDAO implements LoginDAO {
                 return utente;
             }
 
-        }catch(SQLException sqlException){
-            throw new DatabaseNonRaggiungibileException("Database non raggiungibile");
+        }catch(SQLException e){
+            throw new DatabaseNonRaggiungibileException("Database non raggiungibile", e);
         }
     }
 }

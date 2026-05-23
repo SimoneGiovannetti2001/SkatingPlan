@@ -5,8 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.net.URL;
 
 
@@ -42,7 +40,7 @@ public class FxmlLoader extends Application {
             Scene scene = new Scene(root, 1280, 720);
             currentStage.setScene(scene);
             return loader;
-        }catch (Exception fxmlloaderException) {
+        }catch (Exception ignored) {
             // non gestita
         }
         return loader;
