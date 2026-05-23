@@ -32,7 +32,7 @@ public class DBMSLoginDAO implements LoginDAO {
                 return utente;
             }
 
-        }catch(SQLException e){
+        }catch(SQLException logindaoexception){
             throw new DatabaseNonRaggiungibileException("Database non raggiungibile");
         }
     }

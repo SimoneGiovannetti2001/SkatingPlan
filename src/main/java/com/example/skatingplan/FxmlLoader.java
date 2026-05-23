@@ -42,7 +42,7 @@ public class FxmlLoader extends Application {
             Scene scene = new Scene(root, 1280, 720);
             currentStage.setScene(scene);
             return loader;
-        }catch (IOException fxmlexception) {
+        }catch (Exception fxmlloaderException) {
             // non gestita
         }
         return loader;
