@@ -5,8 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.io.IOException;
 import java.net.URL;
 
 
@@ -31,6 +29,7 @@ public class FxmlLoader extends Application {
         currentStage = stage;
     }
 
+    @SuppressWarnings("java:S2696")
     public static FXMLLoader setPage(String fileName){
 
         URL fileURL = FxmlLoader.class.getResource(fileName + ".fxml");
