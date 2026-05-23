@@ -29,6 +29,7 @@ public class FxmlLoader extends Application {
         currentStage = stage;
     }
 
+    @SuppressWarnings("java:S2696")
     public static FXMLLoader setPage(String fileName){
 
         URL fileURL = FxmlLoader.class.getResource(fileName + ".fxml");
