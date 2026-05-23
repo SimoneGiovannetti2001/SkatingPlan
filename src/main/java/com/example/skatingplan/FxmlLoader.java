@@ -42,7 +42,7 @@ public class FxmlLoader extends Application {
             currentStage.setScene(scene);
             return loader;
         }catch (Exception e) {
-            // non gestita
+            //not handled
         }
         return loader;
     }
