@@ -2,6 +2,7 @@ package com.example.skatingplan.model.dao;
 
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.model.dao.demo.DEMOFactory;
+import com.example.skatingplan.model.dao.fs.FSFactory;
 import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
 
 public class CreatoreFactory {
@@ -13,7 +14,7 @@ public class CreatoreFactory {
         return switch (tipoFactory){
             case DEMO -> new DEMOFactory();
             case DBMS -> new DBMSFactory();
-            case FILESYSTEM -> null;
+            case FILESYSTEM -> new FSFactory();
         };
     }
 }
