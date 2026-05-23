@@ -15,29 +15,35 @@ import javafx.scene.control.Label;
 public class RigaLezioneControllerG {
     @FXML
     public Label data;
+
     @FXML
     public Label regione;
+
     @FXML
     public Label qualifica;
+
     @FXML
     public Label costo;
 
     @FXML
-    private Button seleziona;
+    public Button seleziona;
+
     @FXML
     private Label oraInizio;
+
     @FXML
     private Label durata;
+
     @FXML
     private Label allenatore;
+
     @FXML
     private Label pista;
+
     @FXML
     private Label indirizzo;
 
     private LezioneBean lezione;
-
-
 
     public void setDati(LezioneBean lezioneBean){
         this.lezione = lezioneBean;

@@ -2,6 +2,7 @@ package com.example.skatingplan.model.dao.dbms;
 
 
 import com.example.skatingplan.eccezioni.CredenzialiErrateException;
+import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.Utente;
 import com.example.skatingplan.model.dao.LoginDAO;
@@ -11,7 +12,7 @@ import java.sql.*;
 
 public class DBMSLoginDAO implements LoginDAO {
 
-    public Utente login(String user, String passw) throws SQLException, CredenzialiErrateException{
+    public Utente login(String user, String passw) throws CredenzialiErrateException, DatabaseNonRaggiungibileException {
         Connection connection = ConnectionFactory.getConnection();
 
         try(CallableStatement cs = connection.prepareCall("call login(?,?)")){
@@ -32,7 +33,7 @@ public class DBMSLoginDAO implements LoginDAO {
             }
 
         }catch(SQLException e){
-            throw new SQLException("Utente o Password errati");
+            throw new DatabaseNonRaggiungibileException("Database non raggiungibile");
         }
     }
 }

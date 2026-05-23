@@ -61,7 +61,7 @@ public class RiepilogoLezioneControllerG {
     public static boolean mostra(LezioneBean lezioneBean) {
 
         try {
-            FXMLLoader loader = new FXMLLoader(RiepilogoLezioneControllerG.class.getResource("/com/example/skatingplan/views1/riepilogo-lezione.fxml"));
+            FXMLLoader loader = new FXMLLoader(RiepilogoLezioneControllerG.class.getResource("/com/example/skatingplan/views1/riepilogo-lezione1.fxml"));
 
             Parent root = loader.load();
 

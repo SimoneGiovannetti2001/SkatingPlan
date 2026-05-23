@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxWidth="1000.0" minWidth="1000.0" prefHeight="450.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.controllergrafici1.RiepilogoLezioneControllerG">
+   <Button fx:id="annulla" layoutX="550.0" layoutY="302.0" mnemonicParsing="false" onAction="#onAnnullaClick" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #38bdf8;" text="Annulla" textFill="#000066">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Button>
+   <Button fx:id="conferma" layoutX="300.0" layoutY="302.0" mnemonicParsing="false" onAction="#onConfermaClick" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #38bdf8;" text="Conferma" textFill="#000066">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Button>
+   <SplitPane dividerPositions="0.5, 0.5" layoutX="36.0" layoutY="46.0" maxWidth="910.0" minWidth="910.0" prefHeight="160.0" prefWidth="910.0" style="-fx-border-color: #22aee6; -fx-border-radius: 3;">
+      <SplitPane dividerPositions="0.5, 0.5, 0.5" maxWidth="300.0" minWidth="300.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="300.0">
+         <Label alignment="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" text="Pista">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="pista" alignment="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" text="Nome" textAlignment="CENTER">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="indirizzo" alignment="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" textAlignment="CENTER">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="regione" alignment="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" textAlignment="CENTER">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </SplitPane>
+      <SplitPane dividerPositions="0.5, 0.5, 0.5" maxWidth="300.0" minWidth="300.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="300.0">
+         <Label alignment="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" text="Allenatore">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="allenatore" alignment="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" text="Nome" textAlignment="CENTER">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="qualifica" alignment="CENTER" maxWidth="300.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" textAlignment="CENTER">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="costo" alignment="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" textAlignment="CENTER">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </SplitPane>
+      <SplitPane dividerPositions="0.5, 0.5, 0.5" maxWidth="300.0" minWidth="300.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="300.0">
+         <Label alignment="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" text="Lezione">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="data" alignment="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" textAlignment="CENTER">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="oraInizio" alignment="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" textAlignment="CENTER">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+         <Label fx:id="durata" alignment="CENTER" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0" textAlignment="CENTER">
+            <font>
+               <Font size="20.0" />
+            </font>
+         </Label>
+      </SplitPane>
+   </SplitPane>
+</AnchorPane>

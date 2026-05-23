@@ -1,6 +1,7 @@
 package com.example.skatingplan.controllergrafici1;
 
 import com.example.skatingplan.eccezioni.CredenzialiErrateException;
+import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.bean.LoginBean;
 import com.example.skatingplan.controllerapplicativi.LoginController;
 import com.example.skatingplan.FxmlLoader;
@@ -62,7 +63,7 @@ public class LoginControllerG {
                 FxmlLoader.setPage("views1/homemanager1-view");
             }
 
-        }catch(CredenzialiErrateException | IllegalArgumentException | SQLException loginexception){
+        }catch(CredenzialiErrateException | IllegalArgumentException | DatabaseNonRaggiungibileException loginexception){
             mostraErrore(loginexception.getMessage());
         }
 

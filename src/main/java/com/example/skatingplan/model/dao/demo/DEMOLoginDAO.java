@@ -1,6 +1,7 @@
 package com.example.skatingplan.model.dao.demo;
 
 
+import com.example.skatingplan.eccezioni.CredenzialiErrateException;
 import com.example.skatingplan.model.Utente;
 import com.example.skatingplan.model.dao.LoginDAO;
 import com.example.skatingplan.model.enumerazioni.Role;
@@ -28,12 +29,12 @@ public class DEMOLoginDAO implements LoginDAO {
     }
 
     @Override
-    public Utente login(String user, String passw) {
+    public Utente login(String user, String passw) throws CredenzialiErrateException {
         for (Utente utente: utenti){
             if(user.equals(utente.getNome().toLowerCase()) && passw.equals(utente.getPassw().toLowerCase())){
                 return utente;
             }
         }
-        return null;
+        throw new CredenzialiErrateException("Utente o password errati");
     }
 }
