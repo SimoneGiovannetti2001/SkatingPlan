@@ -2,7 +2,7 @@ package com.example.skatingplan.model.dao.fs;
 
 import com.example.skatingplan.model.dao.*;
 
-public class FSFactory extends DAOFactory {
+public class FSFactoryDAO extends DAOFactory {
 
     @Override
     public LoginDAO creaLoginDAO() {
