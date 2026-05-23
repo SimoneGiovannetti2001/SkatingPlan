@@ -32,24 +32,20 @@ public class FxmlLoader extends Application {
     }
 
     public static FXMLLoader setPage(String fileName){
-        URL fileURL = FxmlLoader.class.getResource(fileName + ".fxml");
 
-        if (fileURL == null){
-            throw new RuntimeException("FXML non trovato: "+ fileName);
-        }
+        URL fileURL = FxmlLoader.class.getResource(fileName + ".fxml");
 
         FXMLLoader loader = new FXMLLoader(fileURL);
 
-        try{
+        try {
             Parent root = loader.load();
             Scene scene = new Scene(root, 1280, 720);
             currentStage.setScene(scene);
             return loader;
-        }catch (IOException e) {
-            //da implementare
+        }catch (IOException fxmlexception) {
+            // non gestita
         }
         return loader;
-
     }
 
     public static void main(String[] args) {

@@ -90,7 +90,7 @@ public class PrenotaAtletaControllerG {
 
     private Parent creaRiga(LezioneBean lezioneBean){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/skatingplan/views1/rigalezione.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/skatingplan/views1/rigalezione1.fxml"));
             Parent node = loader.load();
 
             RigaLezioneControllerG rigaLezioneControllerG = loader.getController();
