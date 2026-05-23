@@ -29,6 +29,7 @@ public class FxmlLoader extends Application {
         currentStage = stage;
     }
 
+    @SuppressWarnings("java:S1181")
     public static FXMLLoader setPage(String fileName){
 
         URL fileURL = FxmlLoader.class.getResource(fileName + ".fxml");
@@ -40,7 +41,7 @@ public class FxmlLoader extends Application {
             Scene scene = new Scene(root, 1280, 720);
             currentStage.setScene(scene);
             return loader;
-        }catch (Exception ignored) {
+        }catch (Exception e) {
             // non gestita
         }
         return loader;
