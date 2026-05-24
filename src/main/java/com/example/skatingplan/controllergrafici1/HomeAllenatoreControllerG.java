@@ -4,8 +4,10 @@ import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.utili.GestoreMessaggiUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 
 public class HomeAllenatoreControllerG {
@@ -18,6 +20,9 @@ public class HomeAllenatoreControllerG {
     @FXML
     public Button gestisciPrenotazioni;
 
+    @FXML
+    public Label erroriLabel;
+
 
     @FXML
     public void onHomeClick() {
@@ -29,7 +34,7 @@ public class HomeAllenatoreControllerG {
         try {
             ConnectionFactory.changeRole(Role.LOGIN);
         }catch (DatabaseNonRaggiungibileException e){
-            //gestisci errore logout
+            GestoreMessaggiUI.mostraErrore(erroriLabel, e.getMessage());
         }
         FxmlLoader.setPage("views1/login1-view");
     }
