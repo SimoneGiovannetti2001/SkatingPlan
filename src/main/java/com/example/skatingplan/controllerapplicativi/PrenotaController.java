@@ -44,25 +44,6 @@ public class PrenotaController {
         //eseguo il pagamento online
         //non implementato
         Pagamento pagamento = new Pagamento(infoPagamentoBean.getIdLezione(), infoPagamentoBean.getTipoPagamento(), infoPagamentoBean.getStatoPagamento(),infoPagamentoBean.getImporto(), LocalDate.now());
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         creaPagamento(pagamento);
         salvaPrenotazione(pagamento);
     }
