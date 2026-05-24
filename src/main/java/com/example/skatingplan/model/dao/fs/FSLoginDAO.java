@@ -2,6 +2,8 @@ package com.example.skatingplan.model.dao.fs;
 
 import com.example.skatingplan.eccezioni.CredenzialiErrateException;
 
+import com.example.skatingplan.eccezioni.FSNonEsistenteException;
+import com.example.skatingplan.eccezioni.FSOperazioneExcpetion;
 import com.example.skatingplan.model.Utente;
 import com.example.skatingplan.model.dao.LoginDAO;
 import com.example.skatingplan.model.enumerazioni.Role;
@@ -10,7 +12,7 @@ import java.io.*;
 
 public class FSLoginDAO implements LoginDAO {
     @Override
-    public Utente login(String user, String passw) throws CredenzialiErrateException{
+    public Utente login(String user, String passw) throws CredenzialiErrateException, FSNonEsistenteException, FSOperazioneExcpetion {
         File file = new File("src/main/resources/com/example/skatingplan/FileSystem/Utenti.csv");
         String str;
 
@@ -29,10 +31,12 @@ public class FSLoginDAO implements LoginDAO {
             }
 
             return utente;
-        }catch (Exception e){
-            e.printStackTrace();
+
+        }catch (FileNotFoundException e){
+            throw new FSNonEsistenteException("Si è verificato un errore interno, riprovare in seguito", e);
+        }catch(IOException e){
+            throw new FSOperazioneExcpetion("Errore durante la lettura del file Utenti", e);
         }
 
-        return null;
     }
 }

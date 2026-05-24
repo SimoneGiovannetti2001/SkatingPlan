@@ -2,6 +2,8 @@ package com.example.skatingplan.controllergrafici1;
 
 import com.example.skatingplan.eccezioni.CredenzialiErrateException;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
+import com.example.skatingplan.eccezioni.FSNonEsistenteException;
+import com.example.skatingplan.eccezioni.FSOperazioneExcpetion;
 import com.example.skatingplan.model.bean.LoginBean;
 import com.example.skatingplan.controllerapplicativi.LoginController;
 import com.example.skatingplan.FxmlLoader;
@@ -15,7 +17,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.util.Duration;
 
-import java.sql.SQLException;
 
 
 public class LoginControllerG {
@@ -63,7 +64,7 @@ public class LoginControllerG {
                 FxmlLoader.setPage("views1/homemanager1-view");
             }
 
-        }catch(CredenzialiErrateException | IllegalArgumentException | DatabaseNonRaggiungibileException loginexception){
+        }catch(CredenzialiErrateException | IllegalArgumentException | DatabaseNonRaggiungibileException | FSOperazioneExcpetion | FSNonEsistenteException loginexception){
             mostraErrore(loginexception.getMessage());
         }
 
