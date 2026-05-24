@@ -34,10 +34,7 @@ public class ConnectionFactory {
 
             connection = DriverManager.getConnection(url, user, pass);
 
-        } catch (IOException e) {
-            throw new DatabaseNonRaggiungibileException("Database non raggiungibile");
-
-        } catch (SQLException e) {
+        } catch (IOException | SQLException e) {
             throw new DatabaseNonRaggiungibileException("Database non raggiungibile");
         }
     }
@@ -47,7 +44,7 @@ public class ConnectionFactory {
     }
 
 
-    public static void changeRole(Role role) throws SQLException {
+    public static void changeRole(Role role) throws DatabaseNonRaggiungibileException {
 
 
         try (InputStream input = new FileInputStream("src/main/jdbc/db.properties")) {
@@ -63,7 +60,7 @@ public class ConnectionFactory {
             connection = DriverManager.getConnection(connectionUrl, user,pass);
 
         } catch (IOException | SQLException e) {
-            e.printStackTrace();
+            throw new DatabaseNonRaggiungibileException("Errore di comunicazione con il database, riprovare in seguito", e);
         }
     }
 

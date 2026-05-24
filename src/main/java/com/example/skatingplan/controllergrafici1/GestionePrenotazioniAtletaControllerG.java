@@ -1,6 +1,7 @@
 package com.example.skatingplan.controllergrafici1;
 
 import com.example.skatingplan.FxmlLoader;
+import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.enumerazioni.Role;
 import javafx.fxml.FXML;
@@ -8,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
-import java.sql.SQLException;
 
 public class GestionePrenotazioniAtletaControllerG {
     @FXML
@@ -52,8 +52,8 @@ public class GestionePrenotazioniAtletaControllerG {
     public void onLogoutClick() {
         try {
             ConnectionFactory.changeRole(Role.LOGIN);
-        }catch (SQLException e){
-            //gestisci errore logout
+        }catch (DatabaseNonRaggiungibileException e){
+            //apri alert a schermo
         }
         FxmlLoader.setPage("views1/login1-view");
     }
