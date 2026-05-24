@@ -9,13 +9,12 @@ import com.example.skatingplan.controllerapplicativi.LoginController;
 import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.model.bean.UtenteBean;
 import com.example.skatingplan.model.enumerazioni.Role;
-import javafx.animation.PauseTransition;
+import com.example.skatingplan.utili.GestoreMessaggiUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
-import javafx.util.Duration;
 
 
 
@@ -31,8 +30,6 @@ public class LoginControllerG {
 
     @FXML
     private Label testoErroreLogin;
-
-    private PauseTransition pausa;
 
     @FXML
     private void onLoginClick() {
@@ -65,24 +62,9 @@ public class LoginControllerG {
             }
 
         }catch(CredenzialiErrateException | IllegalArgumentException | DatabaseNonRaggiungibileException | FSOperazioneExcpetion | FSNonEsistenteException loginexception){
-            mostraErrore(loginexception.getMessage());
+            GestoreMessaggiUI.mostraErrore(testoErroreLogin, loginexception.getMessage());
         }
 
-    }
-
-    public void mostraErrore(String msg) {
-
-        testoErroreLogin.setText(msg);
-        testoErroreLogin.setVisible(true);
-
-        // se c'è già un timer attivo lo fermo
-        if (pausa != null) {
-            pausa.stop();
-        }
-
-        pausa = new PauseTransition(Duration.seconds(2));
-        pausa.setOnFinished(e -> testoErroreLogin.setVisible(false));
-        pausa.playFromStart();
     }
 
 }

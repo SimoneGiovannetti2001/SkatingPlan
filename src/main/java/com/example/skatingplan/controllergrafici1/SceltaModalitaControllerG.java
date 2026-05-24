@@ -7,12 +7,11 @@ import com.example.skatingplan.model.enumerazioni.ModalitaGui;
 import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
-import javafx.animation.PauseTransition;
+import com.example.skatingplan.utili.GestoreMessaggiUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.util.Duration;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -49,12 +48,7 @@ public class SceltaModalitaControllerG {
                 FxmlLoader.setPage("views1/login1-view");
             }
         } catch (SQLException | DatabaseNonRaggiungibileException | IOException e) {
-            errorLabel.setText(e.getMessage());
-            errorLabel.setVisible(true);
-
-            PauseTransition pausa = new PauseTransition(Duration.seconds(2));
-            pausa.setOnFinished(errore -> errorLabel.setVisible(false));
-            pausa.play();
+            GestoreMessaggiUI.mostraErrore(errorLabel, e.getMessage());
         }
     }
 }
