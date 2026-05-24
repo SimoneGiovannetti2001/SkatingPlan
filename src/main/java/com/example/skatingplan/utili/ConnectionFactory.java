@@ -35,7 +35,7 @@ public class ConnectionFactory {
             connection = DriverManager.getConnection(url, user, pass);
 
         } catch (IOException | SQLException e) {
-            throw new DatabaseNonRaggiungibileException("Database non raggiungibile");
+            throw new DatabaseNonRaggiungibileException("Database non raggiungibile", e);
         }
     }
 
