@@ -6,7 +6,6 @@ import com.example.skatingplan.eccezioni.CredenzialiErrateException;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.eccezioni.FSNonEsistenteException;
 import com.example.skatingplan.eccezioni.FSOperazioneExcpetion;
-import com.example.skatingplan.model.Sessione;
 import com.example.skatingplan.model.bean.LoginBean;
 import com.example.skatingplan.model.bean.UtenteBean;
 import com.example.skatingplan.model.enumerazioni.Role;
@@ -20,6 +19,9 @@ import static java.lang.System.*;
 
 public class NavigatoreControllerCLI {
 
+    private NavigatoreControllerCLI(){
+        //non deve essere istanziata
+    }
 
     public static void start(){
         boolean continua = true;
@@ -27,6 +29,7 @@ public class NavigatoreControllerCLI {
             LoginController loginController = new LoginController();
             try {
                 LoginBean loginBean = new LoginBean(LoginViewCLI.chiediNomeUtente(), LoginViewCLI.chiediPassUtente());
+                checkInputLogin(loginBean);
                 UtenteBean utenteCorrente = loginController.autenticazione(loginBean);
                 switch (utenteCorrente.getRuolo()) {
                     case ATLETA -> HomeAtletaCLI.start();
@@ -39,7 +42,7 @@ public class NavigatoreControllerCLI {
 
                 continua = LoginViewCLI.chiediSeRiloggare();
 
-            } catch (IOException | FSNonEsistenteException | FSOperazioneExcpetion | DatabaseNonRaggiungibileException | CredenzialiErrateException e) {
+            } catch (CredenzialiErrateException | IllegalArgumentException | DatabaseNonRaggiungibileException | FSOperazioneExcpetion | FSNonEsistenteException | IOException e) {
                 out.println("Errore: " + e.getMessage());
             }
 
@@ -47,4 +50,17 @@ public class NavigatoreControllerCLI {
 
     }
 
+    private static void checkInputLogin(LoginBean loginBean){
+        if ((loginBean.getUser() == null || loginBean.getUser().isBlank()) && (loginBean.getPass() == null || loginBean.getPass().isBlank())) {
+            throw new IllegalArgumentException("Inserire nome utente e password");
+        }
+
+        if(loginBean.getUser() == null || loginBean.getUser().isBlank()) {
+            throw new IllegalArgumentException("Inserire nome utente");
+        }
+
+        if(loginBean.getPass() == null || loginBean.getPass().isBlank()) {
+            throw new IllegalArgumentException("Inserire password");
+        }
+    }
 }

@@ -61,8 +61,8 @@ public class LoginControllerG {
                 FxmlLoader.setPage("views1/homemanager1-view");
             }
 
-        }catch(CredenzialiErrateException | IllegalArgumentException | DatabaseNonRaggiungibileException | FSOperazioneExcpetion | FSNonEsistenteException loginexception){
-            GestoreMessaggiUI.mostraErrore(testoErroreLogin, loginexception.getMessage());
+        }catch(CredenzialiErrateException | IllegalArgumentException | DatabaseNonRaggiungibileException | FSOperazioneExcpetion | FSNonEsistenteException e){
+            GestoreMessaggiUI.mostraErrore(testoErroreLogin, e.getMessage());
         }
 
     }
