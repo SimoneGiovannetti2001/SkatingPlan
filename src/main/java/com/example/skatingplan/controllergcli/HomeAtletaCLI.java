@@ -2,7 +2,11 @@ package com.example.skatingplan.controllergcli;
 
 public class HomeAtletaCLI {
 
-    public static void start(){
+    private HomeAtletaCLI(){
+        //non deve essere istanziata
+    }
 
+    public static void start(){
+        //da implementare ancora
     }
 }
