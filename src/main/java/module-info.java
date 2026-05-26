@@ -17,4 +17,5 @@ module com.example.skatingplan {
     exports com.example.skatingplan.utili;
     opens com.example.skatingplan.utili to javafx.fxml;
     exports com.example.skatingplan.eccezioni;
+    exports com.example.skatingplan.model.dao;
 }
