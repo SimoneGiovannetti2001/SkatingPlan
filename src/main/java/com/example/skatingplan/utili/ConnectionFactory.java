@@ -22,8 +22,7 @@ public class ConnectionFactory {
     public static void init()
             throws SQLException, IOException, DatabaseNonRaggiungibileException {
 
-        try (InputStream input =
-                     new FileInputStream("src/main/jdbc/db.properties")) {
+        try (InputStream input = new FileInputStream("src/main/jdbc/db.properties")) {
 
             Properties properties = new Properties();
             properties.load(input);

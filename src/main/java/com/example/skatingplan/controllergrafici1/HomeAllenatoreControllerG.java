@@ -2,8 +2,10 @@ package com.example.skatingplan.controllergrafici1;
 
 import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
+import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.utili.FactoryConfig;
 import com.example.skatingplan.utili.GestoreMessaggiUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -23,7 +25,6 @@ public class HomeAllenatoreControllerG {
     @FXML
     public Label erroriLabel;
 
-
     @FXML
     public void onHomeClick() {
         FxmlLoader.setPage("views1/homeallenatore1-view");
@@ -32,7 +33,10 @@ public class HomeAllenatoreControllerG {
     @FXML
     public void onLogoutClick() {
         try {
-            ConnectionFactory.changeRole(Role.LOGIN);
+            //resetto la connessione per fare il login
+            if(FactoryConfig.getDaoFactory() instanceof DBMSFactory){
+                ConnectionFactory.changeRole(Role.LOGIN);
+            }
         }catch (DatabaseNonRaggiungibileException e){
             GestoreMessaggiUI.mostraErrore(erroriLabel, e.getMessage());
         }

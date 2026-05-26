@@ -15,6 +15,7 @@ public class FactoryConfig {
     public static void impostaFactory(DAOFactory newdaoFactory) {
         daoFactory = newdaoFactory;
     }
+
     public static DAOFactory getDaoFactory(){
         return daoFactory;
     }

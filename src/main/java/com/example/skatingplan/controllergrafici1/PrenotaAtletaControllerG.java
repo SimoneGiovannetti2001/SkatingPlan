@@ -2,17 +2,21 @@ package com.example.skatingplan.controllergrafici1;
 
 import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
+import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.LezioneBean;
 import com.example.skatingplan.model.bean.LezioniDisponibiliBean;
+import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.model.enumerazioni.Regione;
+import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.utili.ConnectionFactory;
+import com.example.skatingplan.utili.FactoryConfig;
+import com.example.skatingplan.utili.GestoreMessaggiUI;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -40,6 +44,12 @@ public class PrenotaAtletaControllerG {
     public Button gestisciPrenotazioni;
 
     @FXML
+    public Button logout;
+
+    @FXML
+    public Label erroriLabel;
+
+    @FXML
     private ScrollPane scrollpane;
 
     @FXML
@@ -47,7 +57,6 @@ public class PrenotaAtletaControllerG {
 
     @FXML
     private ComboBox<Regione> regioneComboBox;
-
 
     @FXML
     public void initialize() {
@@ -57,8 +66,9 @@ public class PrenotaAtletaControllerG {
         regioneComboBox.getItems().addAll(Regione.values());
         List<LocalTime> fasce = new ArrayList<>();
 
-        for (int h = 8; h <= 18; h++) {
+        for (int h = 8; h <= 20; h++) {
             fasce.add(LocalTime.of(h, 0));
+            fasce.add(LocalTime.of(h,30));
         }
 
         oraComboBox.getItems().addAll(fasce);
@@ -74,7 +84,7 @@ public class PrenotaAtletaControllerG {
     }
 
     @FXML
-    private void onCerccaClick(){
+    private void onCercaClick(){
 
         FiltriBean filtriBean = new FiltriBean(data.getValue(), oraComboBox.getValue(), regioneComboBox.getValue());
         PrenotaController prenotaController = new PrenotaController();
@@ -110,4 +120,16 @@ public class PrenotaAtletaControllerG {
         FxmlLoader.setPage("views1/homeatleta1-view");
     }
 
+    @FXML
+    public void onLogoutClick() {
+        try {
+            //resetto la connessione per fare il login
+            if(FactoryConfig.getDaoFactory() instanceof DBMSFactory){
+                ConnectionFactory.changeRole(Role.LOGIN);
+            }
+        }catch (DatabaseNonRaggiungibileException e){
+            GestoreMessaggiUI.mostraErrore(erroriLabel, e.getMessage());
+        }
+        FxmlLoader.setPage("views1/login1-view");
+    }
 }

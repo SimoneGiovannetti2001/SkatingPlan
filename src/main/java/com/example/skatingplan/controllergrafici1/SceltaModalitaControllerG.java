@@ -1,6 +1,7 @@
 package com.example.skatingplan.controllergrafici1;
 
 import com.example.skatingplan.FxmlLoader;
+
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.dao.CreatoreFactory;
 import com.example.skatingplan.model.enumerazioni.ModalitaGui;
@@ -8,6 +9,8 @@ import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
 import com.example.skatingplan.utili.GestoreMessaggiUI;
+import com.example.skatingplan.utili.ModalitaUIConfig;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -42,8 +45,9 @@ public class SceltaModalitaControllerG {
                 ConnectionFactory.init();
             }
             FactoryConfig.impostaFactory(CreatoreFactory.creaFactory(modalitaPersistenza.getValue()));
-            if (modalitaGui.getValue() == ModalitaGui.GRAFICA2) {
-                FxmlLoader.setPage("views2/login2-view");
+            if (modalitaGui.getValue() == ModalitaGui.CLI) {
+                ModalitaUIConfig.setModalita(ModalitaGui.CLI);
+                Platform.exit();
             } else {
                 FxmlLoader.setPage("views1/login1-view");
             }

@@ -40,7 +40,7 @@
             <DatePicker fx:id="data" prefHeight="69.0" prefWidth="263.0" stylesheets="@../filecss/date-picker.css" />
          </VBox>
          <ComboBox fx:id="oraComboBox" prefHeight="100.0" prefWidth="300.0" promptText="Ora" stylesheets="@../filecss/combobox.css" visibleRowCount="8" />
-         <Button fx:id="cerca" mnemonicParsing="false" onAction="#onCerccaClick" prefHeight="65.0" prefWidth="147.0" style="-fx-background-color: #38bdf8;" text="Cerca" textFill="#000066">
+         <Button fx:id="cerca" mnemonicParsing="false" onAction="#onCercaClick" prefHeight="65.0" prefWidth="147.0" style="-fx-background-color: #38bdf8;" text="Cerca" textFill="#000066">
             <font>
                <Font size="15.0" />
             </font>
@@ -60,4 +60,16 @@
          <Font size="22.0" />
       </font>
    </Button>
+   <Button fx:id="logout" layoutX="1127.0" layoutY="7.0" mnemonicParsing="false" onAction="#onLogoutClick" prefHeight="70.0" prefWidth="70.0" style="-fx-background-color: white;">
+      <graphic>
+         <ImageView fitHeight="60.0" fitWidth="60.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@../image/logoutjpg.jpg" />
+         </ImageView>
+      </graphic>
+   </Button>
+   <Label fx:id="erroriLabel" layoutX="551.0" layoutY="201.0" maxHeight="50.0" maxWidth="300.0" minHeight="50.0" minWidth="300.0" prefHeight="50.0" prefWidth="300.0">
+      <font>
+         <Font size="20.0" />
+      </font>
+   </Label>
 </AnchorPane>
