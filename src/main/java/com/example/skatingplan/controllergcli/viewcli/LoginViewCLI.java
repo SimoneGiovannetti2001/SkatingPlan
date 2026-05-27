@@ -43,4 +43,8 @@ public class LoginViewCLI {
             }
         }
     }
+
+    public static void mostraErrore(String string){
+        out.println("Errore:" + string);
+    }
 }

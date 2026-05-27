@@ -9,7 +9,7 @@ import com.example.skatingplan.controllerapplicativi.LoginController;
 import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.model.bean.UtenteBean;
 import com.example.skatingplan.model.enumerazioni.Role;
-import com.example.skatingplan.utili.GestoreMessaggiUI;
+import com.example.skatingplan.utili.GestoreMessaggiGUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -62,7 +62,7 @@ public class LoginControllerG {
             }
 
         }catch(CredenzialiErrateException | IllegalArgumentException | DatabaseNonRaggiungibileException | FSOperazioneExcpetion | FSNonEsistenteException e){
-            GestoreMessaggiUI.mostraErrore(testoErroreLogin, e.getMessage());
+            GestoreMessaggiGUI.mostraErrore(testoErroreLogin, e.getMessage());
         }
 
     }

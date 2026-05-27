@@ -17,9 +17,9 @@ import java.io.IOException;
 
 import static java.lang.System.*;
 
-public class NavigatoreControllerCLI {
+public class LoginControllerCLI {
 
-    private NavigatoreControllerCLI(){
+    private LoginControllerCLI(){
         //non deve essere istanziata
     }
 
@@ -32,9 +32,9 @@ public class NavigatoreControllerCLI {
                 checkInputLogin(loginBean);
                 UtenteBean utenteCorrente = loginController.autenticazione(loginBean);
                 switch (utenteCorrente.getRuolo()) {
-                    case ATLETA -> HomeAtletaCLI.start();
-                    case ALLENATORE -> HomeAllenatoreCLI.start();
-                    case MANAGER -> HomeManagerCLI.start();
+                    case ATLETA -> HomeAtletaControllerCLI.start();
+                    case ALLENATORE -> HomeAllenatoreControllerCLI.start();
+                    case MANAGER -> HomeManagerControllerCLI.start();
                     default -> throw new CredenzialiErrateException("Unexpected value: " + utenteCorrente.getRuolo());
                 }
 
@@ -43,7 +43,7 @@ public class NavigatoreControllerCLI {
                 continua = LoginViewCLI.chiediSeRiloggare();
 
             } catch (CredenzialiErrateException | IllegalArgumentException | DatabaseNonRaggiungibileException | FSOperazioneExcpetion | FSNonEsistenteException | IOException e) {
-                out.println("Errore: " + e.getMessage());
+                LoginViewCLI.mostraErrore(e.getMessage());
             }
 
         }

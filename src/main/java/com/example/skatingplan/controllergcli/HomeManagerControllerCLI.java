@@ -1,8 +1,8 @@
 package com.example.skatingplan.controllergcli;
 
-public class HomeManagerCLI {
+public class HomeManagerControllerCLI {
 
-    private HomeManagerCLI(){
+    private HomeManagerControllerCLI(){
         //non deve essere istanziata
     }
 

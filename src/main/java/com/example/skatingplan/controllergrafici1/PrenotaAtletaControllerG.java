@@ -11,8 +11,7 @@ import com.example.skatingplan.model.enumerazioni.Regione;
 import com.example.skatingplan.model.enumerazioni.Role;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
-import com.example.skatingplan.utili.GestoreMessaggiUI;
-import javafx.event.ActionEvent;
+import com.example.skatingplan.utili.GestoreMessaggiGUI;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -128,7 +127,7 @@ public class PrenotaAtletaControllerG {
                 ConnectionFactory.changeRole(Role.LOGIN);
             }
         }catch (DatabaseNonRaggiungibileException e){
-            GestoreMessaggiUI.mostraErrore(erroriLabel, e.getMessage());
+            GestoreMessaggiGUI.mostraErrore(erroriLabel, e.getMessage());
         }
         FxmlLoader.setPage("views1/login1-view");
     }

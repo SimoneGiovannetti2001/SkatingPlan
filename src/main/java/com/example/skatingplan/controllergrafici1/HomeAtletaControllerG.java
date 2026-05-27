@@ -6,7 +6,7 @@ import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.enumerazioni.Role;
 import com.example.skatingplan.utili.FactoryConfig;
-import com.example.skatingplan.utili.GestoreMessaggiUI;
+import com.example.skatingplan.utili.GestoreMessaggiGUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -51,7 +51,7 @@ public class HomeAtletaControllerG {
                 ConnectionFactory.changeRole(Role.LOGIN);
             }
         }catch (DatabaseNonRaggiungibileException e){
-            GestoreMessaggiUI.mostraErrore(erroriLabel, e.getMessage());
+            GestoreMessaggiGUI.mostraErrore(erroriLabel, e.getMessage());
         }
         FxmlLoader.setPage("views1/login1-view");
     }

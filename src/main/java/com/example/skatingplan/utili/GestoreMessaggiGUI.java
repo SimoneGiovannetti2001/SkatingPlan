@@ -4,8 +4,8 @@ import javafx.animation.PauseTransition;
 import javafx.scene.control.Label;
 import javafx.util.Duration;
 
-public class GestoreMessaggiUI {
-    private GestoreMessaggiUI() {
+public class GestoreMessaggiGUI {
+    private GestoreMessaggiGUI() {
         //non dovrebbe essere istanziata
     }
 

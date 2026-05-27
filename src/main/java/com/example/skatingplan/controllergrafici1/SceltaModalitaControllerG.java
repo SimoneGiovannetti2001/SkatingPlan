@@ -8,7 +8,7 @@ import com.example.skatingplan.model.enumerazioni.ModalitaGui;
 import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
-import com.example.skatingplan.utili.GestoreMessaggiUI;
+import com.example.skatingplan.utili.GestoreMessaggiGUI;
 import com.example.skatingplan.utili.ModalitaUIConfig;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -52,7 +52,7 @@ public class SceltaModalitaControllerG {
                 FxmlLoader.setPage("views1/login1-view");
             }
         } catch (SQLException | DatabaseNonRaggiungibileException | IOException e) {
-            GestoreMessaggiUI.mostraErrore(errorLabel, e.getMessage());
+            GestoreMessaggiGUI.mostraErrore(errorLabel, e.getMessage());
         }
     }
 }
