@@ -29,11 +29,8 @@ public class HomeAtletaViewCLI {
 
             input = input.trim();
 
-            try {
-                return Integer.parseInt(input);
-            } catch (NumberFormatException e) {
-                out.println("Errore: devi inserire un numero valido.");
-            }
+            return Integer.parseInt(input);
+
         }
     }
 
