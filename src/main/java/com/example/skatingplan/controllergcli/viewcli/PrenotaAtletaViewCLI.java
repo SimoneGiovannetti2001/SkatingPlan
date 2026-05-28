@@ -14,7 +14,7 @@ import java.time.format.DateTimeParseException;
 
 
 import static java.lang.System.in;
-import static java.lang.System.out;
+import static java.lang.System.*;
 
 
 public class PrenotaAtletaViewCLI {
@@ -31,7 +31,7 @@ public class PrenotaAtletaViewCLI {
         try {
             return LocalDate.parse(reader.readLine());
         }catch(DateTimeParseException e) {
-            throw new IllegalArgumentException("Data non valida (formato aaaa-mm-gg");
+            throw new IllegalArgumentException("Data non valida (formato aaaa-mm-gg", e);
         }catch (IOException e) {
             throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
         }
@@ -42,7 +42,7 @@ public class PrenotaAtletaViewCLI {
         try {
             return LocalTime.parse(reader.readLine());
         }catch(DateTimeParseException e) {
-            throw new IllegalArgumentException("Orario non valido (formato hh:mm)");
+            throw new IllegalArgumentException("Orario non valido (formato hh:mm)", e);
         }catch (IOException e) {
             throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
         }
@@ -53,7 +53,7 @@ public class PrenotaAtletaViewCLI {
         try {
             return Regione.valueOf(reader.readLine().toUpperCase());
         } catch (IllegalArgumentException e){
-            throw new IllegalArgumentException("Regione non valida",e);
+            throw new IllegalArgumentException("Regione non valida", e);
         }catch (IOException e) {
             throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
         }
