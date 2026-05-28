@@ -28,10 +28,6 @@ public class LezioneBean {
         this.costo = lezione.getCosto();
     }
 
-    public  LezioneBean(int idLezione){
-        this.idLezione = idLezione;
-    }
-
     public int getIdLezione() {
         return idLezione;
     }

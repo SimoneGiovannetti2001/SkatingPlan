@@ -106,9 +106,17 @@ public class PrenotaAtletaViewCLI {
         try {
             return reader.readLine().toLowerCase();
         } catch (IOException e) {
-            mostraErrore("input non valido");
+            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
         }
-        return null;
+    }
+
+    public static String chiediSeCambiareFiltri(){
+        out.println("vuoi cambiare i filtri? (si/no)");
+        try {
+            return reader.readLine().toLowerCase();
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
+        }
     }
 
     public static void mostraErrore(String string){

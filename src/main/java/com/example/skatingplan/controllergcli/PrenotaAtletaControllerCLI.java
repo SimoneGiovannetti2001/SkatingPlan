@@ -22,20 +22,26 @@ public class PrenotaAtletaControllerCLI {
     }
 
     public static void start() {
-        boolean continua = true;
+
         PrenotaController prenotaController = new PrenotaController();
 
-        while (continua) {
-            try {
+        try {
 
-                LezioneBean lezioneScelta = scegliLezione(prenotaController);
+            LezioneBean lezioneScelta = scegliLezione(prenotaController);
+
+            //registro la richiesta
+            prenotaController.registraRichiestaPrenotazione(lezioneScelta);
+
+            //richiedo come si vuole pagare
+
+            //registro il pagamento
 
 
-            }catch (IllegalArgumentException e) {
-                HomeAtletaViewCLI.mostraErrore(e.getMessage());
-            }
+        }catch (IllegalArgumentException e) {
+            HomeAtletaViewCLI.mostraErrore(e.getMessage());
         }
     }
+
 
     private static FiltriBean acquisisciFiltri(){
         LocalDate data = PrenotaAtletaViewCLI.chiediData();
@@ -47,29 +53,63 @@ public class PrenotaAtletaControllerCLI {
 
     private static LezioneBean scegliLezione(PrenotaController currentController){
         boolean continua = true;
+        LezioneBean lezioneScelta = null;
+
         while (continua) {
+
             //acqusisci filtri
             FiltriBean filtriBean = acquisisciFiltri();
 
             //richiedi le lezioni al controller e le stampi
             LezioniDisponibiliBean lezioniDisponibiliBean = currentController.selezionaLezioni(filtriBean);
-            PrenotaAtletaViewCLI.mostraLezioni(lezioniDisponibiliBean);
+
+            lezioneScelta= confermaSceltaLezione(lezioniDisponibiliBean);
+
+            if(lezioneScelta != null){
+                //essendo stata scelta esco dal ciclo
+                continua = false;
+            }
+
+        }
+        return lezioneScelta;
+    }
+
+    private static LezioneBean confermaSceltaLezione(LezioniDisponibiliBean lezioniDisponibili){
+        LezioneBean lezioneScelta = null;
+        boolean continua = true;
+        String conferma ;
+
+        while(continua) {
+
+            PrenotaAtletaViewCLI.mostraLezioni(lezioniDisponibili);
+
             //chiedo quale lezione si voglia prenotare
             int scelta = PrenotaAtletaViewCLI.scegliLezione();
 
-            //stampo un riepilogo della lezione
-            PrenotaAtletaViewCLI.mostraRiepilogoLezione(lezioniDisponibiliBean.getLezione(scelta - 1));
+            if(scelta <= lezioniDisponibili.lunghezza()){
+                //stampo un riepilogo della lezione
+                PrenotaAtletaViewCLI.mostraRiepilogoLezione(lezioniDisponibili.getLezione(scelta - 1));
 
-            //chiedo la seconda conferma
-            String conferma = PrenotaAtletaViewCLI.chiediConferma();
+                //chiedo la seconda conferma
+                conferma = PrenotaAtletaViewCLI.chiediConferma();
 
-            if(conferma.equals("si")){
-                return lezioniDisponibiliBean.getLezione(scelta-1);
-            }else{
-                return null;
+                if(conferma.equals("si")){
+                    lezioneScelta = lezioniDisponibili.getLezione(scelta-1);
+                    continua = false;
+                }
+
+                //chiedo se si vuole cambiare filtri
+                conferma = PrenotaAtletaViewCLI.chiediSeCambiareFiltri();
+
+                //se si esco dal ciclo
+                if (conferma.equals("si")){
+                    continua = false;
+                }
             }
+
         }
-        return null;
+        return lezioneScelta;
+
     }
 
 }
