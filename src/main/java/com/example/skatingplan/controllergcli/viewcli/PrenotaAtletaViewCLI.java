@@ -101,6 +101,16 @@ public class PrenotaAtletaViewCLI {
         out.println(delimitatore);
     }
 
+    public static String chiediConferma(){
+        out.println("Confermi la scelta? (si/no)");
+        try {
+            return reader.readLine().toLowerCase();
+        } catch (IOException e) {
+            mostraErrore("input non valido");
+        }
+        return null;
+    }
+
     public static void mostraErrore(String string){
         out.println("Errore: " + string);
     }
