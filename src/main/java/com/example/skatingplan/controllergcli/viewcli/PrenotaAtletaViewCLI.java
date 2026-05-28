@@ -26,29 +26,37 @@ public class PrenotaAtletaViewCLI {
         //non deve essere istanziata
     }
 
-    public static LocalDate chiediData() throws IOException {
+    public static LocalDate chiediData() {
         out.println("Inserire la data (aaaa-mm-gg):");
         try {
             return LocalDate.parse(reader.readLine());
         }catch(DateTimeParseException e) {
             throw new IllegalArgumentException("Data non valida (formato aaaa-mm-gg");
+        }catch (IOException e) {
+            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
         }
     }
 
-    public static LocalTime chiediOraInizio() throws IOException {
+    public static LocalTime chiediOraInizio() {
         out.println("Inserire l'ora di inizio (hh:mm): ");
         try {
             return LocalTime.parse(reader.readLine());
         }catch(DateTimeParseException e) {
             throw new IllegalArgumentException("Orario non valido (formato hh:mm)");
+        }catch (IOException e) {
+            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
         }
     }
 
-    public static Regione chiediRegione() throws IOException{
+    public static Regione chiediRegione() {
         out.println("Inserire la regione");
-        String regione = reader.readLine();
-        return Regione.valueOf(regione.toUpperCase());
-
+        try {
+            return Regione.valueOf(reader.readLine().toUpperCase());
+        } catch (IllegalArgumentException e){
+            throw new IllegalArgumentException("Regione non valida",e);
+        }catch (IOException e) {
+            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
+        }
     }
 
     public static void mostraLezioni(LezioniDisponibiliBean lezioni){
@@ -67,6 +75,6 @@ public class PrenotaAtletaViewCLI {
     }
 
     public static void mostraErrore(String string){
-        out.println("Errore:" + string);
+        out.println("Errore: " + string);
     }
 }

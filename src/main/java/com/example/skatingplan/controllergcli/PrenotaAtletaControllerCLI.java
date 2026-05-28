@@ -2,17 +2,16 @@ package com.example.skatingplan.controllergcli;
 
 
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
+import com.example.skatingplan.controllergcli.viewcli.HomeAtletaViewCLI;
 import com.example.skatingplan.controllergcli.viewcli.PrenotaAtletaViewCLI;
 import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.LezioniDisponibiliBean;
 import com.example.skatingplan.model.enumerazioni.Regione;
 
 
-import java.io.IOException;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
-
-import static java.lang.System.out;
 
 
 public class PrenotaAtletaControllerCLI {
@@ -40,9 +39,8 @@ public class PrenotaAtletaControllerCLI {
                 PrenotaAtletaViewCLI.mostraLezioni(lezioniDisponibiliBean);
 
 
-
-            } catch (IOException e) {
-                PrenotaAtletaViewCLI.mostraErrore(e.getMessage());
+            }catch (IllegalArgumentException e) {
+                HomeAtletaViewCLI.mostraErrore(e.getMessage());
             }
 
         }
