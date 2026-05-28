@@ -63,7 +63,7 @@ public class PrenotaAtletaControllerCLI {
             //richiedi le lezioni al controller e le stampi
             LezioniDisponibiliBean lezioniDisponibiliBean = currentController.selezionaLezioni(filtriBean);
 
-            lezioneScelta= confermaSceltaLezione(lezioniDisponibiliBean);
+            lezioneScelta = confermaSceltaLezione(lezioniDisponibiliBean);
 
             if(lezioneScelta != null){
                 //essendo stata scelta esco dal ciclo
@@ -99,10 +99,10 @@ public class PrenotaAtletaControllerCLI {
                 }
 
                 //chiedo se si vuole cambiare filtri
-                conferma = PrenotaAtletaViewCLI.chiediSeCambiareFiltri();
+                String cambioFiltri = PrenotaAtletaViewCLI.chiediSeCambiareFiltri();
 
                 //se si esco dal ciclo
-                if (conferma.equals("si")){
+                if (cambioFiltri.equals("si")){
                     continua = false;
                 }
             }
