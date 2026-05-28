@@ -41,8 +41,7 @@ public class HomeAtletaControllerCLI {
                 }catch (IllegalArgumentException e) {
                     HomeAtletaViewCLI.mostraErrore(e.getMessage());
                 }
-        }
-
+            }
 
     }
 
