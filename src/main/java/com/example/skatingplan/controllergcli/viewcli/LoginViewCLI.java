@@ -8,11 +8,11 @@ import static java.lang.System.*;
 
 public class LoginViewCLI {
 
+    private static final BufferedReader reader = new BufferedReader(new InputStreamReader(in));
+
     private LoginViewCLI() {
         //Questa classe non dovrebbe essere inizializzata mai
     }
-
-    private static final BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
     public static String chiediNomeUtente() throws IOException {
         out.println("Inserire nome utente: ");
