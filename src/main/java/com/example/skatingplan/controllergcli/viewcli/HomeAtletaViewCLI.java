@@ -28,9 +28,11 @@ public class HomeAtletaViewCLI {
             if (input == null) continue;
 
             input = input.trim();
-
-            return Integer.parseInt(input);
-
+            try {
+                return Integer.parseInt(input);
+            }catch(NumberFormatException e){
+                throw new IllegalArgumentException("Input non valido, riprovare", e);
+            }
         }
     }
 

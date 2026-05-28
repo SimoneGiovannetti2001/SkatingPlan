@@ -22,21 +22,20 @@ public class PrenotaAtletaControllerCLI {
 
     public static void start() {
         boolean continua = true;
-        FiltriBean filtriBean;
+        PrenotaController prenotaController = new PrenotaController();
+
         while (continua) {
             try {
-                LezioniDisponibiliBean lezioniDisponibiliBean;
-                LocalDate data = PrenotaAtletaViewCLI.chiediData();
-                LocalTime oraInizio = PrenotaAtletaViewCLI.chiediOraInizio();
-                Regione regione = PrenotaAtletaViewCLI.chiediRegione();
+                //acqusisci filtri
+                FiltriBean filtriBean = acquisisciFiltri();
 
-                PrenotaAtletaViewCLI.mostraErrore(data + ", " + oraInizio + ", " + regione.toString());
-                filtriBean = new FiltriBean(data, oraInizio, regione);
-
-                PrenotaController prenotaController = new PrenotaController();
-                lezioniDisponibiliBean = prenotaController.selezionaLezioni(filtriBean);
-
+                //richiedi le lezioni al controller e le stampi
+                LezioniDisponibiliBean lezioniDisponibiliBean = prenotaController.selezionaLezioni(filtriBean);
                 PrenotaAtletaViewCLI.mostraLezioni(lezioniDisponibiliBean);
+
+                //chiedo quale lezione si voglia prenotare
+
+
 
 
             }catch (IllegalArgumentException e) {
@@ -45,5 +44,13 @@ public class PrenotaAtletaControllerCLI {
 
         }
     }
+
+    private static FiltriBean acquisisciFiltri(){
+        LocalDate data = PrenotaAtletaViewCLI.chiediData();
+        LocalTime oraInizio = PrenotaAtletaViewCLI.chiediOraInizio();
+        Regione regione = PrenotaAtletaViewCLI.chiediRegione();
+        return new FiltriBean(data, oraInizio, regione);
+    }
+
 
 }

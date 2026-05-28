@@ -74,6 +74,16 @@ public class PrenotaAtletaViewCLI {
         }
     }
 
+    public static int scegliLezione(){
+        out.println("Quale lezione si vuole selezionare?");
+        try{
+            return Integer.parseInt(reader.readLine());
+        }catch (IOException e){
+            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
+        }
+
+    }
+
     public static void mostraErrore(String string){
         out.println("Errore: " + string);
     }
