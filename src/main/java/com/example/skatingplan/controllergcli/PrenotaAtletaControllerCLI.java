@@ -95,7 +95,7 @@ public class PrenotaAtletaControllerCLI {
 
                 if(conferma.equals("si")){
                     lezioneScelta = lezioniDisponibili.getLezione(scelta-1);
-                    continua = false;
+                    break;
                 }
 
                 //chiedo se si vuole cambiare filtri
