@@ -65,12 +65,12 @@ public class PrenotaAtletaViewCLI {
             String nomeAllenatore = lezioneBean.getAllenatore().getNome() + " " + lezioneBean.getAllenatore().getCognome();
             String indirizzo = lezioneBean.getPistaDiPattinaggio().getVia()+ " " + lezioneBean.getPistaDiPattinaggio().getCivico();
             String formato = "%-35s %-35s %-15s%n";
-            out.println("*********************************** Lezione " + i + ": ********************************************");
-            out.println("*******************************************************************************************");
+            out.println("----------------------------------- Lezione " + i + ": --------------------------------------------");
+            out.println("-------------------------------------------------------------------------------------------");
             out.printf(formato, "Pista: " + lezioneBean.getPistaDiPattinaggio().getNome(), "Allenatore: "+ nomeAllenatore, "Data:   "+ lezioneBean.getData());
             out.printf(formato, "Indirizzo: " + indirizzo, "Qualifica:  " + lezioneBean.getAllenatore().getQualifica(), "Ora:    " + lezioneBean.getOraInizio());
-            out.printf(formato, "Regione: " + lezioneBean.getPistaDiPattinaggio().getRegione(), "Costo:      " + (double)lezioneBean.getCosto(), "Durata: " + lezioneBean.getDurata());
-            out.println("*******************************************************************************************");
+            out.printf(formato, "Regione: " + lezioneBean.getPistaDiPattinaggio().getRegione(), "Costo:      " + (double)lezioneBean.getCosto() + "€", "Durata: " + lezioneBean.getDurata() + "minuti");
+            out.println("-------------------------------------------------------------------------------------------");
         }
     }
 
@@ -82,6 +82,23 @@ public class PrenotaAtletaViewCLI {
             throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
         }
 
+    }
+
+    public static void mostraRiepilogoLezione(LezioneBean lezioneBean){
+        String delimitatore = "+---------------------------+---------------------------+---------------------------+";
+        String formato = "| %-25s | %-25s | %-25s |%n";
+        String nomeAllenatore = lezioneBean.getAllenatore().getNome() + " " + lezioneBean.getAllenatore().getCognome();
+        String indirizzo = lezioneBean.getPistaDiPattinaggio().getVia()+ " " + lezioneBean.getPistaDiPattinaggio().getCivico();
+        String costo = Double.toString(lezioneBean.getCosto());
+        out.println(delimitatore);
+        out.printf(formato, "Pista", "Allenatore", "Lezione");
+        out.println(delimitatore);
+        out.printf(formato, lezioneBean.getPistaDiPattinaggio().getNome(), nomeAllenatore, lezioneBean.getData());
+        out.println(delimitatore);
+        out.printf(formato, indirizzo, lezioneBean.getAllenatore().getQualifica(), lezioneBean.getOraInizio());
+        out.println(delimitatore);
+        out.printf(formato, lezioneBean.getPistaDiPattinaggio().getRegione(), costo + "€", lezioneBean.getDurata() + "minuti");
+        out.println(delimitatore);
     }
 
     public static void mostraErrore(String string){

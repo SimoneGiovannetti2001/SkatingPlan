@@ -3,7 +3,7 @@ package com.example.skatingplan.model.bean;
 import java.util.List;
 
 public class LezioniDisponibiliBean {
-    private List<LezioneBean> listaLezioniDisponibili;
+    private final List<LezioneBean> listaLezioniDisponibili;
 
     public LezioniDisponibiliBean(List<LezioneBean> listaLezioniDisponibili) {
         this.listaLezioniDisponibili = listaLezioniDisponibili;

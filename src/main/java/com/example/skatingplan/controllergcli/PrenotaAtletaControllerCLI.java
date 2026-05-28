@@ -34,14 +34,15 @@ public class PrenotaAtletaControllerCLI {
                 PrenotaAtletaViewCLI.mostraLezioni(lezioniDisponibiliBean);
 
                 //chiedo quale lezione si voglia prenotare
+                int scelta = PrenotaAtletaViewCLI.scegliLezione();
 
+                PrenotaAtletaViewCLI.mostraRiepilogoLezione(lezioniDisponibiliBean.getLezione(scelta-1));
 
 
 
             }catch (IllegalArgumentException e) {
                 HomeAtletaViewCLI.mostraErrore(e.getMessage());
             }
-
         }
     }
 
