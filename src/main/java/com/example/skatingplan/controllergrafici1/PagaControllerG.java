@@ -25,7 +25,7 @@ public class PagaControllerG {
     }
 
     public void onPagaAllaLezione() {
-        infoPagamentoBean.setTipoPagamento(TipoPagamento.ALLA_LEZIONE);
+        infoPagamentoBean.setTipoPagamento(TipoPagamento.LEZIONE);
         infoPagamentoBean.setStatoPagamento(StatoPagamento.IN_ATTESA);
         paga();
     }

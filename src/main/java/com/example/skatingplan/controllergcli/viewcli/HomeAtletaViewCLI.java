@@ -19,9 +19,9 @@ public class HomeAtletaViewCLI {
 
         while (true) {
             out.println("Quale operazione vuoi eseguire?");
-            out.println("1)Prenota lezione");
-            out.println("2)Gestisci prenotazioni");
-            out.println("3)Logout");
+            out.println("1) Prenota lezione");
+            out.println("2) Gestisci prenotazioni");
+            out.println("3) Logout");
 
             String input = reader.readLine();
 

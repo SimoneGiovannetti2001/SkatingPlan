@@ -17,14 +17,14 @@ public class PagaControllerCLI {
     public static void start(PrenotaController prenotaController, InfoPagamentoBean infoPagamentoBean){
         try {
             //chiedo come si vuole pagare
-            TipoPagamento tipoPagamento = TipoPagamento.valueOf(PagaViewCLI.chiediTipoPagamento());
+            TipoPagamento tipoPagamento = PagaViewCLI.chiediTipoPagamento();
 
             if(tipoPagamento.equals(TipoPagamento.ONLINE)){
                 infoPagamentoBean.setStatoPagamento(StatoPagamento.COMPLETATO);
                 infoPagamentoBean.setTipoPagamento(TipoPagamento.ONLINE);
             }else{
                 infoPagamentoBean.setStatoPagamento(StatoPagamento.IN_ATTESA);
-                infoPagamentoBean.setTipoPagamento(TipoPagamento.ALLA_LEZIONE);
+                infoPagamentoBean.setTipoPagamento(TipoPagamento.LEZIONE);
             }
 
             //creo il bean da passare

@@ -1,5 +1,7 @@
 package com.example.skatingplan.controllergcli.viewcli;
 
+import com.example.skatingplan.model.enumerazioni.TipoPagamento;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,10 +17,10 @@ public class PagaViewCLI {
         //non deve essere istanziata
     }
 
-    public static String chiediTipoPagamento(){
+    public static TipoPagamento chiediTipoPagamento(){
         out.println("Come si vuole effettuare il pagamento? (lezione/online)");
         try {
-            return reader.readLine();
+            return TipoPagamento.valueOf(reader.readLine().toUpperCase());
         } catch (IOException e) {
             throw new IllegalArgumentException("Impossibile recuperare input, riprovare", e);
         }

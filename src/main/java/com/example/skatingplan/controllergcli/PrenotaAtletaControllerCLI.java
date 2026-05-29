@@ -9,7 +9,6 @@ import com.example.skatingplan.model.bean.InfoPagamentoBean;
 import com.example.skatingplan.model.bean.LezioneBean;
 import com.example.skatingplan.model.bean.LezioniDisponibiliBean;
 import com.example.skatingplan.model.enumerazioni.Regione;
-import com.example.skatingplan.model.enumerazioni.TipoPagamento;
 
 
 import java.time.LocalDate;
@@ -44,14 +43,41 @@ public class PrenotaAtletaControllerCLI {
         }
     }
 
-
-    private static FiltriBean acquisisciFiltri(){
-        LocalDate data = PrenotaAtletaViewCLI.chiediData();
-        LocalTime oraInizio = PrenotaAtletaViewCLI.chiediOraInizio();
-        Regione regione = PrenotaAtletaViewCLI.chiediRegione();
-        return new FiltriBean(data, oraInizio, regione);
+    private static LocalDate acquisisciData(){
+        LocalDate data = null;
+        while (data == null) {
+            try {
+                data = PrenotaAtletaViewCLI.chiediData();
+            } catch (IllegalArgumentException e) {
+                PrenotaAtletaViewCLI.mostraErrore(e.getMessage());
+            }
+        }
+        return data;
     }
 
+    private static LocalTime acquisisciOraInizio(){
+        LocalTime oraInizio = null;
+        while (oraInizio == null) {
+            try {
+                oraInizio = PrenotaAtletaViewCLI.chiediOraInizio();
+            } catch (IllegalArgumentException e) {
+                PrenotaAtletaViewCLI.mostraErrore(e.getMessage());
+            }
+        }
+        return oraInizio;
+    }
+
+    private static Regione acquisisciRegione(){
+        Regione regione = null;
+        while (regione == null) {
+            try {
+                regione = PrenotaAtletaViewCLI.chiediRegione();
+            } catch (IllegalArgumentException e) {
+                PrenotaAtletaViewCLI.mostraErrore(e.getMessage());
+            }
+        }
+        return regione;
+    }
 
     private static LezioneBean scegliLezione(PrenotaController prenotaController){
         boolean continua = true;
@@ -59,17 +85,29 @@ public class PrenotaAtletaControllerCLI {
 
         while (continua) {
 
-            //acqusisci filtri
-            FiltriBean filtriBean = acquisisciFiltri();
+            //richiedo i filtri all'utente
+            LocalDate data = acquisisciData();
+            LocalTime oraInizio = acquisisciOraInizio();
+            Regione regione = acquisisciRegione();
 
-            //richiedi le lezioni al controller e le stampi
+            //creo il bean da passare al controller applicativo
+            FiltriBean filtriBean = new FiltriBean(data, oraInizio, regione);
+
+            //richiedo le lezioni al controller applicativo e le mostro all'utente
             LezioniDisponibiliBean lezioniDisponibiliBean = prenotaController.selezionaLezioni(filtriBean);
 
-            lezioneScelta = confermaSceltaLezione(lezioniDisponibiliBean);
 
-            if(lezioneScelta != null){
-                //essendo stata scelta esco dal ciclo
-                continua = false;
+            //verifico che esistano lezioni disponibili
+            if(lezioniDisponibiliBean.lunghezza() == 0){
+                PrenotaAtletaViewCLI.mostraMessaggio("Lezioni non disponibili per i seguenti filtri, cambiare i filtri e riprovare");
+            }else{
+                //richiedo all'utente quale abbia scelto
+                lezioneScelta = confermaSceltaLezione(lezioniDisponibiliBean);
+
+                if(lezioneScelta != null){
+                    //essendo stata scelta esco dal ciclo
+                    continua = false;
+                }
             }
 
         }
