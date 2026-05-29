@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import static java.lang.System.*;
-import static java.lang.System.in;
+
 
 public class HomeAtletaViewCLI {
 
