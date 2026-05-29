@@ -6,16 +6,23 @@ import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.bean.InfoPagamentoBean;
 import com.example.skatingplan.model.enumerazioni.StatoPagamento;
 import com.example.skatingplan.model.enumerazioni.TipoPagamento;
+import com.example.skatingplan.utili.GestoreMessaggiGUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 
 public class PagaControllerG {
     @FXML
     public Button home;
+
     @FXML
     public Button pagaAllaLezione;
+
     @FXML
     public Button pagaOnline;
+
+    @FXML
+    public Label erroriLabel;
 
     private InfoPagamentoBean infoPagamentoBean;
 
@@ -37,14 +44,13 @@ public class PagaControllerG {
 
     }
 
-
     public void paga(){
         try {
             PrenotaController prenotaController = new PrenotaController();
             prenotaController.paga(infoPagamentoBean);
             FxmlLoader.setPage("views1/homeatleta1-view");
         }catch (DatabaseNonRaggiungibileException e){
-            throw  new RuntimeException(e);
+            GestoreMessaggiGUI.mostraErrore(erroriLabel, e.getMessage());
         }
     }
 

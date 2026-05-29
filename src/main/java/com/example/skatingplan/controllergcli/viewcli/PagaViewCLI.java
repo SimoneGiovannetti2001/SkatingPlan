@@ -27,8 +27,6 @@ public class PagaViewCLI {
     }
 
 
-
-
     public static void mostraErrore(String string){
         out.println("Errore: " + string);
     }

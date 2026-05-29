@@ -30,10 +30,8 @@ public class PagaControllerCLI {
             //creo il bean da passare
             prenotaController.paga(infoPagamentoBean);
 
-        }catch (IllegalArgumentException e){
+        }catch (IllegalArgumentException | DatabaseNonRaggiungibileException e){
             PagaViewCLI.mostraErrore(e.getMessage());
-        } catch (DatabaseNonRaggiungibileException e) {
-            throw new RuntimeException(e);
         }
     }
 }
