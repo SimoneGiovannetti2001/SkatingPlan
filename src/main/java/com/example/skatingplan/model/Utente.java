@@ -11,13 +11,6 @@ public class Utente {
     protected Role ruolo;
     private String passw;
 
-    public Utente(String nome, String cognome, String email, Role ruolo) {
-        this.nome = nome;
-        this.cognome = cognome;
-        this.email = email;
-        this.ruolo = ruolo;
-    }
-
     public Utente(String nome, String cognome, String email, Role ruolo, int idUtente, String passw){
         this.nome = nome;
         this.cognome = cognome;
@@ -26,7 +19,6 @@ public class Utente {
         this.idUtente = idUtente;
         this.passw = passw;
     }
-
 
     public Utente(String nome, String cognome){
         this.nome = nome;
