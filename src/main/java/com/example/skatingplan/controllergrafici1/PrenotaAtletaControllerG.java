@@ -88,11 +88,14 @@ public class PrenotaAtletaControllerG {
         FiltriBean filtriBean = new FiltriBean(data.getValue(), oraComboBox.getValue(), regioneComboBox.getValue());
         PrenotaController prenotaController = new PrenotaController();
         LezioniDisponibiliBean lezioniDisponibiliBean = prenotaController.selezionaLezioni(filtriBean);
+        if(lezioniDisponibiliBean.lunghezza() != 0) {
+            vBoxLezioniDisponibili.getChildren().clear();
 
-        vBoxLezioniDisponibili.getChildren().clear();
-
-        for (int i = 0; i < lezioniDisponibiliBean.lunghezza(); i++) {
-            vBoxLezioniDisponibili.getChildren().add(creaRiga(lezioniDisponibiliBean.getLezione(i)));
+            for (int i = 0; i < lezioniDisponibiliBean.lunghezza(); i++) {
+                vBoxLezioniDisponibili.getChildren().add(creaRiga(lezioniDisponibiliBean.getLezione(i)));
+            }
+        }else{
+            GestoreMessaggiGUI.mostraErrore(erroriLabel,"Lezioni non disponibili, riprovare");
         }
 
     }
@@ -110,8 +113,9 @@ public class PrenotaAtletaControllerG {
 
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+
         }
+        return null;
     }
 
     @FXML
