@@ -1,3 +1,5 @@
+package Junit;
+
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.bean.FiltriBean;
