@@ -16,26 +16,50 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 class PrenotaControllerTest {
 
     @Test
-    void testNonNull() throws SQLException, DatabaseNonRaggiungibileException, IOException {
+    void selezionaLezioniTestNotNull() throws SQLException, DatabaseNonRaggiungibileException, IOException {
 
         PrenotaController prenotaController = new PrenotaController();
-
+        //imposto dei filtri validi e creo il bean
         LocalDate data = LocalDate.of(2026,6,10);
         LocalTime oraInizio = LocalTime.of(14, 0);
         Regione regione = Regione.LAZIO;
         FiltriBean filtri = new FiltriBean(data, oraInizio, regione);
+        //imposto factory e connessione
         FactoryConfig.impostaFactory(CreatoreFactory.creaFactory(ModalitaPersistenza.DBMS));
         ConnectionFactory.init();
         ConnectionFactory.changeRole(Role.ATLETA);
-
-        LezioniDisponibiliBean result = prenotaController.selezionaLezioni(filtri);
-
-        assertNotNull(result);
+        //eseguo la selezione
+        LezioniDisponibiliBean lezioniDisponibiliBean = prenotaController.selezionaLezioni(filtri);
+        //verifico che non venga restituito null
+        assertNotNull(lezioniDisponibiliBean);
 
     }
+
+    @Test
+    void selezionaLezioniTestRitornoVuoto() throws SQLException, DatabaseNonRaggiungibileException, IOException {
+
+        PrenotaController prenotaController = new PrenotaController();
+        //imposto dei filtri validi ma senza lezioni disponibili e creo il bean
+        LocalDate data = LocalDate.of(2026,6,16);
+        LocalTime oraInizio = LocalTime.of(14, 0);
+        Regione regione = Regione.LAZIO;
+        FiltriBean filtri = new FiltriBean(data, oraInizio, regione);
+        //imposto factory e connessione
+        FactoryConfig.impostaFactory(CreatoreFactory.creaFactory(ModalitaPersistenza.DBMS));
+        ConnectionFactory.init();
+        ConnectionFactory.changeRole(Role.ATLETA);
+        //eseguo la selezione
+        LezioniDisponibiliBean lezioniDisponibiliBean = prenotaController.selezionaLezioni(filtri);
+        //verifico che venga restituita una lista vuota
+       assertEquals(0, lezioniDisponibiliBean.lunghezza());
+
+    }
+
+
 }
