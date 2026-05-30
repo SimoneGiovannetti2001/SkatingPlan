@@ -9,6 +9,7 @@ import com.example.skatingplan.model.bean.LoginBean;
 import com.example.skatingplan.model.bean.UtenteBean;
 import com.example.skatingplan.model.dao.CreatoreFactory;
 import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
+import com.example.skatingplan.model.enumerazioni.Role;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
 import org.junit.jupiter.api.Test;
@@ -17,6 +18,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
@@ -34,7 +36,11 @@ class LoginControllerTest {
         LoginBean loginBean = new LoginBean("simone","simone");
         UtenteBean utenteBean = loginController.autenticazione(loginBean);
 
-        //verifico che l'utente non sia null
+        //verifico che l'utente che è stato ritornato sia corretto
         assertNotNull(utenteBean);
+        assertEquals(0, utenteBean.getIdUtente());
+        assertEquals("Simone", utenteBean.getNome());
+        assertEquals("simo.giova@gmail.com", utenteBean.getEmail());
+        assertEquals(Role.ATLETA, utenteBean.getRuolo());
     }
 }
