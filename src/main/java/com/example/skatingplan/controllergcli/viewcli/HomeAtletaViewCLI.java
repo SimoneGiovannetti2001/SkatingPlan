@@ -42,4 +42,8 @@ public class HomeAtletaViewCLI {
         out.println("Errore:" + string);
     }
 
+    public static void mostraMessaggio(String string){
+        out.println(string);
+    }
+
 }

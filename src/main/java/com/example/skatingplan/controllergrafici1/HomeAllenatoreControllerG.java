@@ -45,11 +45,13 @@ public class HomeAllenatoreControllerG {
 
     @FXML
     public void onGestisciPrenotazioniClick() {
-        FxmlLoader.setPage("views1/gestisciprenotazioniallenatore1-view");
+        GestoreMessaggiGUI.mostraErrore(erroriLabel, "Funzionalità non disponibile al momento");
+//        FxmlLoader.setPage("views1/gestisciprenotazioniallenatore1-view");
     }
 
     @FXML
     public void onConfermaPrenotazioniClick(){
-        FxmlLoader.setPage("views1/confermaprenotazioni1-view");
+        GestoreMessaggiGUI.mostraErrore(erroriLabel, "Funzionalità non disponibile al momento");
+//        FxmlLoader.setPage("views1/confermaprenotazioni1-view");
     }
 }

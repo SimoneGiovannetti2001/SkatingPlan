@@ -1,5 +1,6 @@
 package com.example.skatingplan.controllergcli.viewcli;
 
+import com.example.skatingplan.eccezioni.ExitException;
 import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.LezioneBean;
 import com.example.skatingplan.model.bean.LezioniDisponibiliBean;
@@ -27,21 +28,32 @@ public class PrenotaAtletaViewCLI {
         //non deve essere istanziata
     }
 
-    public static LocalDate chiediData() throws InputIllegaleException {
+
+    public static LocalDate chiediData() throws InputIllegaleException, ExitException {
         out.println("Inserire la data (aaaa-mm-gg):");
         try {
-            return LocalDate.parse(reader.readLine());
+            String data = reader.readLine();
+            if(data.equals("exit")) {
+                throw new ExitException("Operazione annullata");
+            }else{
+                return LocalDate.parse(data);
+            }
         }catch(DateTimeParseException e) {
-            throw new InputIllegaleException("Data non valida (formato aaaa-mm-gg", e);
+            throw new InputIllegaleException("Data non valida (formato aaaa-mm-gg)", e);
         }catch (IOException e) {
             throw new InputIllegaleException("Impossibile recuperare input, riprovare",e);
         }
     }
 
-    public static LocalTime chiediOraInizio() throws InputIllegaleException {
+    public static LocalTime chiediOraInizio() throws InputIllegaleException, ExitException {
         out.println("Inserire l'ora di inizio (hh:mm): ");
         try {
-            return LocalTime.parse(reader.readLine());
+            String oraInizio = reader.readLine();
+            if(oraInizio.equals("exit")) {
+                throw new ExitException("Operazione annullata");
+            }else{
+                return LocalTime.parse(oraInizio);
+            }
         }catch(DateTimeParseException e) {
             throw new InputIllegaleException("Orario non valido (formato hh:mm)", e);
         }catch (IOException e) {
@@ -49,10 +61,15 @@ public class PrenotaAtletaViewCLI {
         }
     }
 
-    public static Regione chiediRegione() throws InputIllegaleException {
+    public static Regione chiediRegione() throws InputIllegaleException, ExitException {
         out.println("Inserire la regione");
         try {
-            return Regione.valueOf(reader.readLine().toUpperCase());
+            String regione = reader.readLine();
+            if(regione.equals("exit")) {
+                throw new ExitException("Operazione annullata");
+            }else{
+                return Regione.valueOf(regione);
+            }
         } catch (IllegalArgumentException e){
             throw new InputIllegaleException("Regione non valida", e);
         }catch (IOException e) {

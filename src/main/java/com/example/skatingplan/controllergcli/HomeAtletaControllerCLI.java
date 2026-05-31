@@ -2,6 +2,7 @@ package com.example.skatingplan.controllergcli;
 
 import com.example.skatingplan.controllergcli.viewcli.HomeAtletaViewCLI;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
+import com.example.skatingplan.eccezioni.ExitException;
 import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.model.enumerazioni.Role;
@@ -41,8 +42,10 @@ public class HomeAtletaControllerCLI {
                         default -> throw new InputIllegaleException("Scelta non valida, riprovare");
 
                     }
-                }catch (InputIllegaleException e) {
+                }catch (InputIllegaleException  e) {
                     HomeAtletaViewCLI.mostraErrore(e.getMessage());
+                }catch(ExitException e){
+                    HomeAtletaViewCLI.mostraMessaggio(e.getMessage());
                 }
             }
 

@@ -4,6 +4,7 @@ package com.example.skatingplan.controllergcli;
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.controllergcli.viewcli.HomeAtletaViewCLI;
 import com.example.skatingplan.controllergcli.viewcli.PrenotaAtletaViewCLI;
+import com.example.skatingplan.eccezioni.ExitException;
 import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.InfoPagamentoBean;
@@ -22,7 +23,7 @@ public class PrenotaAtletaControllerCLI {
         //non deve essere mai istanziata
     }
 
-    public static void start() {
+    public static void start() throws ExitException{
 
         PrenotaController prenotaController = new PrenotaController();
 
@@ -44,7 +45,7 @@ public class PrenotaAtletaControllerCLI {
         }
     }
 
-    private static LocalDate acquisisciData(){
+    private static LocalDate acquisisciData() throws ExitException {
         LocalDate data = null;
         while (data == null) {
             try {
@@ -56,7 +57,7 @@ public class PrenotaAtletaControllerCLI {
         return data;
     }
 
-    private static LocalTime acquisisciOraInizio(){
+    private static LocalTime acquisisciOraInizio() throws ExitException {
         LocalTime oraInizio = null;
         while (oraInizio == null) {
             try {
@@ -68,7 +69,7 @@ public class PrenotaAtletaControllerCLI {
         return oraInizio;
     }
 
-    private static Regione acquisisciRegione(){
+    private static Regione acquisisciRegione() throws ExitException {
         Regione regione = null;
         while (regione == null) {
             try {
@@ -80,11 +81,13 @@ public class PrenotaAtletaControllerCLI {
         return regione;
     }
 
-    private static LezioneBean scegliLezione(PrenotaController prenotaController) throws InputIllegaleException {
+    private static LezioneBean scegliLezione(PrenotaController prenotaController) throws InputIllegaleException, ExitException {
         boolean continua = true;
         LezioneBean lezioneScelta = null;
 
         while (continua) {
+
+            PrenotaAtletaViewCLI.mostraMessaggio("Inserire i filtri (exit per uscire)");
 
             //richiedo i filtri all'utente
             LocalDate data = acquisisciData();
