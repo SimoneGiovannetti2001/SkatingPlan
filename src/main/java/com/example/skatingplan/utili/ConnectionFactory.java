@@ -19,8 +19,7 @@ public class ConnectionFactory {
         //non deve essere istanziata
     }
 
-    public static void init()
-            throws SQLException, IOException, DatabaseNonRaggiungibileException {
+    public static void init() throws SQLException, IOException, DatabaseNonRaggiungibileException {
 
         try (InputStream input = new FileInputStream("src/main/jdbc/db.properties")) {
 
@@ -56,7 +55,7 @@ public class ConnectionFactory {
 
             connection.close();
 
-            connection = DriverManager.getConnection(connectionUrl, user,pass);
+            connection = DriverManager.getConnection(connectionUrl, user, pass);
 
         } catch (IOException | SQLException e) {
             throw new DatabaseNonRaggiungibileException("Errore di comunicazione con il database, riprovare in seguito", e);

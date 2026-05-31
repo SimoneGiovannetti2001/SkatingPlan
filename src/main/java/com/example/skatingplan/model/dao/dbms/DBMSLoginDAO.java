@@ -21,10 +21,10 @@ public class DBMSLoginDAO implements LoginDAO {
             cs.setString(2, passw);
 
             ResultSet rs = cs.executeQuery();
-
             if (rs.next()) {
                 utente = new Utente(rs.getString(1), rs.getString(2), rs.getString(3), Role.fromInt(rs.getInt(4)), rs.getInt(5), rs.getString(6));
             }
+
             if(utente == null){
                 throw new CredenzialiErrateException("Utente o password errati");
             }else{

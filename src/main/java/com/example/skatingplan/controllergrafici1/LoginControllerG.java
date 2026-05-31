@@ -52,12 +52,12 @@ public class LoginControllerG {
                 throw new IllegalArgumentException("Inserire password");
             }
             LoginController loginController = new LoginController();
-            UtenteBean result = loginController.autenticazione(loginBean);
-            if(result.getRuolo() == Role.ATLETA) {
+            UtenteBean utenteBean = loginController.autenticazione(loginBean);
+            if(utenteBean.getRuolo() == Role.ATLETA) {
                 FxmlLoader.setPage("views1/homeatleta1-view");
-            }else if(result.getRuolo() == Role.ALLENATORE) {
+            }else if(utenteBean.getRuolo() == Role.ALLENATORE) {
                 FxmlLoader.setPage("views1/homeallenatore1-view");
-            }else if(result.getRuolo() == Role.MANAGER) {
+            }else if(utenteBean.getRuolo() == Role.MANAGER) {
                 FxmlLoader.setPage("views1/homemanager1-view");
             }
 
