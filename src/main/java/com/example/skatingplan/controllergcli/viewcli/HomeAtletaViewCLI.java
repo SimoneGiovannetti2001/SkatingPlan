@@ -1,5 +1,7 @@
 package com.example.skatingplan.controllergcli.viewcli;
 
+import com.example.skatingplan.eccezioni.InputIllegaleException;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,7 +17,7 @@ public class HomeAtletaViewCLI {
         //non deve essere istanziata
     }
 
-    public static int mostraOperazioni() throws IOException {
+    public static int mostraOperazioni() throws IOException, InputIllegaleException {
 
         while (true) {
             out.println("Quale operazione vuoi eseguire?");
@@ -31,7 +33,7 @@ public class HomeAtletaViewCLI {
             try {
                 return Integer.parseInt(input);
             }catch(NumberFormatException e){
-                throw new IllegalArgumentException("Input non valido, riprovare", e);
+                throw new InputIllegaleException("Input non valido, riprovare", e);
             }
         }
     }

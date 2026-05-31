@@ -1,5 +1,6 @@
 package com.example.skatingplan.controllergcli.viewcli;
 
+import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.LezioneBean;
 import com.example.skatingplan.model.bean.LezioniDisponibiliBean;
 import com.example.skatingplan.model.enumerazioni.Regione;
@@ -26,36 +27,36 @@ public class PrenotaAtletaViewCLI {
         //non deve essere istanziata
     }
 
-    public static LocalDate chiediData() {
+    public static LocalDate chiediData() throws InputIllegaleException {
         out.println("Inserire la data (aaaa-mm-gg):");
         try {
             return LocalDate.parse(reader.readLine());
         }catch(DateTimeParseException e) {
-            throw new IllegalArgumentException("Data non valida (formato aaaa-mm-gg", e);
+            throw new InputIllegaleException("Data non valida (formato aaaa-mm-gg", e);
         }catch (IOException e) {
-            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
+            throw new InputIllegaleException("Impossibile recuperare input, riprovare",e);
         }
     }
 
-    public static LocalTime chiediOraInizio() {
+    public static LocalTime chiediOraInizio() throws InputIllegaleException {
         out.println("Inserire l'ora di inizio (hh:mm): ");
         try {
             return LocalTime.parse(reader.readLine());
         }catch(DateTimeParseException e) {
-            throw new IllegalArgumentException("Orario non valido (formato hh:mm)", e);
+            throw new InputIllegaleException("Orario non valido (formato hh:mm)", e);
         }catch (IOException e) {
-            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
+            throw new InputIllegaleException("Impossibile recuperare input, riprovare",e);
         }
     }
 
-    public static Regione chiediRegione() {
+    public static Regione chiediRegione() throws InputIllegaleException {
         out.println("Inserire la regione");
         try {
             return Regione.valueOf(reader.readLine().toUpperCase());
         } catch (IllegalArgumentException e){
-            throw new IllegalArgumentException("Regione non valida", e);
+            throw new InputIllegaleException("Regione non valida", e);
         }catch (IOException e) {
-            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
+            throw new InputIllegaleException("Impossibile recuperare input, riprovare",e);
         }
     }
 
@@ -74,12 +75,12 @@ public class PrenotaAtletaViewCLI {
         }
     }
 
-    public static int scegliLezione(){
+    public static int scegliLezione() throws InputIllegaleException {
         out.println("Quale lezione si vuole selezionare?");
         try{
             return Integer.parseInt(reader.readLine());
         }catch (IOException e){
-            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
+            throw new InputIllegaleException("Impossibile recuperare input, riprovare",e);
         }
 
     }
@@ -101,21 +102,21 @@ public class PrenotaAtletaViewCLI {
         out.println(delimitatore);
     }
 
-    public static String chiediConferma(){
+    public static String chiediConferma() throws InputIllegaleException {
         out.println("Confermi la scelta? (si/no)");
         try {
             return reader.readLine().toLowerCase();
         } catch (IOException e) {
-            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
+            throw new InputIllegaleException("Impossibile recuperare input, riprovare",e);
         }
     }
 
-    public static String chiediSeCambiareFiltri(){
+    public static String chiediSeCambiareFiltri() throws InputIllegaleException {
         out.println("vuoi cambiare i filtri? (si/no)");
         try {
             return reader.readLine().toLowerCase();
         } catch (IOException e) {
-            throw new IllegalArgumentException("Impossibile recuperare input, riprovare",e);
+            throw new InputIllegaleException("Impossibile recuperare input, riprovare",e);
         }
     }
 

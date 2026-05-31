@@ -2,6 +2,7 @@ package com.example.skatingplan.controllergcli;
 
 import com.example.skatingplan.controllergcli.viewcli.HomeAtletaViewCLI;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
+import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.model.enumerazioni.Role;
 import com.example.skatingplan.utili.ConnectionFactory;
@@ -15,7 +16,7 @@ public class HomeAtletaControllerCLI {
         //non deve essere istanziata
     }
 
-    public static void start(){
+    public static void start()  {
 
         boolean continua = true;
 
@@ -23,7 +24,12 @@ public class HomeAtletaControllerCLI {
                 try {
                     int choice;
 
-                    choice = HomeAtletaViewCLI.mostraOperazioni();
+                    try {
+                        choice = HomeAtletaViewCLI.mostraOperazioni();
+                    }catch (IOException e) {
+                        throw new InputIllegaleException("Input non valido, riprovare", e);
+                    }
+
 
                     switch (choice) {
                         case 1 -> PrenotaAtletaControllerCLI.start();
@@ -32,13 +38,10 @@ public class HomeAtletaControllerCLI {
                             logout();
                             continua = false;
                         }
-                        default -> throw new IllegalArgumentException("Scelta non valida, riprovare");
+                        default -> throw new InputIllegaleException("Scelta non valida, riprovare");
 
                     }
-                }catch (IOException e) {
-                    throw new IllegalArgumentException("Errore: input non disponibile, riprovare", e);
-
-                }catch (IllegalArgumentException e) {
+                }catch (InputIllegaleException e) {
                     HomeAtletaViewCLI.mostraErrore(e.getMessage());
                 }
             }

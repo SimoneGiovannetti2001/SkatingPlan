@@ -4,6 +4,7 @@ import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.controllergcli.viewcli.PagaViewCLI;
 
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
+import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.InfoPagamentoBean;
 import com.example.skatingplan.model.enumerazioni.StatoPagamento;
 import com.example.skatingplan.model.enumerazioni.TipoPagamento;
@@ -30,7 +31,7 @@ public class PagaControllerCLI {
             //creo il bean da passare
             prenotaController.paga(infoPagamentoBean);
 
-        }catch (IllegalArgumentException | DatabaseNonRaggiungibileException e){
+        }catch (InputIllegaleException | DatabaseNonRaggiungibileException e){
             PagaViewCLI.mostraErrore(e.getMessage());
         }
     }

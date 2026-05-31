@@ -48,9 +48,10 @@ public class HomeManagerControllerG {
 
 
     public void onGestisciEventoClick() {
-
+        GestoreMessaggiGUI.mostraErrore(erroriLabel, "Funzionalità non disponibile al momento");
     }
 
     public void onInserisciEventoClick() {
+        GestoreMessaggiGUI.mostraErrore(erroriLabel, "Funzionalità non disponibile al momento");
     }
 }

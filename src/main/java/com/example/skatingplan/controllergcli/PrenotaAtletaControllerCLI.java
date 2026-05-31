@@ -4,6 +4,7 @@ package com.example.skatingplan.controllergcli;
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.controllergcli.viewcli.HomeAtletaViewCLI;
 import com.example.skatingplan.controllergcli.viewcli.PrenotaAtletaViewCLI;
+import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.InfoPagamentoBean;
 import com.example.skatingplan.model.bean.LezioneBean;
@@ -38,7 +39,7 @@ public class PrenotaAtletaControllerCLI {
             //chiamo il controller del pagamento
             PagaControllerCLI.start(prenotaController, infoPagamentoBean);
 
-        }catch (IllegalArgumentException e) {
+        }catch (InputIllegaleException e) {
             HomeAtletaViewCLI.mostraErrore(e.getMessage());
         }
     }
@@ -48,7 +49,7 @@ public class PrenotaAtletaControllerCLI {
         while (data == null) {
             try {
                 data = PrenotaAtletaViewCLI.chiediData();
-            } catch (IllegalArgumentException e) {
+            } catch (InputIllegaleException e) {
                 PrenotaAtletaViewCLI.mostraErrore(e.getMessage());
             }
         }
@@ -60,7 +61,7 @@ public class PrenotaAtletaControllerCLI {
         while (oraInizio == null) {
             try {
                 oraInizio = PrenotaAtletaViewCLI.chiediOraInizio();
-            } catch (IllegalArgumentException e) {
+            } catch (InputIllegaleException e) {
                 PrenotaAtletaViewCLI.mostraErrore(e.getMessage());
             }
         }
@@ -72,14 +73,14 @@ public class PrenotaAtletaControllerCLI {
         while (regione == null) {
             try {
                 regione = PrenotaAtletaViewCLI.chiediRegione();
-            } catch (IllegalArgumentException e) {
+            } catch (InputIllegaleException e) {
                 PrenotaAtletaViewCLI.mostraErrore(e.getMessage());
             }
         }
         return regione;
     }
 
-    private static LezioneBean scegliLezione(PrenotaController prenotaController){
+    private static LezioneBean scegliLezione(PrenotaController prenotaController) throws InputIllegaleException {
         boolean continua = true;
         LezioneBean lezioneScelta = null;
 
@@ -114,7 +115,7 @@ public class PrenotaAtletaControllerCLI {
         return lezioneScelta;
     }
 
-    private static LezioneBean confermaSceltaLezione(LezioniDisponibiliBean lezioniDisponibili){
+    private static LezioneBean confermaSceltaLezione(LezioniDisponibiliBean lezioniDisponibili) throws InputIllegaleException {
         LezioneBean lezioneScelta = null;
         boolean continua = true;
         String conferma ;
