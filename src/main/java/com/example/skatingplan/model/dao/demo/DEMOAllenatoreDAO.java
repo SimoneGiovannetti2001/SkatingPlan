@@ -13,11 +13,11 @@ public class DEMOAllenatoreDAO implements AllenatoreDAO {
     private static final List<Allenatore> allenatori = new ArrayList<>();
 
     static {
-        allenatori.add(new Allenatore(new Utente("Francesco", "Filippi", "fra.filippi@gmail.com", Role.ALLENATORE, 1,"francesco"), Qualifica.FISR2, 35));
-        allenatori.add(new Allenatore(new Utente("Damiano", "Foglietta", "dam.foglietta@gmail.com", Role.ALLENATORE, 2, "damiano"), Qualifica.FISR1, 40));
-        allenatori.add(new Allenatore(new Utente("Daniele", "Giovannini", "dan.giovannini@gmail.com", Role.ALLENATORE, 3, "daniele"), Qualifica.FISR2, 35));
-        allenatori.add(new Allenatore(new Utente("Filippo", "Rizzo", "fil.rizzo@gmail.com", Role.ALLENATORE, 4, "filippo"), Qualifica.FISR3,50));
-        allenatori.add(new Allenatore(new Utente("Marcus", "Pagliari", "mar.pagliati@gmail.com", Role.ALLENATORE, 5, "marcus"), Qualifica.FISR3,60));
+        allenatori.add(new Allenatore(new Utente("Francesco", "Filippi", "fra.filippi@gmail.com", Role.ALLENATORE, 5,"francesco"), Qualifica.FISR2, 35));
+        allenatori.add(new Allenatore(new Utente("Damiano", "Foglietta", "dam.foglietta@gmail.com", Role.ALLENATORE, 6, "damiano"), Qualifica.FISR1, 40));
+        allenatori.add(new Allenatore(new Utente("Daniele", "Giovannini", "dan.giovannini@gmail.com", Role.ALLENATORE, 7, "daniele"), Qualifica.FISR2, 35));
+        allenatori.add(new Allenatore(new Utente("Filippo", "Rizzo", "fil.rizzo@gmail.com", Role.ALLENATORE, 8, "filippo"), Qualifica.FISR3,50));
+        allenatori.add(new Allenatore(new Utente("Marcus", "Pagliari", "mar.pagliati@gmail.com", Role.ALLENATORE, 9, "marcus"), Qualifica.FISR3,60));
     }
 
     public Allenatore recuperaProfiloAllenatore(int idUtente) {
