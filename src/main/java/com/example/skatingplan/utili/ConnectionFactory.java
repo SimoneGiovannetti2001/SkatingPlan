@@ -57,6 +57,7 @@ public class ConnectionFactory {
 
             connection = DriverManager.getConnection(connectionUrl, user, pass);
 
+
         } catch (IOException | SQLException e) {
             throw new DatabaseNonRaggiungibileException("Errore di comunicazione con il database, riprovare in seguito", e);
         }

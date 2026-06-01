@@ -25,12 +25,7 @@ public class HomeAtletaControllerCLI {
                 try {
                     int choice;
 
-                    try {
-                        choice = HomeAtletaViewCLI.mostraOperazioni();
-                    }catch (IOException e) {
-                        throw new InputIllegaleException("Input non valido, riprovare", e);
-                    }
-
+                    choice = selezionascelta();
 
                     switch (choice) {
                         case 1 -> PrenotaAtletaControllerCLI.start();
@@ -49,6 +44,14 @@ public class HomeAtletaControllerCLI {
                 }
             }
 
+    }
+
+    private static int selezionascelta() throws InputIllegaleException {
+        try {
+            return HomeAtletaViewCLI.mostraOperazioni();
+        }catch (IOException e) {
+            throw new InputIllegaleException("Input non valido, riprovare", e);
+        }
     }
 
     private static void logout(){
