@@ -33,15 +33,7 @@ public class LoginControllerCLI {
                     default -> throw new CredenzialiErrateException("Unexpected value: " + utenteCorrente.getRuolo());
                 }
 
-                try {
-                    //resetto la connessione per fare il login
-                    if(FactoryConfig.getDaoFactory() instanceof DBMSFactory){
-                        ConnectionFactory.changeRole(Role.LOGIN);
-                    }
-                }catch (DatabaseNonRaggiungibileException e){
-                    LoginViewCLI.mostraErrore(e.getMessage());
-                }
-
+                resetUtente();
 
                 continua = LoginViewCLI.chiediSeRiloggare();
 
@@ -66,4 +58,17 @@ public class LoginControllerCLI {
             throw new InputIllegaleException("Inserire password");
         }
     }
+
+    private static void resetUtente(){
+        try {
+            //resetto la connessione per fare il login
+            if(FactoryConfig.getDaoFactory() instanceof DBMSFactory){
+                ConnectionFactory.changeRole(Role.LOGIN);
+            }
+        }catch (DatabaseNonRaggiungibileException e){
+            LoginViewCLI.mostraErrore(e.getMessage());
+        }
+
+    }
+
 }
