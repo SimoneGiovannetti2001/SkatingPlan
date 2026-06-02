@@ -1,6 +1,7 @@
 package com.example.skatingplan.model.dao.dbms;
 
 import com.example.skatingplan.model.*;
+import com.example.skatingplan.model.bean.ListePrenotazioniBean;
 import com.example.skatingplan.model.dao.LezioniDAO;
 import com.example.skatingplan.model.enumerazioni.Qualifica;
 import com.example.skatingplan.model.enumerazioni.Regione;
@@ -86,6 +87,17 @@ public class DBMSLezioneDAO implements LezioniDAO {
             e.printStackTrace();
         }
     }
+
+    @Override
+    public ListePrenotazioniBean prendiLezioniRichieste(Utente utente) {
+        return null;
+    }
+
+    @Override
+    public ListePrenotazioniBean prendiLezioniConfermate(Utente utente) {
+        return null;
+    }
+
 
     private Connection getConnection(){
         return ConnectionFactory.getConnection();

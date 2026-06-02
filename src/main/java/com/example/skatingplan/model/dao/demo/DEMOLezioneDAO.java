@@ -2,6 +2,7 @@ package com.example.skatingplan.model.dao.demo;
 
 
 import com.example.skatingplan.model.*;
+import com.example.skatingplan.model.bean.ListePrenotazioniBean;
 import com.example.skatingplan.model.dao.LezioniDAO;
 import com.example.skatingplan.model.enumerazioni.*;
 
@@ -77,7 +78,15 @@ public class DEMOLezioneDAO implements LezioniDAO {
         }
     }
 
+    @Override
+    public ListePrenotazioniBean prendiLezioniRichieste(Utente utente) {
+        return null;
+    }
 
+    @Override
+    public ListePrenotazioniBean prendiLezioniConfermate(Utente utente) {
+        return null;
+    }
 
 
 }

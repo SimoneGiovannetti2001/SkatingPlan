@@ -15,10 +15,11 @@ public class GestisciPrenotazioniController {
         List<Prenotazione> prenotazioniConfermate = new ArrayList<Prenotazione>();
         List<Prenotazione> prenotazioniRichieste = new ArrayList<Prenotazione>();
 
-
         //prendo la factory delle dao
 
-        //creo la dao specifica
+        //creo la dao per le prenotazioni confermate
+
+        //creo la dao per le prenotazioni richieste
 
         //eseguo l'operazione per prendere le prenotazioni su db
 
