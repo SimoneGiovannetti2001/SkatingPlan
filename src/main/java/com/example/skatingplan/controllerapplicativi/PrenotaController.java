@@ -17,7 +17,7 @@ import java.util.List;
 
 public class PrenotaController {
 
-    public LezioniDisponibiliBean selezionaLezioni(FiltriBean filtriBean) {
+    public LezioniBean selezionaLezioni(FiltriBean filtriBean) {
         LezioniDAO lezioniDAO = FactoryConfig.getDaoFactory().creaLezioniDAO();
         List<Lezione> lezioni = lezioniDAO.selezionaLezioni(filtriBean.getData(), filtriBean.getOraInizio(), filtriBean.getRegione().toString());
         List<LezioneBean> lezioneBeanList = new ArrayList<>();
@@ -25,7 +25,7 @@ public class PrenotaController {
         for (Lezione lezione : lezioni) {
             lezioneBeanList.add(new LezioneBean(lezione));
         }
-        return new LezioniDisponibiliBean(lezioneBeanList);
+        return new LezioniBean(lezioneBeanList);
     }
 
 

@@ -5,7 +5,7 @@ import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.LezioneBean;
-import com.example.skatingplan.model.bean.LezioniDisponibiliBean;
+import com.example.skatingplan.model.bean.LezioniBean;
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.model.enumerazioni.Regione;
 import com.example.skatingplan.model.enumerazioni.Role;
@@ -87,12 +87,12 @@ public class PrenotaAtletaControllerG {
 
         FiltriBean filtriBean = new FiltriBean(data.getValue(), oraComboBox.getValue(), regioneComboBox.getValue());
         PrenotaController prenotaController = new PrenotaController();
-        LezioniDisponibiliBean lezioniDisponibiliBean = prenotaController.selezionaLezioni(filtriBean);
-        if(lezioniDisponibiliBean.lunghezza() != 0) {
+        LezioniBean lezioniBean = prenotaController.selezionaLezioni(filtriBean);
+        if(lezioniBean.lunghezza() != 0) {
             vBoxLezioniDisponibili.getChildren().clear();
 
-            for (int i = 0; i < lezioniDisponibiliBean.lunghezza(); i++) {
-                vBoxLezioniDisponibili.getChildren().add(creaRiga(lezioniDisponibiliBean.getLezione(i)));
+            for (int i = 0; i < lezioniBean.lunghezza(); i++) {
+                vBoxLezioniDisponibili.getChildren().add(creaRiga(lezioniBean.getLezione(i)));
             }
         }else{
             GestoreMessaggiGUI.mostraErrore(erroriLabel,"Lezioni non disponibili, riprovare");

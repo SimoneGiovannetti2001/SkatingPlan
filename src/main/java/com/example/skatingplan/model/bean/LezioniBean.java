@@ -2,10 +2,10 @@ package com.example.skatingplan.model.bean;
 
 import java.util.List;
 
-public class LezioniDisponibiliBean {
+public class LezioniBean {
     private final List<LezioneBean> listaLezioniDisponibili;
 
-    public LezioniDisponibiliBean(List<LezioneBean> listaLezioniDisponibili) {
+    public LezioniBean(List<LezioneBean> listaLezioniDisponibili) {
         this.listaLezioniDisponibili = listaLezioniDisponibili;
     }
     public LezioneBean getLezione(int i){

@@ -3,7 +3,7 @@ package Junit;
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.bean.FiltriBean;
-import com.example.skatingplan.model.bean.LezioniDisponibiliBean;
+import com.example.skatingplan.model.bean.LezioniBean;
 import com.example.skatingplan.model.dao.CreatoreFactory;
 import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
 import com.example.skatingplan.model.enumerazioni.Regione;
@@ -37,9 +37,9 @@ class PrenotaControllerTest {
         ConnectionFactory.init();
         ConnectionFactory.changeRole(Role.ATLETA);
         //eseguo la selezione
-        LezioniDisponibiliBean lezioniDisponibiliBean = prenotaController.selezionaLezioni(filtri);
+        LezioniBean lezioniBean = prenotaController.selezionaLezioni(filtri);
         //verifico che non venga restituito null
-        assertNotNull(lezioniDisponibiliBean);
+        assertNotNull(lezioniBean);
 
     }
 
@@ -57,9 +57,9 @@ class PrenotaControllerTest {
         ConnectionFactory.init();
         ConnectionFactory.changeRole(Role.ATLETA);
         //eseguo la selezione
-        LezioniDisponibiliBean lezioniDisponibiliBean = prenotaController.selezionaLezioni(filtri);
+        LezioniBean lezioniBean = prenotaController.selezionaLezioni(filtri);
         //verifico che venga restituita una lista vuota
-       assertEquals(0, lezioniDisponibiliBean.lunghezza());
+       assertEquals(0, lezioniBean.lunghezza());
 
     }
 

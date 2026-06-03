@@ -3,7 +3,7 @@ package com.example.skatingplan.controllergcli.viewcli;
 import com.example.skatingplan.eccezioni.ExitException;
 import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.LezioneBean;
-import com.example.skatingplan.model.bean.LezioniDisponibiliBean;
+import com.example.skatingplan.model.bean.LezioniBean;
 import com.example.skatingplan.model.enumerazioni.Regione;
 
 import java.io.BufferedReader;
@@ -77,7 +77,7 @@ public class PrenotaAtletaViewCLI {
         }
     }
 
-    public static void mostraLezioni(LezioniDisponibiliBean lezioni){
+    public static void mostraLezioni(LezioniBean lezioni){
         for (int i = 1; i <= lezioni.lunghezza(); i++) {
             LezioneBean lezioneBean = lezioni.getLezione(i-1);
             String nomeAllenatore = lezioneBean.getAllenatore().getNome() + " " + lezioneBean.getAllenatore().getCognome();

@@ -9,7 +9,7 @@ import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.InfoPagamentoBean;
 import com.example.skatingplan.model.bean.LezioneBean;
-import com.example.skatingplan.model.bean.LezioniDisponibiliBean;
+import com.example.skatingplan.model.bean.LezioniBean;
 import com.example.skatingplan.model.enumerazioni.Regione;
 
 
@@ -98,15 +98,15 @@ public class PrenotaAtletaControllerCLI {
             FiltriBean filtriBean = new FiltriBean(data, oraInizio, regione);
 
             //richiedo le lezioni al controller applicativo e le mostro all'utente
-            LezioniDisponibiliBean lezioniDisponibiliBean = prenotaController.selezionaLezioni(filtriBean);
+            LezioniBean lezioniBean = prenotaController.selezionaLezioni(filtriBean);
 
 
             //verifico che esistano lezioni disponibili
-            if(lezioniDisponibiliBean.lunghezza() == 0){
+            if(lezioniBean.lunghezza() == 0){
                 PrenotaAtletaViewCLI.mostraMessaggio("Lezioni non disponibili per i seguenti filtri, cambiare i filtri e riprovare");
             }else{
                 //richiedo all'utente quale abbia scelto
-                lezioneScelta = confermaSceltaLezione(lezioniDisponibiliBean);
+                lezioneScelta = confermaSceltaLezione(lezioniBean);
 
                 if(lezioneScelta != null){
                     //essendo stata scelta esco dal ciclo
@@ -118,7 +118,7 @@ public class PrenotaAtletaControllerCLI {
         return lezioneScelta;
     }
 
-    private static LezioneBean confermaSceltaLezione(LezioniDisponibiliBean lezioniDisponibili) throws InputIllegaleException {
+    private static LezioneBean confermaSceltaLezione(LezioniBean lezioniDisponibili) throws InputIllegaleException {
         LezioneBean lezioneScelta = null;
         boolean continua = true;
         String conferma ;
