@@ -3,8 +3,7 @@ package com.example.skatingplan.controllergrafici1;
 import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.controllerapplicativi.GestisciRichiestePrenotazioniController;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
-import com.example.skatingplan.model.bean.LezioneBean;
-import com.example.skatingplan.model.bean.LezioniBean;
+import com.example.skatingplan.model.bean.*;
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.model.enumerazioni.Role;
 import com.example.skatingplan.utili.ConnectionFactory;
@@ -46,14 +45,17 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
     GestisciRichiestePrenotazioniController gestisciRichiestePrenotazioniController = new GestisciRichiestePrenotazioniController();
 
     public void initialize(){
-        LezioniBean lezioniRichieste;
-        lezioniRichieste = gestisciRichiestePrenotazioniController.selezionaPrenotazioniRichieste();
 
-        if(lezioniRichieste.lunghezza() != 0) {
+        //recupero le lezioni richieste
+        PrenotazioniBean prenotazioniRichieste = null;
+        prenotazioniRichieste = gestisciRichiestePrenotazioniController.selezionaPrenotazioniRichieste();
+
+        //se diverso da 0 le mostro a schermo
+        if(prenotazioniRichieste.lunghezza() != 0) {
             vBoxLezioniRichieste.getChildren().clear();
 
-            for (int i = 0; i < lezioniRichieste.lunghezza(); i++) {
-                vBoxLezioniRichieste.getChildren().add(creaRiga(lezioniRichieste.getLezione(i)));
+            for (int i = 0; i < prenotazioniRichieste.lunghezza(); i++) {
+                vBoxLezioniRichieste.getChildren().add(creaRiga(prenotazioniRichieste.getPrenotazione(i)));
             }
 
         }else{
@@ -62,14 +64,14 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
 
     }
 
-    private Parent creaRiga(LezioneBean lezioneBean){
+    private Parent creaRiga(PrenotazioneBean prenotazione){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/skatingplan/views1/rigaPrenotazioneRichiesta.fxml"));
             Parent node = loader.load();
 
             RigaPrenotazioneRichiestaControllerG rigaPrenotazioneRichiestaControllerG = loader.getController();
 
-            rigaPrenotazioneRichiestaControllerG.impostaDati(lezioneBean);
+            rigaPrenotazioneRichiestaControllerG.impostaDati(prenotazione);
 
             return node;
 

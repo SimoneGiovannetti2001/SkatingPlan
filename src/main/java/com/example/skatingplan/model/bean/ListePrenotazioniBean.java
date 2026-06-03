@@ -1,31 +1,30 @@
 package com.example.skatingplan.model.bean;
 
-import com.example.skatingplan.model.Prenotazione;
 
 import java.util.List;
 
 public class ListePrenotazioniBean {
 
-    private List<Prenotazione> prenotazioniRichieste;
-    private List<Prenotazione> prenotazioniConfermate;
+    private List<PrenotazioneBean> prenotazioniRichieste;
+    private List<PrenotazioneBean> prenotazioniConfermate;
 
 
-    public ListePrenotazioniBean(List<Prenotazione> prenotazioniConfermate, List<Prenotazione> prenotazioniRichieste) {
+    public ListePrenotazioniBean(List<PrenotazioneBean> prenotazioniConfermate, List<PrenotazioneBean> prenotazioniRichieste) {
           this.prenotazioniConfermate = prenotazioniConfermate;
           this.prenotazioniRichieste = prenotazioniRichieste;
     }
 
-    public List<Prenotazione> getPrenotazioniConfermate() {
+    public List<PrenotazioneBean> getPrenotazioniConfermate() {
         return prenotazioniConfermate;
     }
-    public void setPrenotazioniConfermate(List<Prenotazione> prenotazioniConfermate) {
+    public void setPrenotazioniConfermate(List<PrenotazioneBean> prenotazioniConfermate) {
         this.prenotazioniConfermate = prenotazioniConfermate;
     }
 
-    public List<Prenotazione> getPrenotazioniRichieste() {
+    public List<PrenotazioneBean> getPrenotazioniRichieste() {
         return prenotazioniRichieste;
     }
-    public void setPrenotazioniRichieste(List<Prenotazione> prenotazioniRichieste) {
+    public void setPrenotazioniRichieste(List<PrenotazioneBean> prenotazioniRichieste) {
         this.prenotazioniRichieste = prenotazioniRichieste;
     }
 }

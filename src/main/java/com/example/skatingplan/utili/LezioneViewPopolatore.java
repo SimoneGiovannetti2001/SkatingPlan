@@ -31,4 +31,5 @@ public class LezioneViewPopolatore {
         costo.setText(String.valueOf(lezioneBean.getCosto())+ ".00€");
     }
 
+
 }

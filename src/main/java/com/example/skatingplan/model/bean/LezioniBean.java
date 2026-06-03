@@ -3,21 +3,18 @@ package com.example.skatingplan.model.bean;
 import java.util.List;
 
 public class LezioniBean {
-    private final List<LezioneBean> listaLezioniDisponibili;
+
+    private final List<LezioneBean> listaLezioni;
 
     public LezioniBean(List<LezioneBean> listaLezioniDisponibili) {
-        this.listaLezioniDisponibili = listaLezioniDisponibili;
+        this.listaLezioni = listaLezioniDisponibili;
     }
+
     public LezioneBean getLezione(int i){
-        return this.listaLezioniDisponibili.get(i);
-     }
+        return this.listaLezioni.get(i);
+    }
 
-
-     public int lunghezza(){
-        int lunghezza = 0;
-        for (int i = 0; i < listaLezioniDisponibili.size(); i++) {
-            lunghezza++;
-        }
-        return lunghezza;
-     }
+    public int lunghezza(){
+        return listaLezioni.size();
+    }
 }

@@ -1,6 +1,6 @@
 package com.example.skatingplan.controllergrafici1;
 
-import com.example.skatingplan.model.bean.LezioneBean;
+import com.example.skatingplan.model.bean.PrenotazioneBean;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -38,8 +38,13 @@ public class RigaPrenotazioneRichiestaControllerG {
     @FXML
     public Button annullaRichiesta;
 
-    public void impostaDati(LezioneBean lezioneBean){
-        //da implementare
+    private PrenotazioneBean prenotazione;
+
+    public void impostaDati(PrenotazioneBean prenotazione){
+        this.prenotazione = prenotazione;
+//        LezioneViewPopolatore.popolaInfoTempo(prenotazione, oraInizio, durata, data);
+//        LezioneViewPopolatore.popolaInfoLuogo(prenotazione, pista, indirizzo, regione);
+//
     }
 
     public void onConfermaRichiestaClick() {
