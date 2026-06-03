@@ -54,11 +54,11 @@ public class LoginControllerG {
             LoginController loginController = new LoginController();
             UtenteBean utenteBean = loginController.autenticazione(loginBean);
             if(utenteBean.getRuolo() == Role.ATLETA) {
-                FxmlLoader.setPage("views1/homeatleta1-view");
+                FxmlLoader.setPage("views1/homeAtleta1-view");
             }else if(utenteBean.getRuolo() == Role.ALLENATORE) {
-                FxmlLoader.setPage("views1/homeallenatore1-view");
+                FxmlLoader.setPage("views1/homeAllenatore1-view");
             }else if(utenteBean.getRuolo() == Role.MANAGER) {
-                FxmlLoader.setPage("views1/homemanager1-view");
+                FxmlLoader.setPage("views1/homeManager1-view");
             }
 
         }catch(CredenzialiErrateException | IllegalArgumentException | DatabaseNonRaggiungibileException | FSOperazioneExcpetion | FSNonEsistenteException e){

@@ -28,7 +28,7 @@ public class PagaControllerG {
 
     @FXML
     private void onHomeClick(){
-        FxmlLoader.setPage("views1/homeatleta1-view");
+        FxmlLoader.setPage("views1/homeAtleta1-view");
     }
 
     public void onPagaAllaLezione() {
@@ -48,7 +48,7 @@ public class PagaControllerG {
         try {
             PrenotaController prenotaController = new PrenotaController();
             prenotaController.paga(infoPagamentoBean);
-            FxmlLoader.setPage("views1/homeatleta1-view");
+            FxmlLoader.setPage("views1/homeAtleta1-view");
         }catch (DatabaseNonRaggiungibileException e){
             GestoreMessaggiGUI.mostraErrore(erroriLabel, e.getMessage());
         }

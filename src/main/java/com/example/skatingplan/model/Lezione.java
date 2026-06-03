@@ -7,6 +7,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class Lezione {
+
     private int id;
     private PistaDiPattinaggio pistaDiPattinaggio;
     private Allenatore allenatore;

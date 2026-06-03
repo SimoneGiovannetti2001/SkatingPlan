@@ -31,7 +31,7 @@ public class HomeManagerControllerG {
 
     @FXML
     private void onHomeClick(){
-        FxmlLoader.setPage("views1/homemanager1-view");
+        FxmlLoader.setPage("views1/homeManager1-view");
     }
 
     public void onLogoutClick() {

@@ -38,17 +38,17 @@ public class GestionePrenotazioniAtletaControllerG {
 
     @FXML
     private void onHomeClick(){
-        FxmlLoader.setPage("views1/homeatleta1-view");
+        FxmlLoader.setPage("views1/homeAtleta1-view");
     }
 
     @FXML
     private void onPrenotaLezioneClick(){
-        FxmlLoader.setPage("views1/prenotaatleta1-view");
+        FxmlLoader.setPage("views1/prenotaAtleta1-view");
     }
 
     @FXML
     private void onGestisciPrenotazioniClick(){
-        FxmlLoader.setPage("views1/gestisciprenotazioniatleta1-view");
+        FxmlLoader.setPage("views1/gestisciPrenotazioniAtleta1-view");
     }
 
     @FXML

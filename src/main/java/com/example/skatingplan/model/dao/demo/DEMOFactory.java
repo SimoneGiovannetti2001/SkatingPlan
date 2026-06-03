@@ -7,6 +7,9 @@ import com.example.skatingplan.model.dao.dbms.DBMSAllenatoreDAO;
 public class DEMOFactory extends DAOFactory {
 
     private final LezioniDAO lezioniDAO = new DEMOLezioneDAO();
+
+    private final PagamentiDAO pagamentiDAO = new DEMOPagamentiDAO();
+
     @Override
     public LoginDAO creaLoginDAO() {
         return new DEMOLoginDAO();
@@ -14,7 +17,7 @@ public class DEMOFactory extends DAOFactory {
 
     @Override
     public PagamentiDAO creaPagamentiDAO() {
-        return new DEMOPagamentiDAO();
+        return pagamentiDAO;
     }
 
     @Override

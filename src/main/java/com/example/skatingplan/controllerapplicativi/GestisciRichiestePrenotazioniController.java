@@ -1,9 +1,9 @@
 package com.example.skatingplan.controllerapplicativi;
 
-import com.example.skatingplan.model.Lezione;
+
 import com.example.skatingplan.model.bean.LezioniBean;
 
-import java.util.List;
+
 
 public class GestisciRichiestePrenotazioniController {
 
@@ -15,7 +15,7 @@ public class GestisciRichiestePrenotazioniController {
         //serve per rifiutarla
     }
 
-    public LezioniBean selezionaPrenotazioniRichiesta(){
+    public LezioniBean selezionaPrenotazioniRichieste(){
         //da implementare
         return null;
     }

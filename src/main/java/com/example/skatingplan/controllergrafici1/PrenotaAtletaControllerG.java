@@ -74,12 +74,12 @@ public class PrenotaAtletaControllerG {
     }
     @FXML
     private void onPrenotaLezioneClick(){
-        FxmlLoader.setPage("views1/prenotaatleta1-view");
+        FxmlLoader.setPage("views1/prenotaAtleta1-view");
     }
 
     @FXML
     private void onGestisciPrenotazioniClick(){
-        FxmlLoader.setPage("views1/gestisciprenotazioniatleta1-view");
+        FxmlLoader.setPage("views1/gestisciPrenotazioniAtleta1-view");
     }
 
     @FXML
@@ -102,7 +102,7 @@ public class PrenotaAtletaControllerG {
 
     private Parent creaRiga(LezioneBean lezioneBean){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/skatingplan/views1/rigalezione1.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/skatingplan/views1/rigaLezione1.fxml"));
             Parent node = loader.load();
 
             RigaLezioneControllerG rigaLezioneControllerG = loader.getController();
@@ -120,7 +120,7 @@ public class PrenotaAtletaControllerG {
 
     @FXML
     private void onHomeClick(){
-        FxmlLoader.setPage("views1/homeatleta1-view");
+        FxmlLoader.setPage("views1/homeAtleta1-view");
     }
 
     @FXML

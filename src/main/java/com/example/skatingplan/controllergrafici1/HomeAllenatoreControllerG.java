@@ -30,7 +30,7 @@ public class HomeAllenatoreControllerG {
 
     @FXML
     public void onHomeClick() {
-        FxmlLoader.setPage("views1/homeallenatore1-view");
+        FxmlLoader.setPage("views1/homeAllenatore1-view");
     }
 
     @FXML
@@ -54,6 +54,6 @@ public class HomeAllenatoreControllerG {
 
 
     public void onGestisciRichiestePrenotazioniClick() {
-        FxmlLoader.setPage("views1/gestiscirichiesteprenotazioniallenatore1-view");
+        FxmlLoader.setPage("views1/gestisciRichiestePrenotazioniAllenatore1-view");
     }
 }

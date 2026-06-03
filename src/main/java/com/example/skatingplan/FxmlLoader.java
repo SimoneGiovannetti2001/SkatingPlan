@@ -15,7 +15,7 @@ public class FxmlLoader extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Stage stage;
-        FXMLLoader fxmlLoader = new FXMLLoader(FxmlLoader.class.getResource("views1/sceltamodalita-view.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(FxmlLoader.class.getResource("views1/sceltaModalita-view.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 1280, 720);
         stage = primaryStage;
         stage.setTitle("SkatingPlan");

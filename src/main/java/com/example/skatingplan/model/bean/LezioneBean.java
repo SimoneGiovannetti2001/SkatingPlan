@@ -15,7 +15,6 @@ public class LezioneBean {
     private LocalTime oraInizio;
     private int durata;
     private PistaDiPattinaggio pistaDiPattinaggio;
-
     private int costo;
 
     public LezioneBean(Lezione lezione) {
