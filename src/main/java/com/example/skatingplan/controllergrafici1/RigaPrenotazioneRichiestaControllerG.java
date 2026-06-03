@@ -39,7 +39,7 @@ public class RigaPrenotazioneRichiestaControllerG {
     public Button annullaRichiesta;
 
     public void impostaDati(LezioneBean lezioneBean){
-
+        //da implementare
     }
 
     public void onConfermaRichiestaClick() {
