@@ -22,24 +22,22 @@ public class Prenotazione {
     public Lezione getLezione() {
         return lezione;
     }
+    public void setLezione(Lezione lezione) {
+        this.lezione = lezione;
+    }
 
     public Atleta getAtleta() {
         return atleta;
+    }
+    public void setAtleta(Atleta atleta) {
+        this.atleta = atleta;
     }
 
     public StatoPrenotazione getStatoPrenotazione() {
         return statoPrenotazione;
     }
-
-    public void setLezione(Lezione lezione) {
-        this.lezione = lezione;
-    }
-
-    public void setAtleta(Atleta atleta) {
-        this.atleta = atleta;
-    }
-
     public void setStatoPrenotazione(StatoPrenotazione statoPrenotazione) {
         this.statoPrenotazione = statoPrenotazione;
     }
+
 }

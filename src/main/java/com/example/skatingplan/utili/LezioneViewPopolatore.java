@@ -25,9 +25,9 @@ public class LezioneViewPopolatore {
 
 
     public static void popolaInfoAllenatore(LezioneBean lezioneBean, Label allenatore, Label qualifica, Label costo){
-        allenatore.setText(lezioneBean.getAllenatore().getNome() + " " + lezioneBean.getAllenatore().getCognome());
+        allenatore.setText(lezioneBean.getNomeAllenatore() + " " + lezioneBean.getCognomeAllenatore());
 
-        qualifica.setText(lezioneBean.getAllenatore().getQualifica().toString());
+        qualifica.setText(lezioneBean.getQualifica().toString());
         costo.setText(String.valueOf(lezioneBean.getCosto())+ ".00€");
     }
 

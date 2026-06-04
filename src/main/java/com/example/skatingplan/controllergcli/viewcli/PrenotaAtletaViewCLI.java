@@ -67,10 +67,10 @@ public class PrenotaAtletaViewCLI {
             if(regione.equals("exit")) {
                 throw new ExitException("Operazione annullata");
             }else{
-                return Regione.valueOf(regione);
+                return Regione.valueOf(regione.toUpperCase());
             }
         } catch (IllegalArgumentException e){
-            throw new InputIllegaleException("Regione non valida", e);
+            throw new InputIllegaleException(e.getMessage());
         }catch (IOException e) {
             throw new InputIllegaleException("Impossibile recuperare input, riprovare",e);
         }
@@ -79,13 +79,13 @@ public class PrenotaAtletaViewCLI {
     public static void mostraLezioni(List<LezioneBean> lezioniBean){
         for (int i = 1; i <= lezioniBean.size(); i++) {
             LezioneBean lezioneBean = lezioniBean.get(i-1);
-            String nomeAllenatore = lezioneBean.getAllenatore().getNome() + " " + lezioneBean.getAllenatore().getCognome();
+            String nomeAllenatore = lezioneBean.getNomeAllenatore() + " " + lezioneBean.getCognomeAllenatore();
             String indirizzo = lezioneBean.getPistaDiPattinaggio().getVia()+ " " + lezioneBean.getPistaDiPattinaggio().getCivico();
             String formato = "%-35s %-35s %-15s%n";
             out.println("----------------------------------- Lezione " + i + ": --------------------------------------------");
             out.println("-------------------------------------------------------------------------------------------");
             out.printf(formato, "Pista: " + lezioneBean.getPistaDiPattinaggio().getNome(), "Allenatore: "+ nomeAllenatore, "Data:   "+ lezioneBean.getData());
-            out.printf(formato, "Indirizzo: " + indirizzo, "Qualifica:  " + lezioneBean.getAllenatore().getQualifica(), "Ora:    " + lezioneBean.getOraInizio());
+            out.printf(formato, "Indirizzo: " + indirizzo, "Qualifica:  " + lezioneBean.getQualifica(), "Ora:    " + lezioneBean.getOraInizio());
             out.printf(formato, "Regione: " + lezioneBean.getPistaDiPattinaggio().getRegione(), "Costo:      " + (double)lezioneBean.getCosto() + "€", "Durata: " + lezioneBean.getDurata() + "minuti");
             out.println("-------------------------------------------------------------------------------------------");
         }
@@ -104,7 +104,7 @@ public class PrenotaAtletaViewCLI {
     public static void mostraRiepilogoLezione(LezioneBean lezioneBean){
         String delimitatore = "+---------------------------+---------------------------+---------------------------+";
         String formato = "| %-25s | %-25s | %-25s |%n";
-        String nomeAllenatore = lezioneBean.getAllenatore().getNome() + " " + lezioneBean.getAllenatore().getCognome();
+        String nomeAllenatore = lezioneBean.getNomeAllenatore() + " " + lezioneBean.getCognomeAllenatore();
         String indirizzo = lezioneBean.getPistaDiPattinaggio().getVia()+ " " + lezioneBean.getPistaDiPattinaggio().getCivico();
         String costo = Double.toString(lezioneBean.getCosto());
         out.println(delimitatore);
@@ -112,7 +112,7 @@ public class PrenotaAtletaViewCLI {
         out.println(delimitatore);
         out.printf(formato, lezioneBean.getPistaDiPattinaggio().getNome(), nomeAllenatore, lezioneBean.getData());
         out.println(delimitatore);
-        out.printf(formato, indirizzo, lezioneBean.getAllenatore().getQualifica(), lezioneBean.getOraInizio());
+        out.printf(formato, indirizzo, lezioneBean.getQualifica(), lezioneBean.getOraInizio());
         out.println(delimitatore);
         out.printf(formato, lezioneBean.getPistaDiPattinaggio().getRegione(), costo + "€", lezioneBean.getDurata() + "minuti");
         out.println(delimitatore);

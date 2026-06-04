@@ -30,7 +30,7 @@ public class Lezione {
     public Lezione(LezioneBean lezioneBean) {
         this.id = lezioneBean.getIdLezione();
         this.pistaDiPattinaggio = lezioneBean.getPistaDiPattinaggio();
-        this.allenatore = lezioneBean.getAllenatore();
+        this.allenatore = new Allenatore(lezioneBean.getNomeAllenatore(), lezioneBean.getCognomeAllenatore(), lezioneBean.getQualifica());
         this.data = lezioneBean.getData();
         this.oraInizio = lezioneBean.getOraInizio();
         this.durata = lezioneBean.getDurata();

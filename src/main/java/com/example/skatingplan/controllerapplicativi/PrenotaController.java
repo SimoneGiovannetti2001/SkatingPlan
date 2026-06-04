@@ -49,7 +49,7 @@ public class PrenotaController {
         LocalDate data = LocalDate.now(ZoneId.systemDefault());
         Pagamento pagamento = new Pagamento(infoPagamentoBean.getIdLezione(), infoPagamentoBean.getTipoPagamento(), infoPagamentoBean.getStatoPagamento(), infoPagamentoBean.getImporto(), data);
         creaPagamento(pagamento);
-        salvaPrenotazione(pagamento);
+        salvaPagamento(pagamento);
     }
 
 
@@ -61,7 +61,7 @@ public class PrenotaController {
     }
 
 
-    private void salvaPrenotazione(Pagamento pagamento) throws DatabaseNonRaggiungibileException {
+    private void salvaPagamento(Pagamento pagamento) throws DatabaseNonRaggiungibileException {
         PagamentiDAO pagamentiDAO = FactoryConfig.getDaoFactory().creaPagamentiDAO();
         try {
 

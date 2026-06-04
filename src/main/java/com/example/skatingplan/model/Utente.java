@@ -1,5 +1,6 @@
 package com.example.skatingplan.model;
 
+
 import com.example.skatingplan.model.enumerazioni.Role;
 
 public class Utente {
@@ -65,7 +66,5 @@ public class Utente {
     public String getPassw() {
         return passw;
     }
-    public void setPassw(String passw) {
-        this.passw = passw;
-    }
+
 }
