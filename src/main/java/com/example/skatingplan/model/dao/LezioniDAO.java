@@ -16,7 +16,7 @@ public interface LezioniDAO {
 
     void aggiornastato(int idLezione, StatoPrenotazione statoPrenotazione) throws DatabaseNonRaggiungibileException;
 
-    void associaAtleta(Prenotazione prenotazione);
+    void associaAtleta(Prenotazione prenotazione) throws DatabaseNonRaggiungibileException;
 
     ListePrenotazioniBean prendiLezioniRichieste(Utente utente);
 

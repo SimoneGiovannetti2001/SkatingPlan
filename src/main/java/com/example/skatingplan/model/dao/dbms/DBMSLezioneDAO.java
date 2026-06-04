@@ -63,28 +63,27 @@ public class DBMSLezioneDAO implements LezioniDAO {
                 throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito");
             }
 
-        } catch (SQLException _) {
-            //non gestita
+        } catch (SQLException e) {
+            throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito", e);
         }
 
     }
 
     @Override
-    public void associaAtleta(Prenotazione prenotazione) {
+    public void associaAtleta(Prenotazione prenotazione) throws DatabaseNonRaggiungibileException{
 
-        try(CallableStatement cs = getConnection().prepareCall("call associa_atleta(?,?)")) {
+        try(CallableStatement cs = getConnection().prepareCall("call associa_atleta(?,?)"))  {
 
             cs.setInt(1, prenotazione.getLezione().getId());
             cs.setInt(2, prenotazione.getAtleta().getIdUtente()); //devi avere l'id atleta
 
 
             if(cs.executeUpdate() != 1){
-                //vedi come gestire l'errore di salvataggio
-                //lancia magri un tipo di eccezione che crei
+                throw new SQLException();
             }
 
         } catch (SQLException e) {
-            e.printStackTrace();
+            throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito",e);
         }
     }
 
