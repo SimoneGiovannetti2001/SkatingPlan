@@ -29,8 +29,8 @@ public class DBMSAtletaDAO implements AtletaDAO {
                 }
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException _) {
+            //non gestita
         }
         return livello;
     }

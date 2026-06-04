@@ -1,5 +1,6 @@
 package com.example.skatingplan.model.dao.dbms;
 
+import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.*;
 import com.example.skatingplan.model.bean.ListePrenotazioniBean;
 import com.example.skatingplan.model.dao.LezioniDAO;
@@ -18,7 +19,7 @@ import java.util.List;
 public class DBMSLezioneDAO implements LezioniDAO {
 
     @Override
-    public List<Lezione> selezionaLezioni(LocalDate data, LocalTime oraInizio, String regione) {
+    public List<Lezione> selezionaLezioni(LocalDate data, LocalTime oraInizio, String regione) throws DatabaseNonRaggiungibileException{
         List<Lezione> lezioni = new ArrayList<>();
         try(CallableStatement cs = getConnection().prepareCall("call seleziona_lezioni(?,?,?)")){
 
@@ -45,13 +46,13 @@ public class DBMSLezioneDAO implements LezioniDAO {
                 }
             }
         }catch(SQLException e){
-            e.printStackTrace();
+            throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito",e);
         }
         return lezioni;
     }
 
     @Override
-    public void aggiornastato(int idLezione, StatoPrenotazione statoPrenotazione) {
+    public void aggiornastato(int idLezione, StatoPrenotazione statoPrenotazione) throws DatabaseNonRaggiungibileException{
 
         try(CallableStatement cs = getConnection().prepareCall("call cambia_stato(?,?)")) {
 
@@ -59,12 +60,11 @@ public class DBMSLezioneDAO implements LezioniDAO {
             cs.setString(2, statoPrenotazione.toString().toUpperCase());
 
             if(cs.executeUpdate() != 1){
-                //vedi come gestire l'errore di salvataggio
-                //lancia magri un tipo di eccezione che crei
+                throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito");
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException _) {
+            //non gestita
         }
 
     }

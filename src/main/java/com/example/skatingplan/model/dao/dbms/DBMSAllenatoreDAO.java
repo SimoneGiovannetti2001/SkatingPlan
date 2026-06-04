@@ -28,8 +28,8 @@ public class DBMSAllenatoreDAO implements AllenatoreDAO {
                 }
             }
 
-        } catch (SQLException e) {
-            e.printStackTrace();
+        } catch (SQLException _) {
+            //non gestita
         }
         return allenatore;
     }

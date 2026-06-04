@@ -81,10 +81,10 @@ public class RiepilogoLezioneControllerG {
 
             return controller.isConfermato();
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            return false;
+        } catch (IOException _) {
+            //non gestita
         }
+        return false;
     }
 
     private void setData(LezioneBean lezioneBean){

@@ -83,18 +83,21 @@ public class PrenotaAtletaControllerG {
 
     @FXML
     private void onCercaClick(){
+        try {
+            FiltriBean filtriBean = new FiltriBean(data.getValue(), oraComboBox.getValue(), regioneComboBox.getValue());
+            PrenotaController prenotaController = new PrenotaController();
+            List<LezioneBean> lezioniDisponibili = prenotaController.selezionaLezioni(filtriBean);
+            if (!lezioniDisponibili.isEmpty()) {
+                vBoxLezioniDisponibili.getChildren().clear();
 
-        FiltriBean filtriBean = new FiltriBean(data.getValue(), oraComboBox.getValue(), regioneComboBox.getValue());
-        PrenotaController prenotaController = new PrenotaController();
-        List<LezioneBean> lezioniDisponibili = prenotaController.selezionaLezioni(filtriBean);
-        if(!lezioniDisponibili.isEmpty()) {
-            vBoxLezioniDisponibili.getChildren().clear();
-
-            for (LezioneBean lezioneBean : lezioniDisponibili) {
-                vBoxLezioniDisponibili.getChildren().add(creaRiga(lezioneBean));
+                for (LezioneBean lezioneBean : lezioniDisponibili) {
+                    vBoxLezioniDisponibili.getChildren().add(creaRiga(lezioneBean));
+                }
+            } else {
+                GestoreMessaggiGUI.mostraErrore(erroriLabel, "Lezioni non disponibili, riprovare");
             }
-        }else{
-            GestoreMessaggiGUI.mostraErrore(erroriLabel,"Lezioni non disponibili, riprovare");
+        }catch (DatabaseNonRaggiungibileException e){
+            GestoreMessaggiGUI.mostraErrore(erroriLabel, e.getMessage());
         }
 
     }

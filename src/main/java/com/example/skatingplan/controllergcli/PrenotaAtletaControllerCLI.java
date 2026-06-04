@@ -4,12 +4,14 @@ package com.example.skatingplan.controllergcli;
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.controllergcli.viewcli.HomeAtletaViewCLI;
 import com.example.skatingplan.controllergcli.viewcli.PrenotaAtletaViewCLI;
+import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.eccezioni.ExitException;
 import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.InfoPagamentoBean;
 import com.example.skatingplan.model.bean.LezioneBean;
 import com.example.skatingplan.model.enumerazioni.Regione;
+
 
 
 import java.time.LocalDate;
@@ -41,7 +43,7 @@ public class PrenotaAtletaControllerCLI {
             //chiamo il controller del pagamento
             PagaControllerCLI.start(prenotaController, infoPagamentoBean);
 
-        }catch (InputIllegaleException e) {
+        }catch (InputIllegaleException | DatabaseNonRaggiungibileException e) {
             HomeAtletaViewCLI.mostraErrore(e.getMessage());
         }
     }
@@ -82,7 +84,7 @@ public class PrenotaAtletaControllerCLI {
         return regione;
     }
 
-    private static LezioneBean scegliLezione(PrenotaController prenotaController) throws InputIllegaleException, ExitException {
+    private static LezioneBean scegliLezione(PrenotaController prenotaController) throws InputIllegaleException, ExitException, DatabaseNonRaggiungibileException {
         boolean continua = true;
         LezioneBean lezioneScelta = null;
 
