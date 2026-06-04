@@ -1,6 +1,6 @@
 package com.example.skatingplan.utili;
 
-import static java.lang.System.out;
+import static java.lang.System.*;
 
 public class MessaggiCLI {
 
