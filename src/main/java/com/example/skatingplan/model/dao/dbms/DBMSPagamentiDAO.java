@@ -45,7 +45,7 @@ public class DBMSPagamentiDAO implements PagamentiDAO{
                 throw new SQLException();
             }
 
-        }catch(Exception e){
+        }catch(SQLException e){
             throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito",e);
         }
     }
