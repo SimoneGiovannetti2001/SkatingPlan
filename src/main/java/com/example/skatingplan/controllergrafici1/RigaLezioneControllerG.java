@@ -60,8 +60,8 @@ public class RigaLezioneControllerG {
                 PrenotaController prenotaController = new PrenotaController();
                 prenotaController.registraRichiestaPrenotazione(lezione);
 
-            } catch (Exception e) {
-                throw new RuntimeException(e);
+            } catch (Exception _) {
+                //non gestita
             }
 
             FXMLLoader loader = FxmlLoader.setPage("views1/paga1-view");

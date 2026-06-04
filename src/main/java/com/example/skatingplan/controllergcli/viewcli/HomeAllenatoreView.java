@@ -6,8 +6,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static java.lang.System.in;
-import static java.lang.System.out;
+import static java.lang.System.*;
 
 public class HomeAllenatoreView {
 
