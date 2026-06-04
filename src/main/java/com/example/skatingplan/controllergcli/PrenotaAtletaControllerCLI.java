@@ -2,7 +2,6 @@ package com.example.skatingplan.controllergcli;
 
 
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
-import com.example.skatingplan.controllergcli.viewcli.HomeAtletaViewCLI;
 import com.example.skatingplan.controllergcli.viewcli.PrenotaAtletaViewCLI;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.eccezioni.ExitException;
@@ -11,7 +10,7 @@ import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.InfoPagamentoBean;
 import com.example.skatingplan.model.bean.LezioneBean;
 import com.example.skatingplan.model.enumerazioni.Regione;
-
+import com.example.skatingplan.utili.MessaggiCLI;
 
 
 import java.time.LocalDate;
@@ -44,7 +43,7 @@ public class PrenotaAtletaControllerCLI {
             PagaControllerCLI.start(prenotaController, infoPagamentoBean);
 
         }catch (InputIllegaleException | DatabaseNonRaggiungibileException e) {
-            HomeAtletaViewCLI.mostraErrore(e.getMessage());
+            MessaggiCLI.mostraErrore(e.getMessage());
         }
     }
 
@@ -54,7 +53,7 @@ public class PrenotaAtletaControllerCLI {
             try {
                 data = PrenotaAtletaViewCLI.chiediData();
             } catch (InputIllegaleException e) {
-                PrenotaAtletaViewCLI.mostraErrore(e.getMessage());
+                MessaggiCLI.mostraErrore(e.getMessage());
             }
         }
         return data;
@@ -66,7 +65,7 @@ public class PrenotaAtletaControllerCLI {
             try {
                 oraInizio = PrenotaAtletaViewCLI.chiediOraInizio();
             } catch (InputIllegaleException e) {
-                PrenotaAtletaViewCLI.mostraErrore(e.getMessage());
+                MessaggiCLI.mostraErrore(e.getMessage());
             }
         }
         return oraInizio;
@@ -78,7 +77,7 @@ public class PrenotaAtletaControllerCLI {
             try {
                 regione = PrenotaAtletaViewCLI.chiediRegione();
             } catch (InputIllegaleException e) {
-                PrenotaAtletaViewCLI.mostraErrore(e.getMessage());
+                MessaggiCLI.mostraErrore(e.getMessage());
             }
         }
         return regione;
@@ -90,7 +89,7 @@ public class PrenotaAtletaControllerCLI {
 
         while (continua) {
 
-            PrenotaAtletaViewCLI.mostraMessaggio("Inserire i filtri (exit per uscire)");
+            MessaggiCLI.mostraMessaggio("Inserire i filtri (exit per uscire)");
 
             //richiedo i filtri all'utente
             LocalDate data = acquisisciData();
@@ -106,7 +105,7 @@ public class PrenotaAtletaControllerCLI {
 
             //verifico che esistano lezioni disponibili
             if(lezioniBean.isEmpty()){
-                PrenotaAtletaViewCLI.mostraMessaggio("Lezioni non disponibili per i seguenti filtri, cambiare i filtri e riprovare");
+                MessaggiCLI.mostraMessaggio("Lezioni non disponibili per i seguenti filtri, cambiare i filtri e riprovare");
             }else{
                 //richiedo all'utente quale abbia scelto
                 lezioneScelta = confermaSceltaLezione(lezioniBean);

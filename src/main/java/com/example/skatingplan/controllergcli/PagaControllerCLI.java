@@ -8,6 +8,7 @@ import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.InfoPagamentoBean;
 import com.example.skatingplan.model.enumerazioni.StatoPagamento;
 import com.example.skatingplan.model.enumerazioni.TipoPagamento;
+import com.example.skatingplan.utili.MessaggiCLI;
 
 public class PagaControllerCLI {
 
@@ -32,7 +33,7 @@ public class PagaControllerCLI {
             prenotaController.paga(infoPagamentoBean);
 
         }catch (InputIllegaleException | DatabaseNonRaggiungibileException e){
-            PagaViewCLI.mostraErrore(e.getMessage());
+            MessaggiCLI.mostraErrore(e.getMessage());
         }
     }
 }

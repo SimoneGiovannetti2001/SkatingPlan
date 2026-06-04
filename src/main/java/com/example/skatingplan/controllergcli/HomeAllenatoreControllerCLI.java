@@ -2,9 +2,7 @@ package com.example.skatingplan.controllergcli;
 
 
 import com.example.skatingplan.controllergcli.viewcli.HomeAllenatoreView;
-import com.example.skatingplan.controllergcli.viewcli.HomeAtletaViewCLI;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
-import com.example.skatingplan.eccezioni.ExitException;
 import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.model.enumerazioni.Ruolo;
@@ -30,9 +28,9 @@ public class HomeAllenatoreControllerCLI {
                 choice = selezionascelta();
 
                 switch (choice) {
-                    case 1 -> {}
-                    case 2 -> {}
-                    case 3 -> {}
+                    case 1 -> GestioneRichiestePrenotazioniControllerCLI.start();
+                    case 2 -> GestionePrenotazioniControllerCLI.start();
+                    case 3 -> GestioneDisponibilitaControllerCLI.start();
                     case 4 -> {
                         logout();
                         continua = false;
@@ -42,8 +40,6 @@ public class HomeAllenatoreControllerCLI {
                 }
             }catch (InputIllegaleException  e) {
                 MessaggiCLI.mostraErrore(e.getMessage());
-            }catch(ExitException e){
-                MessaggiCLI.mostraMessaggio(e.getMessage());
             }
         }
 

@@ -9,6 +9,7 @@ import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.model.enumerazioni.Ruolo;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
+import com.example.skatingplan.utili.MessaggiCLI;
 
 import java.io.IOException;
 
@@ -38,7 +39,7 @@ public class LoginControllerCLI {
                 continua = LoginViewCLI.chiediSeRiloggare();
 
             } catch (CredenzialiErrateException | InputIllegaleException | DatabaseNonRaggiungibileException | FSOperazioneExcpetion | FSNonEsistenteException | IOException e) {
-                LoginViewCLI.mostraErrore(e.getMessage());
+                MessaggiCLI.mostraErrore(e.getMessage());
             }
 
         }
@@ -66,7 +67,7 @@ public class LoginControllerCLI {
                 ConnectionFactory.changeRole(Ruolo.LOGIN);
             }
         }catch (DatabaseNonRaggiungibileException e){
-            LoginViewCLI.mostraErrore(e.getMessage());
+            MessaggiCLI.mostraErrore(e.getMessage());
         }
 
     }

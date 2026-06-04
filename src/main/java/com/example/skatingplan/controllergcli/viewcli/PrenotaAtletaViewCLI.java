@@ -136,11 +136,5 @@ public class PrenotaAtletaViewCLI {
         }
     }
 
-    public static void mostraErrore(String string){
-        out.println("Errore: " + string);
-    }
 
-    public static void mostraMessaggio(String string){
-        out.println(string);
-    }
 }
