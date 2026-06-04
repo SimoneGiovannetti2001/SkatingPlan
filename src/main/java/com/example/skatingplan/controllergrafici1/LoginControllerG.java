@@ -8,7 +8,7 @@ import com.example.skatingplan.model.bean.LoginBean;
 import com.example.skatingplan.controllerapplicativi.LoginController;
 import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.model.bean.UtenteBean;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 import com.example.skatingplan.utili.GestoreMessaggiGUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -53,11 +53,11 @@ public class LoginControllerG {
             }
             LoginController loginController = new LoginController();
             UtenteBean utenteBean = loginController.autenticazione(loginBean);
-            if(utenteBean.getRuolo() == Role.ATLETA) {
+            if(utenteBean.getRuolo() == Ruolo.ATLETA) {
                 FxmlLoader.setPage("views1/homeAtleta1-view");
-            }else if(utenteBean.getRuolo() == Role.ALLENATORE) {
+            }else if(utenteBean.getRuolo() == Ruolo.ALLENATORE) {
                 FxmlLoader.setPage("views1/homeAllenatore1-view");
-            }else if(utenteBean.getRuolo() == Role.MANAGER) {
+            }else if(utenteBean.getRuolo() == Ruolo.MANAGER) {
                 FxmlLoader.setPage("views1/homeManager1-view");
             }
 

@@ -6,7 +6,7 @@ import com.example.skatingplan.eccezioni.FSNonEsistenteException;
 import com.example.skatingplan.eccezioni.FSOperazioneExcpetion;
 import com.example.skatingplan.model.Utente;
 import com.example.skatingplan.model.dao.LoginDAO;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 
 import java.io.*;
 
@@ -23,7 +23,7 @@ public class FSLoginDAO implements LoginDAO {
             while((str = br.readLine()) != null){
                 String[] tokens = str.split(",");
                 if(tokens[0].toLowerCase().equals(user) && tokens[5].equals(passw)){
-                    utente = new Utente(tokens[0], tokens[1], tokens[2], Role.valueOf(tokens[3]), Integer.parseInt(tokens[4]), tokens[5]);
+                    utente = new Utente(tokens[0], tokens[1], tokens[2], Ruolo.valueOf(tokens[3]), Integer.parseInt(tokens[4]), tokens[5]);
                 }
             }
             if(utente == null){

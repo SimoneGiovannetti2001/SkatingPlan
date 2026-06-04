@@ -4,7 +4,7 @@ import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.utili.ConnectionFactory;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 import com.example.skatingplan.utili.FactoryConfig;
 import com.example.skatingplan.utili.GestoreMessaggiGUI;
 import javafx.fxml.FXML;
@@ -38,7 +38,7 @@ public class HomeAllenatoreControllerG {
         try {
             //resetto la connessione per fare il login
             if(FactoryConfig.getDaoFactory() instanceof DBMSFactory){
-                ConnectionFactory.changeRole(Role.LOGIN);
+                ConnectionFactory.changeRole(Ruolo.LOGIN);
             }
         }catch (DatabaseNonRaggiungibileException e){
             GestoreMessaggiGUI.mostraErrore(erroriLabel, e.getMessage());

@@ -2,7 +2,7 @@ package com.example.skatingplan.model.enumerazioni;
 
 
 
-public enum Role {
+public enum Ruolo {
     ATLETA(1),
     ALLENATORE(2),
     MANAGER(3),
@@ -11,12 +11,12 @@ public enum Role {
 
     private final int id;
 
-    private Role(int id) {
+    private Ruolo(int id) {
         this.id = id;
     }
 
-    public static Role fromInt(int id) {
-        for (Role type : values()) {
+    public static Ruolo fromInt(int id) {
+        for (Ruolo type : values()) {
             if (type.getId() == id) {
                 return type;
             }

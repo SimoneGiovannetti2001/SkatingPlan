@@ -1,7 +1,7 @@
 package com.example.skatingplan.model;
 
 
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 
 public class Utente {
 
@@ -9,10 +9,10 @@ public class Utente {
     protected String cognome;
     protected String email;
     protected int idUtente;
-    protected Role ruolo;
+    protected Ruolo ruolo;
     private String passw;
 
-    public Utente(String nome, String cognome, String email, Role ruolo, int idUtente, String passw){
+    public Utente(String nome, String cognome, String email, Ruolo ruolo, int idUtente, String passw){
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
@@ -49,10 +49,10 @@ public class Utente {
         this.email = email;
     }
 
-    public Role getRuolo() {
+    public Ruolo getRuolo() {
         return ruolo;
     }
-    public void setRuolo(Role ruolo) {
+    public void setRuolo(Ruolo ruolo) {
         this.ruolo = ruolo;
     }
 

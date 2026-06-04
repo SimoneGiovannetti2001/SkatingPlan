@@ -5,7 +5,7 @@ import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.eccezioni.ExitException;
 import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
 
@@ -58,7 +58,7 @@ public class HomeAtletaControllerCLI {
         try {
             //resetto la connessione per fare il login
             if(FactoryConfig.getDaoFactory() instanceof DBMSFactory){
-                ConnectionFactory.changeRole(Role.LOGIN);
+                ConnectionFactory.changeRole(Ruolo.LOGIN);
             }
 
         }catch (DatabaseNonRaggiungibileException e){

@@ -7,7 +7,7 @@ import com.example.skatingplan.model.bean.LezioneBean;
 import com.example.skatingplan.model.dao.CreatoreFactory;
 import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
 import com.example.skatingplan.model.enumerazioni.Regione;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
 import org.junit.jupiter.api.Test;
@@ -37,7 +37,7 @@ class PrenotaControllerTest {
         //imposto factory e connessione
         FactoryConfig.impostaFactory(CreatoreFactory.creaFactory(ModalitaPersistenza.DBMS));
         ConnectionFactory.init();
-        ConnectionFactory.changeRole(Role.ATLETA);
+        ConnectionFactory.changeRole(Ruolo.ATLETA);
         //eseguo la selezione
         List<LezioneBean> lezioniDisponibili = prenotaController.selezionaLezioni(filtri);
         //verifico che non venga restituito null
@@ -57,7 +57,7 @@ class PrenotaControllerTest {
         //imposto factory e connessione
         FactoryConfig.impostaFactory(CreatoreFactory.creaFactory(ModalitaPersistenza.DBMS));
         ConnectionFactory.init();
-        ConnectionFactory.changeRole(Role.ATLETA);
+        ConnectionFactory.changeRole(Ruolo.ATLETA);
         //eseguo la selezione
         List<LezioneBean> lezioniDisponibili = prenotaController.selezionaLezioni(filtri);
         //verifico che venga restituita una lista vuota

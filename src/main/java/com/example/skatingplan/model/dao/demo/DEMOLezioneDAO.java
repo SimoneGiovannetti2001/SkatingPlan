@@ -27,11 +27,11 @@ public class DEMOLezioneDAO implements LezioniDAO {
         pisteDiPattinaggio.add(new PistaDiPattinaggio("Ice Arena Assago", Regione.LOMBARDIA, "Via milanofiori", "1", TipoPavimento.PARQUET));
         pisteDiPattinaggio.add(new PistaDiPattinaggio("IceLab Bergamo", Regione.ABRUZZO, "Via gramsci", "45", TipoPavimento.CEMENTO));
 
-        allenatori.add(new Allenatore(new Utente("Francesco", "Filippi", "fra.filippi@gmail.com", Role.ALLENATORE, 1,"francesco"), Qualifica.FISR2, 35));
-        allenatori.add(new Allenatore(new Utente("Damiano", "Foglietta", "dam.foglietta@gmail.com", Role.ALLENATORE, 2, "damiano"), Qualifica.FISR1, 40));
-        allenatori.add(new Allenatore(new Utente("Daniele", "Giovannini", "dan.giovannini@gmail.com", Role.ALLENATORE, 3, "daniele"), Qualifica.FISR2, 35));
-        allenatori.add(new Allenatore(new Utente("Filippo", "Rizzo", "fil.rizzo@gmail.com", Role.ALLENATORE, 4, "filippo"), Qualifica.FISR3,50));
-        allenatori.add(new Allenatore(new Utente("Marcus", "Pagliari", "mar.pagliati@gmail.com", Role.ALLENATORE, 5, "marcus"), Qualifica.FISR3,60));
+        allenatori.add(new Allenatore(new Utente("Francesco", "Filippi", "fra.filippi@gmail.com", Ruolo.ALLENATORE, 1,"francesco"), Qualifica.FISR2, 35));
+        allenatori.add(new Allenatore(new Utente("Damiano", "Foglietta", "dam.foglietta@gmail.com", Ruolo.ALLENATORE, 2, "damiano"), Qualifica.FISR1, 40));
+        allenatori.add(new Allenatore(new Utente("Daniele", "Giovannini", "dan.giovannini@gmail.com", Ruolo.ALLENATORE, 3, "daniele"), Qualifica.FISR2, 35));
+        allenatori.add(new Allenatore(new Utente("Filippo", "Rizzo", "fil.rizzo@gmail.com", Ruolo.ALLENATORE, 4, "filippo"), Qualifica.FISR3,50));
+        allenatori.add(new Allenatore(new Utente("Marcus", "Pagliari", "mar.pagliati@gmail.com", Ruolo.ALLENATORE, 5, "marcus"), Qualifica.FISR3,60));
 
         lezioni.add(new Lezione(1, pisteDiPattinaggio.get(0), allenatori.get(0), LocalDate.of(2026, Month.JULY, 10),LocalTime.of(16,30), 60, 35));
         lezioni.add(new Lezione(2, pisteDiPattinaggio.get(1), allenatori.get(1), LocalDate.of(2026, Month.JULY, 16),LocalTime.of(15,0), 120, 80));

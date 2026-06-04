@@ -6,7 +6,7 @@ import com.example.skatingplan.eccezioni.*;
 import com.example.skatingplan.model.bean.LoginBean;
 import com.example.skatingplan.model.bean.UtenteBean;
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
 
@@ -63,7 +63,7 @@ public class LoginControllerCLI {
         try {
             //resetto la connessione per fare il login
             if(FactoryConfig.getDaoFactory() instanceof DBMSFactory){
-                ConnectionFactory.changeRole(Role.LOGIN);
+                ConnectionFactory.changeRole(Ruolo.LOGIN);
             }
         }catch (DatabaseNonRaggiungibileException e){
             LoginViewCLI.mostraErrore(e.getMessage());

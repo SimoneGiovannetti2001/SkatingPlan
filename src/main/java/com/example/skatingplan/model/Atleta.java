@@ -1,18 +1,18 @@
 package com.example.skatingplan.model;
 
 import com.example.skatingplan.model.enumerazioni.Livello;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 
 public class Atleta extends Utente{
 
     private Livello livello;
 
-    public Atleta(String nome, String cognome, String email, Role role, int idUtente, String passw, Livello livello){
-        super(nome, cognome, email, role, idUtente, passw);
+    public Atleta(String nome, String cognome, String email, Ruolo ruolo, int idUtente, String passw, Livello livello){
+        super(nome, cognome, email, ruolo, idUtente, passw);
         this.livello = livello;
     }
 
-    public Atleta(String nome, String cognome, String email, Role ruolo, int idUtente, String passw) {
+    public Atleta(String nome, String cognome, String email, Ruolo ruolo, int idUtente, String passw) {
         super(nome, cognome, email, ruolo, idUtente, passw);
     }
 

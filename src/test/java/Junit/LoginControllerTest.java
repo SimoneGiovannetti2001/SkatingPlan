@@ -9,7 +9,7 @@ import com.example.skatingplan.model.bean.LoginBean;
 import com.example.skatingplan.model.bean.UtenteBean;
 import com.example.skatingplan.model.dao.CreatoreFactory;
 import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
 import org.junit.jupiter.api.Test;
@@ -41,6 +41,6 @@ class LoginControllerTest {
         assertEquals(0, utenteBean.getIdUtente());
         assertEquals("Simone", utenteBean.getNome());
         assertEquals("simo.giova@gmail.com", utenteBean.getEmail());
-        assertEquals(Role.ATLETA, utenteBean.getRuolo());
+        assertEquals(Ruolo.ATLETA, utenteBean.getRuolo());
     }
 }

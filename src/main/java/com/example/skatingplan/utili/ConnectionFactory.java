@@ -2,7 +2,7 @@ package com.example.skatingplan.utili;
 
 
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -42,7 +42,7 @@ public class ConnectionFactory {
     }
 
 
-    public static void changeRole(Role role) throws DatabaseNonRaggiungibileException {
+    public static void changeRole(Ruolo ruolo) throws DatabaseNonRaggiungibileException {
 
 
         try (InputStream input = new FileInputStream("src/main/jdbc/db.properties")) {
@@ -50,8 +50,8 @@ public class ConnectionFactory {
             properties.load(input);
 
             String connectionUrl = properties.getProperty("CONNECTION_URL");
-            String user = properties.getProperty(role.name() + "_USER");
-            String pass = properties.getProperty(role.name() + "_PASS");
+            String user = properties.getProperty(ruolo.name() + "_USER");
+            String pass = properties.getProperty(ruolo.name() + "_PASS");
 
             connection.close();
 

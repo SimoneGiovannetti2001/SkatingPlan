@@ -2,7 +2,7 @@ package com.example.skatingplan.model.bean;
 
 import com.example.skatingplan.model.Utente;
 import com.example.skatingplan.model.enumerazioni.Livello;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 
 public class UtenteBean {
 
@@ -11,7 +11,7 @@ public class UtenteBean {
     private String email;
     private int idUtente;
     private Livello livello;
-    private Role ruolo;
+    private Ruolo ruolo;
 
     public UtenteBean(Utente utente){
         this.nome = utente.getNome();
@@ -57,10 +57,10 @@ public class UtenteBean {
         this.livello = livello;
     }
 
-    public Role getRuolo() {
+    public Ruolo getRuolo() {
         return ruolo;
     }
-    public void setRuolo(Role ruolo) {
+    public void setRuolo(Ruolo ruolo) {
         this.ruolo = ruolo;
     }
 }

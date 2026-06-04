@@ -6,7 +6,7 @@ import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.Utente;
 import com.example.skatingplan.model.dao.LoginDAO;
-import com.example.skatingplan.model.enumerazioni.Role;
+import com.example.skatingplan.model.enumerazioni.Ruolo;
 
 import java.sql.*;
 
@@ -22,7 +22,7 @@ public class DBMSLoginDAO implements LoginDAO {
 
             ResultSet rs = cs.executeQuery();
             if (rs.next()) {
-                utente = new Utente(rs.getString(1), rs.getString(2), rs.getString(3), Role.fromInt(rs.getInt(4)), rs.getInt(5), rs.getString(6));
+                utente = new Utente(rs.getString(1), rs.getString(2), rs.getString(3), Ruolo.fromInt(rs.getInt(4)), rs.getInt(5), rs.getString(6));
             }
 
             if(utente == null){
