@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.Month;
 import java.util.List;
 
 
@@ -49,7 +50,7 @@ class PrenotaControllerTest {
 
         PrenotaController prenotaController = new PrenotaController();
         //imposto dei filtri validi ma senza lezioni disponibili e creo il bean
-        LocalDate data = LocalDate.of(2026,6,16);
+        LocalDate data = LocalDate.of(2026, Month.JULY,16);
         LocalTime oraInizio = LocalTime.of(14, 0);
         Regione regione = Regione.LAZIO;
         FiltriBean filtri = new FiltriBean(data, oraInizio, regione);
