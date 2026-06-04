@@ -30,7 +30,7 @@ class PrenotaControllerTest {
 
         PrenotaController prenotaController = new PrenotaController();
         //imposto dei filtri validi e creo il bean
-        LocalDate data = LocalDate.of(2026,6,10);
+        LocalDate data = LocalDate.of(2026,Month.JULY,10);
         LocalTime oraInizio = LocalTime.of(14, 0);
         Regione regione = Regione.LAZIO;
         FiltriBean filtri = new FiltriBean(data, oraInizio, regione);
