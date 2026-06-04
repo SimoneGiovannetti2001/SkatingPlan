@@ -50,7 +50,7 @@
          <Font size="20.0" />
       </font>
    </Label>
-   <Label layoutX="225.0" layoutY="96.0" prefHeight="38.0" prefWidth="243.0" text="Prenotazioni richieste" textFill="#000066">
+   <Label layoutX="225.0" layoutY="90.0" prefHeight="38.0" prefWidth="243.0" text="Prenotazioni richieste" textFill="#000066">
       <font>
          <Font size="25.0" />
       </font>

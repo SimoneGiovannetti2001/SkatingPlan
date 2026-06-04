@@ -48,12 +48,13 @@ public class HomeAllenatoreControllerG {
 
     @FXML
     public void onGestisciPrenotazioniClick() {
-        GestoreMessaggiGUI.mostraErrore(erroriLabel, "Funzionalità non disponibile al momento");
+        FxmlLoader.setPage("views1/gestisciRichiestePrenotazioniAllenatore1-view");
     }
 
 
 
     public void onGestisciRichiestePrenotazioniClick() {
         FxmlLoader.setPage("views1/gestisciRichiestePrenotazioniAllenatore1-view");
+
     }
 }

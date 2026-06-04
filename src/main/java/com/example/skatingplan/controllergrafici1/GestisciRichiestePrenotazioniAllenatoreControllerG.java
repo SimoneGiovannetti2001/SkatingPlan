@@ -76,7 +76,7 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
             return node;
 
         } catch (IOException e) {
-            e.printStackTrace();
+            //non gestita
 
         }
         return null;
