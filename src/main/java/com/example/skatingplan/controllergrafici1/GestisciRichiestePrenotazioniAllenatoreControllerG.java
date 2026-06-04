@@ -75,7 +75,7 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
 
             return node;
 
-        } catch (IOException e) {
+        } catch (IOException _) {
             System.err.println("Errore non previsto, riprovare");
 
         }
