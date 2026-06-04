@@ -110,7 +110,7 @@ public class PrenotaAtletaControllerG {
 
             return node;
 
-        } catch (IOException e) {
+        } catch (IOException _) {
             //non gestita
 
         }
