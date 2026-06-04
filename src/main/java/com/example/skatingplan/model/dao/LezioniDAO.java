@@ -4,7 +4,6 @@ import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.Lezione;
 import com.example.skatingplan.model.Prenotazione;
 import com.example.skatingplan.model.Utente;
-import com.example.skatingplan.model.bean.ListePrenotazioniBean;
 import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
 
 import java.time.LocalDate;
@@ -18,7 +17,7 @@ public interface LezioniDAO {
 
     void associaAtleta(Prenotazione prenotazione) throws DatabaseNonRaggiungibileException;
 
-    ListePrenotazioniBean prendiLezioniRichieste(Utente utente);
+    List<Prenotazione> prendiLezioniRichiesteAllenatore(Utente utente);
 
-    ListePrenotazioniBean prendiLezioniConfermate(Utente utente);
+    List<Prenotazione> prendiLezioniConfermate(Utente utente);
 }

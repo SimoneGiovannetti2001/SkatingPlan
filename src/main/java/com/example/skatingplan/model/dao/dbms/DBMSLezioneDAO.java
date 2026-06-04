@@ -88,13 +88,41 @@ public class DBMSLezioneDAO implements LezioniDAO {
     }
 
     @Override
-    public ListePrenotazioniBean prendiLezioniRichieste(Utente utente) {
-        return null;
+    public List<Prenotazione> prendiLezioniRichiesteAllenatore(Utente utente) {
+        List<Prenotazione> prenotazioniRichieste = new ArrayList<>();
+
+
+        try(CallableStatement cs = getConnection().prepareCall("call seleziona_richieste_allenatore(?)"))  {
+
+            cs.setInt(1, utente.getIdUtente());
+
+
+            if(cs.execute()) {
+                ResultSet rs = cs.getResultSet();
+                while (rs.next()) {
+                    //creo allenatore
+
+                    //creo pista
+
+                    //creo atleta
+
+                    //creo atleta
+
+                    //creo prenotazione
+
+                }
+            }
+
+        } catch (SQLException e) {
+            //non gestita
+            // throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito",e);
+        }
+       return prenotazioniRichieste;
     }
 
     @Override
-    public ListePrenotazioniBean prendiLezioniConfermate(Utente utente) {
-        return null;
+    public List<Prenotazione> prendiLezioniConfermate(Utente utente) {
+        return new ArrayList<>();
     }
 
 

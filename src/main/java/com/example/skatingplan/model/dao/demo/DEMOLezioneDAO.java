@@ -80,13 +80,13 @@ public class DEMOLezioneDAO implements LezioniDAO {
     }
 
     @Override
-    public ListePrenotazioniBean prendiLezioniRichieste(Utente utente) {
-        return null;
+    public List<Prenotazione> prendiLezioniRichiesteAllenatore(Utente utente) {
+        return new ArrayList<>();
     }
 
     @Override
-    public ListePrenotazioniBean prendiLezioniConfermate(Utente utente) {
-        return null;
+    public List<Prenotazione> prendiLezioniConfermate(Utente utente) {
+        return new ArrayList<>();
     }
 
 
