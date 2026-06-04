@@ -1,5 +1,6 @@
 package com.example.skatingplan.model.dao.dbms;
 
+import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.Pagamento;
 import com.example.skatingplan.model.dao.PagamentiDAO;
@@ -13,7 +14,7 @@ import java.sql.SQLException;
 
 public class DBMSPagamentiDAO implements PagamentiDAO{
     @Override
-    public void inserisciPagamento(Pagamento pagamento) {
+    public void inserisciPagamento(Pagamento pagamento) throws DatabaseNonRaggiungibileException{
         Connection connection = ConnectionFactory.getConnection();
         try(CallableStatement cs = connection.prepareCall("call inserisci_pagamento(?,?,?,?,?)")){
 
@@ -25,28 +26,27 @@ public class DBMSPagamentiDAO implements PagamentiDAO{
 
             int righe = cs.executeUpdate();
             if(righe != 1){
-                throw new RuntimeException();
+                throw new SQLException();
             }
 
         }catch (SQLException e){
-            e.printStackTrace();
+            throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito",e);
         }
     }
 
     @Override
-    public void aggiornaPagamento(Pagamento pagamento, StatoPagamento statoPagamento)  {
+    public void aggiornaPagamento(Pagamento pagamento, StatoPagamento statoPagamento) throws DatabaseNonRaggiungibileException{
         Connection connection = ConnectionFactory.getConnection();
         try(CallableStatement cs = connection.prepareCall("call aggiorna_pagamento(?,?)")){
 
             cs.setInt(1,pagamento.getIdLezione());
             cs.setString(2, statoPagamento.toString());
             if(cs.executeUpdate() != 1){
-                //vedi come gestire l'errore di salvataggio
-                //lancia magri un tipo di eccezione che crei
+                throw new SQLException();
             }
 
         }catch(Exception e){
-            e.printStackTrace();
+            throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito",e);
         }
     }
 }

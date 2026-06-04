@@ -10,7 +10,6 @@ import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
 import com.example.skatingplan.utili.FactoryConfig;
 
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -53,7 +52,7 @@ public class PrenotaController {
     }
 
 
-    private void creaPagamento(Pagamento pagamento) {
+    private void creaPagamento(Pagamento pagamento) throws DatabaseNonRaggiungibileException {
         PagamentiDAO pagamentiDAO = FactoryConfig.getDaoFactory().creaPagamentiDAO();
 
         pagamentiDAO.inserisciPagamento(pagamento);
@@ -63,15 +62,9 @@ public class PrenotaController {
 
     private void salvaPagamento(Pagamento pagamento) throws DatabaseNonRaggiungibileException {
         PagamentiDAO pagamentiDAO = FactoryConfig.getDaoFactory().creaPagamentiDAO();
-        try {
 
-            if (pagamento.getTipoPagamento().toString().equals("ONLINE")) {
-                pagamentiDAO.aggiornaPagamento(pagamento, StatoPagamento.COMPLETATO);
-            }
-
-
-        } catch (SQLException e) {
-            throw new DatabaseNonRaggiungibileException("Impossibile inserire pagamento, riprovare", e);
+        if (pagamento.getTipoPagamento().toString().equals("ONLINE")) {
+            pagamentiDAO.aggiornaPagamento(pagamento, StatoPagamento.COMPLETATO);
         }
 
     }
