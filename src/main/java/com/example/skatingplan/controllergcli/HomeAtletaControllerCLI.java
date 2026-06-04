@@ -8,6 +8,7 @@ import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.model.enumerazioni.Ruolo;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
+import com.example.skatingplan.utili.MessaggiCLI;
 
 import java.io.IOException;
 
@@ -38,9 +39,9 @@ public class HomeAtletaControllerCLI {
 
                     }
                 }catch (InputIllegaleException  e) {
-                    HomeAtletaViewCLI.mostraErrore(e.getMessage());
+                    MessaggiCLI.mostraErrore(e.getMessage());
                 }catch(ExitException e){
-                    HomeAtletaViewCLI.mostraMessaggio(e.getMessage());
+                    MessaggiCLI.mostraMessaggio(e.getMessage());
                 }
             }
 
@@ -48,7 +49,7 @@ public class HomeAtletaControllerCLI {
 
     private static int selezionascelta() throws InputIllegaleException {
         try {
-            return HomeAtletaViewCLI.mostraOperazioni();
+            return HomeAtletaViewCLI.mostraMenuAtleta();
         }catch (IOException e) {
             throw new InputIllegaleException("Input non valido, riprovare", e);
         }
@@ -62,7 +63,7 @@ public class HomeAtletaControllerCLI {
             }
 
         }catch (DatabaseNonRaggiungibileException e){
-            HomeAtletaViewCLI.mostraErrore(e.getMessage());
+            MessaggiCLI.mostraErrore(e.getMessage());
         }
     }
 }

@@ -6,27 +6,27 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-import static java.lang.System.*;
+import static java.lang.System.in;
+import static java.lang.System.out;
 
-
-public class HomeAtletaViewCLI {
+public class HomeAllenatoreView {
 
     private static final BufferedReader reader = new BufferedReader(new InputStreamReader(in));
 
-    private HomeAtletaViewCLI(){
+    private HomeAllenatoreView(){
         //non deve essere istanziata
     }
 
-    public static int mostraMenuAtleta() throws IOException, InputIllegaleException {
-
+    public static int mostraMenuAllenatore() throws IOException, InputIllegaleException {
         while (true) {
             out.println("*****************************");
-            out.println("Benvenuto Atleta" );
+            out.println("Benvenuto Allenatore");
             out.println("*****************************");
             out.println("Quale operazione vuoi eseguire?");
-            out.println("1) Prenota lezione");
+            out.println("1) Gestisci richieste di prenotazioni");
             out.println("2) Gestisci prenotazioni");
-            out.println("3) Logout");
+            out.println("3) Gestisci disponibilità");
+            out.println("4) Logout");
 
             String input = reader.readLine();
 
@@ -40,7 +40,5 @@ public class HomeAtletaViewCLI {
             }
         }
     }
-
-
 
 }
