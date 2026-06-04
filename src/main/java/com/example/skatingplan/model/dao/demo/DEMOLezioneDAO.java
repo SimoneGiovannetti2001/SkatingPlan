@@ -2,7 +2,6 @@ package com.example.skatingplan.model.dao.demo;
 
 
 import com.example.skatingplan.model.*;
-import com.example.skatingplan.model.bean.ListePrenotazioniBean;
 import com.example.skatingplan.model.dao.LezioniDAO;
 import com.example.skatingplan.model.enumerazioni.*;
 
