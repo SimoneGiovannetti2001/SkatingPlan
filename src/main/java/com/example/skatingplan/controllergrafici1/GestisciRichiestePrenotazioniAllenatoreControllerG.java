@@ -47,7 +47,7 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
     public void initialize(){
 
         //recupero le lezioni richieste
-        PrenotazioniBean prenotazioniRichieste = null;
+        PrenotazioniBean prenotazioniRichieste;
         prenotazioniRichieste = gestisciRichiestePrenotazioniController.selezionaPrenotazioniRichieste();
 
         //se diverso da 0 le mostro a schermo
@@ -76,7 +76,7 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
             return node;
 
         } catch (IOException e) {
-            //non gestita
+            System.err.println("Errore non previsto, riprovare");
 
         }
         return null;

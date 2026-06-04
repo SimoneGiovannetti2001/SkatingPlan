@@ -28,7 +28,7 @@ public class PrenotazioneBean {
         this.data = prenotazione.getLezione().getData();
         this.oraInizio = prenotazione.getLezione().getOraInizio();
         this.durata = prenotazione.getLezione().getDurata();
-        this.pistaDiPattinaggio = prenotazione.getLezione().getPistaDiPattinaggio();;
+        this.pistaDiPattinaggio = prenotazione.getLezione().getPistaDiPattinaggio();
         this.costo = prenotazione.getLezione().getCosto();
         this.statoPrenotazione = prenotazione.getStatoPrenotazione();
     }
