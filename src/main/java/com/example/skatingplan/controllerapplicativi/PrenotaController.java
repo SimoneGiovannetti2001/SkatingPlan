@@ -12,12 +12,13 @@ import com.example.skatingplan.utili.FactoryConfig;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
 public class PrenotaController {
 
-    public LezioniBean selezionaLezioni(FiltriBean filtriBean) {
+    public  List<LezioneBean> selezionaLezioni(FiltriBean filtriBean) {
         LezioniDAO lezioniDAO = FactoryConfig.getDaoFactory().creaLezioniDAO();
         List<Lezione> lezioni = lezioniDAO.selezionaLezioni(filtriBean.getData(), filtriBean.getOraInizio(), filtriBean.getRegione().toString());
         List<LezioneBean> lezioneBeanList = new ArrayList<>();
@@ -25,7 +26,7 @@ public class PrenotaController {
         for (Lezione lezione : lezioni) {
             lezioneBeanList.add(new LezioneBean(lezione));
         }
-        return new LezioniBean(lezioneBeanList);
+        return lezioneBeanList;
     }
 
 
@@ -45,7 +46,8 @@ public class PrenotaController {
     public void paga(InfoPagamentoBean infoPagamentoBean) throws DatabaseNonRaggiungibileException {
         //eseguo il pagamento online
         //non implementato
-        Pagamento pagamento = new Pagamento(infoPagamentoBean.getIdLezione(), infoPagamentoBean.getTipoPagamento(), infoPagamentoBean.getStatoPagamento(), infoPagamentoBean.getImporto(), LocalDate.now());
+        LocalDate data = LocalDate.now(ZoneId.systemDefault());
+        Pagamento pagamento = new Pagamento(infoPagamentoBean.getIdLezione(), infoPagamentoBean.getTipoPagamento(), infoPagamentoBean.getStatoPagamento(), infoPagamentoBean.getImporto(), data);
         creaPagamento(pagamento);
         salvaPrenotazione(pagamento);
     }

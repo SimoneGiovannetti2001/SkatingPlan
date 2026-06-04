@@ -3,7 +3,7 @@ package Junit;
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.bean.FiltriBean;
-import com.example.skatingplan.model.bean.LezioniBean;
+import com.example.skatingplan.model.bean.LezioneBean;
 import com.example.skatingplan.model.dao.CreatoreFactory;
 import com.example.skatingplan.model.enumerazioni.ModalitaPersistenza;
 import com.example.skatingplan.model.enumerazioni.Regione;
@@ -16,6 +16,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -37,9 +38,9 @@ class PrenotaControllerTest {
         ConnectionFactory.init();
         ConnectionFactory.changeRole(Role.ATLETA);
         //eseguo la selezione
-        LezioniBean lezioniBean = prenotaController.selezionaLezioni(filtri);
+        List<LezioneBean> lezioniDisponibili = prenotaController.selezionaLezioni(filtri);
         //verifico che non venga restituito null
-        assertNotNull(lezioniBean);
+        assertNotNull(lezioniDisponibili);
 
     }
 
@@ -57,9 +58,9 @@ class PrenotaControllerTest {
         ConnectionFactory.init();
         ConnectionFactory.changeRole(Role.ATLETA);
         //eseguo la selezione
-        LezioniBean lezioniBean = prenotaController.selezionaLezioni(filtri);
+        List<LezioneBean> lezioniDisponibili = prenotaController.selezionaLezioni(filtri);
         //verifico che venga restituita una lista vuota
-       assertEquals(0, lezioniBean.lunghezza());
+       assertEquals(0, lezioniDisponibili.size());
 
     }
 

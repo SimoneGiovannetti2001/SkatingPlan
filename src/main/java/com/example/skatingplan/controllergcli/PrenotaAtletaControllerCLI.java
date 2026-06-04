@@ -9,12 +9,12 @@ import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.InfoPagamentoBean;
 import com.example.skatingplan.model.bean.LezioneBean;
-import com.example.skatingplan.model.bean.LezioniBean;
 import com.example.skatingplan.model.enumerazioni.Regione;
 
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.List;
 
 
 public class PrenotaAtletaControllerCLI {
@@ -98,11 +98,11 @@ public class PrenotaAtletaControllerCLI {
             FiltriBean filtriBean = new FiltriBean(data, oraInizio, regione);
 
             //richiedo le lezioni al controller applicativo e le mostro all'utente
-            LezioniBean lezioniBean = prenotaController.selezionaLezioni(filtriBean);
+            List<LezioneBean> lezioniBean = prenotaController.selezionaLezioni(filtriBean);
 
 
             //verifico che esistano lezioni disponibili
-            if(lezioniBean.lunghezza() == 0){
+            if(lezioniBean.isEmpty()){
                 PrenotaAtletaViewCLI.mostraMessaggio("Lezioni non disponibili per i seguenti filtri, cambiare i filtri e riprovare");
             }else{
                 //richiedo all'utente quale abbia scelto
@@ -118,7 +118,7 @@ public class PrenotaAtletaControllerCLI {
         return lezioneScelta;
     }
 
-    private static LezioneBean confermaSceltaLezione(LezioniBean lezioniDisponibili) throws InputIllegaleException {
+    private static LezioneBean confermaSceltaLezione(List<LezioneBean> lezioniDisponibili) throws InputIllegaleException {
         LezioneBean lezioneScelta = null;
         boolean continua = true;
         String conferma ;
@@ -130,15 +130,15 @@ public class PrenotaAtletaControllerCLI {
             //chiedo quale lezione si voglia prenotare
             int scelta = PrenotaAtletaViewCLI.scegliLezione();
 
-            if(scelta <= lezioniDisponibili.lunghezza()){
+            if(scelta <= lezioniDisponibili.size()){
                 //stampo un riepilogo della lezione
-                PrenotaAtletaViewCLI.mostraRiepilogoLezione(lezioniDisponibili.getLezione(scelta - 1));
+                PrenotaAtletaViewCLI.mostraRiepilogoLezione(lezioniDisponibili.get(scelta - 1));
 
                 //chiedo la seconda conferma
                 conferma = PrenotaAtletaViewCLI.chiediConferma();
 
                 if(conferma.equals("si")){
-                    lezioneScelta = lezioniDisponibili.getLezione(scelta-1);
+                    lezioneScelta = lezioniDisponibili.get(scelta-1);
                     break;
                 }
 

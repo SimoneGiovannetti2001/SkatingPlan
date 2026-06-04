@@ -5,7 +5,6 @@ import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.LezioneBean;
-import com.example.skatingplan.model.bean.LezioniBean;
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.model.enumerazioni.Regione;
 import com.example.skatingplan.model.enumerazioni.Role;
@@ -87,12 +86,12 @@ public class PrenotaAtletaControllerG {
 
         FiltriBean filtriBean = new FiltriBean(data.getValue(), oraComboBox.getValue(), regioneComboBox.getValue());
         PrenotaController prenotaController = new PrenotaController();
-        LezioniBean lezioniBean = prenotaController.selezionaLezioni(filtriBean);
-        if(lezioniBean.lunghezza() != 0) {
+        List<LezioneBean> lezioniDisponibili = prenotaController.selezionaLezioni(filtriBean);
+        if(!lezioniDisponibili.isEmpty()) {
             vBoxLezioniDisponibili.getChildren().clear();
 
-            for (int i = 0; i < lezioniBean.lunghezza(); i++) {
-                vBoxLezioniDisponibili.getChildren().add(creaRiga(lezioniBean.getLezione(i)));
+            for (LezioneBean lezioneBean : lezioniDisponibili) {
+                vBoxLezioniDisponibili.getChildren().add(creaRiga(lezioneBean));
             }
         }else{
             GestoreMessaggiGUI.mostraErrore(erroriLabel,"Lezioni non disponibili, riprovare");
@@ -112,7 +111,7 @@ public class PrenotaAtletaControllerG {
             return node;
 
         } catch (IOException e) {
-            e.printStackTrace();
+            //non gestita
 
         }
         return null;

@@ -3,7 +3,6 @@ package com.example.skatingplan.controllergcli.viewcli;
 import com.example.skatingplan.eccezioni.ExitException;
 import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.LezioneBean;
-import com.example.skatingplan.model.bean.LezioniBean;
 import com.example.skatingplan.model.enumerazioni.Regione;
 
 import java.io.BufferedReader;
@@ -13,7 +12,7 @@ import java.io.InputStreamReader;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeParseException;
-
+import java.util.List;
 
 
 import static java.lang.System.*;
@@ -77,9 +76,9 @@ public class PrenotaAtletaViewCLI {
         }
     }
 
-    public static void mostraLezioni(LezioniBean lezioni){
-        for (int i = 1; i <= lezioni.lunghezza(); i++) {
-            LezioneBean lezioneBean = lezioni.getLezione(i-1);
+    public static void mostraLezioni(List<LezioneBean> lezioniBean){
+        for (int i = 1; i <= lezioniBean.size(); i++) {
+            LezioneBean lezioneBean = lezioniBean.get(i-1);
             String nomeAllenatore = lezioneBean.getAllenatore().getNome() + " " + lezioneBean.getAllenatore().getCognome();
             String indirizzo = lezioneBean.getPistaDiPattinaggio().getVia()+ " " + lezioneBean.getPistaDiPattinaggio().getCivico();
             String formato = "%-35s %-35s %-15s%n";
