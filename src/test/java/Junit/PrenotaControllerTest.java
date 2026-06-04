@@ -30,7 +30,7 @@ class PrenotaControllerTest {
 
         PrenotaController prenotaController = new PrenotaController();
         //imposto dei filtri validi e creo il bean
-        LocalDate data = LocalDate.of(2026,Month.JULY,10);
+        LocalDate data = LocalDate.of(2026,Month.JUNE,28);
         LocalTime oraInizio = LocalTime.of(14, 0);
         Regione regione = Regione.LAZIO;
         FiltriBean filtri = new FiltriBean(data, oraInizio, regione);
@@ -50,7 +50,7 @@ class PrenotaControllerTest {
 
         PrenotaController prenotaController = new PrenotaController();
         //imposto dei filtri validi ma senza lezioni disponibili e creo il bean
-        LocalDate data = LocalDate.of(2026, Month.JULY,16);
+        LocalDate data = LocalDate.of(2026, Month.JUNE,28);
         LocalTime oraInizio = LocalTime.of(14, 0);
         Regione regione = Regione.LAZIO;
         FiltriBean filtri = new FiltriBean(data, oraInizio, regione);

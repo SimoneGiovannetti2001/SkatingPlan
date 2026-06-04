@@ -9,6 +9,7 @@ import com.example.skatingplan.model.enumerazioni.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
+import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,11 +33,11 @@ public class DEMOLezioneDAO implements LezioniDAO {
         allenatori.add(new Allenatore(new Utente("Filippo", "Rizzo", "fil.rizzo@gmail.com", Role.ALLENATORE, 4, "filippo"), Qualifica.FISR3,50));
         allenatori.add(new Allenatore(new Utente("Marcus", "Pagliari", "mar.pagliati@gmail.com", Role.ALLENATORE, 5, "marcus"), Qualifica.FISR3,60));
 
-        lezioni.add(new Lezione(1, pisteDiPattinaggio.get(0), allenatori.get(0), LocalDate.of(2026, 7, 10),LocalTime.of(16,30), 60, 35));
-        lezioni.add(new Lezione(2, pisteDiPattinaggio.get(1), allenatori.get(1), LocalDate.of(2026, 7, 16),LocalTime.of(15,0), 120, 80));
-        lezioni.add(new Lezione(3, pisteDiPattinaggio.get(2), allenatori.get(2), LocalDate.of(2026, 7, 17),LocalTime.of(17,30), 60, 35));
-        lezioni.add(new Lezione(4, pisteDiPattinaggio.get(3), allenatori.get(3), LocalDate.of(2026, 7, 19),LocalTime.of(18,0), 120, 100));
-        lezioni.add(new Lezione(5, pisteDiPattinaggio.get(4), allenatori.get(4), LocalDate.of(2026, 7, 20),LocalTime.of(16,0), 60, 60));
+        lezioni.add(new Lezione(1, pisteDiPattinaggio.get(0), allenatori.get(0), LocalDate.of(2026, Month.JULY, 10),LocalTime.of(16,30), 60, 35));
+        lezioni.add(new Lezione(2, pisteDiPattinaggio.get(1), allenatori.get(1), LocalDate.of(2026, Month.JULY, 16),LocalTime.of(15,0), 120, 80));
+        lezioni.add(new Lezione(3, pisteDiPattinaggio.get(2), allenatori.get(2), LocalDate.of(2026, Month.JULY, 17),LocalTime.of(17,30), 60, 35));
+        lezioni.add(new Lezione(4, pisteDiPattinaggio.get(3), allenatori.get(3), LocalDate.of(2026, Month.JULY, 19),LocalTime.of(18,0), 120, 100));
+        lezioni.add(new Lezione(5, pisteDiPattinaggio.get(4), allenatori.get(4), LocalDate.of(2026, Month.JULY, 20),LocalTime.of(16,0), 60, 60));
     }
 
     @Override
