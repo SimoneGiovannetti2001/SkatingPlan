@@ -1,10 +1,11 @@
 package com.example.skatingplan.model.bean;
 
-import com.example.skatingplan.model.Allenatore;
-import com.example.skatingplan.model.Atleta;
-import com.example.skatingplan.model.PistaDiPattinaggio;
+
 import com.example.skatingplan.model.Prenotazione;
+import com.example.skatingplan.model.enumerazioni.Livello;
+import com.example.skatingplan.model.enumerazioni.Regione;
 import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
+import com.example.skatingplan.model.enumerazioni.TipoPavimento;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -12,23 +13,39 @@ import java.time.LocalTime;
 public class PrenotazioneBean {
 
     private int idLezione;
-    private Allenatore allenatore;
-    private Atleta atleta;
+    private String nomeAllenatore;
+    private String cognomeAllenatore;
+    private int tariffaOraria;
+    private String nomeAtleta;
+    private String cognomeAtleta;
+    private Livello livelloAtleta;
     private LocalDate data;
     private LocalTime oraInizio;
     private int durata;
-    private PistaDiPattinaggio pistaDiPattinaggio;
+    private String nomePista;
+    private Regione regionePista;
+    private String viaPista;
+    private String civicoPista;
+    private TipoPavimento tipoPavimentoPista;
     private int costo;
     private StatoPrenotazione statoPrenotazione;
 
     public PrenotazioneBean(Prenotazione prenotazione){
         this.idLezione = prenotazione.getLezione().getId();
-        this.allenatore = prenotazione.getLezione().getAllenatore();
-        this.atleta = prenotazione.getAtleta();
+        this.nomeAllenatore = prenotazione.getLezione().getAllenatore().getNome();
+        this.cognomeAllenatore = prenotazione.getLezione().getAllenatore().getCognome();
+        this.tariffaOraria = prenotazione.getLezione().getAllenatore().getTariffaOraria();
+        this.nomeAtleta = prenotazione.getAtleta().getNome();
+        this.cognomeAtleta = prenotazione.getAtleta().getCognome();
+        this.livelloAtleta = prenotazione.getAtleta().getLivello();
         this.data = prenotazione.getLezione().getData();
         this.oraInizio = prenotazione.getLezione().getOraInizio();
         this.durata = prenotazione.getLezione().getDurata();
-        this.pistaDiPattinaggio = prenotazione.getLezione().getPistaDiPattinaggio();
+        this.nomePista = prenotazione.getLezione().getAllenatore().getNome();
+        this.regionePista = prenotazione.getLezione().getPistaDiPattinaggio().getRegione();
+        this.viaPista = prenotazione.getLezione().getPistaDiPattinaggio().getVia();
+        this.civicoPista = prenotazione.getLezione().getPistaDiPattinaggio().getCivico();
+        this.tipoPavimentoPista = prenotazione.getLezione().getPistaDiPattinaggio().getTipoPavimento();
         this.costo = prenotazione.getLezione().getCosto();
         this.statoPrenotazione = prenotazione.getStatoPrenotazione();
     }
@@ -41,19 +58,46 @@ public class PrenotazioneBean {
         return idLezione;
     }
 
+    public void setNomeAllenatore(String nomeAllenatore) {
+        this.nomeAllenatore = nomeAllenatore;
+    }
+    public String getNomeAllenatore() {
+        return nomeAllenatore;
+    }
 
-    public void setAllenatore(Allenatore allenatore) {
-        this.allenatore = allenatore;
+    public void setCognomeAllenatore(String cognomeAllenatore) {
+        this.cognomeAllenatore = cognomeAllenatore;
     }
-    public Allenatore getAllenatore() {
-        return allenatore;
+    public String getCognomeAllenatore() {
+        return cognomeAllenatore;
     }
 
-    public void setAtleta(Atleta atleta) {
-        this.atleta = atleta;
+    public void setTariffaOraria(int tariffaOraria) {
+        this.tariffaOraria = tariffaOraria;
     }
-    public Atleta getAtleta() {
-        return atleta;
+    public int getTariffaOraria() {
+        return tariffaOraria;
+    }
+
+    public void setNomeAtleta(String nomeAtleta) {
+        this.nomeAtleta = nomeAtleta;
+    }
+    public String getNomeAtleta() {
+        return nomeAtleta;
+    }
+
+    public void setCognomeAtleta(String cognomeAtleta) {
+        this.cognomeAtleta = cognomeAtleta;
+    }
+    public String getCognomeAtleta() {
+        return cognomeAtleta;
+    }
+
+    public void setLivelloAtleta(Livello livello) {
+        this.livelloAtleta = livello;
+    }
+    public Livello getLivelloAtleta() {
+        return livelloAtleta;
     }
 
     public void setData(LocalDate data) {
@@ -77,11 +121,39 @@ public class PrenotazioneBean {
         return durata;
     }
 
-    public void setPistaDiPattinaggio(PistaDiPattinaggio pistaDiPattinaggio) {
-        this.pistaDiPattinaggio = pistaDiPattinaggio;
+    public void setNomePista(String nomePista) {
+        this.nomePista = nomePista;
     }
-    public PistaDiPattinaggio getPistaDiPattinaggio() {
-        return pistaDiPattinaggio;
+    public String getNomePista() {
+        return nomePista;
+    }
+
+    public void setRegionePista(Regione regionePista) {
+        this.regionePista = regionePista;
+    }
+    public Regione getRegionePista() {
+        return regionePista;
+    }
+
+    public void setViaPista(String viaPista) {
+        this.viaPista = viaPista;
+    }
+    public String getViaPista() {
+        return viaPista;
+    }
+
+    public void setCivicoPista(String civicoPista) {
+        this.civicoPista = civicoPista;
+    }
+    public String getCivicoPista() {
+        return civicoPista;
+    }
+
+    public void setTipoPavimentoPista(TipoPavimento tipoPavimentoPista) {
+        this.tipoPavimentoPista = tipoPavimentoPista;
+    }
+    public TipoPavimento getTipoPavimentoPista() {
+        return tipoPavimentoPista;
     }
 
     public void setCosto(int costo) {
@@ -90,7 +162,6 @@ public class PrenotazioneBean {
     public int getCosto() {
         return costo;
     }
-
 
     public void setStatoPrenotazione(StatoPrenotazione statoPrenotazione) {
         this.statoPrenotazione = statoPrenotazione;

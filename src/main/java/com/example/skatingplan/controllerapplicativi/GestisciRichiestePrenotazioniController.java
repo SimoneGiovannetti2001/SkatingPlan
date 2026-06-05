@@ -6,6 +6,7 @@ import com.example.skatingplan.model.Prenotazione;
 import com.example.skatingplan.model.Sessione;
 import com.example.skatingplan.model.bean.PrenotazioneBean;
 import com.example.skatingplan.model.dao.LezioniDAO;
+import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
 import com.example.skatingplan.utili.FactoryConfig;
 
 
@@ -33,5 +34,11 @@ public class GestisciRichiestePrenotazioniController {
             prenotazioniRichieste.add(new PrenotazioneBean(prenotazione));
         }
         return prenotazioniRichieste;
+    }
+
+    public void aggiornaStatoPrenotazione(PrenotazioneBean prenotazionebean) throws DatabaseNonRaggiungibileException {
+        Prenotazione prenotazione = new Prenotazione(prenotazionebean);
+        LezioniDAO lezioniDAO = FactoryConfig.getDaoFactory().creaLezioniDAO();
+        lezioniDAO.aggiornastato(prenotazione.getLezione().getId(), StatoPrenotazione.CONFERMATA);
     }
 }

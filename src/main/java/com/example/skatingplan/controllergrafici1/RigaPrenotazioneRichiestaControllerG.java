@@ -1,5 +1,8 @@
 package com.example.skatingplan.controllergrafici1;
 
+import com.example.skatingplan.FxmlLoader;
+import com.example.skatingplan.controllerapplicativi.GestisciRichiestePrenotazioniController;
+import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.bean.PrenotazioneBean;
 import com.example.skatingplan.utili.PrenotazioneViewPopolatore;
 import javafx.fxml.FXML;
@@ -48,11 +51,17 @@ public class RigaPrenotazioneRichiestaControllerG {
         PrenotazioneViewPopolatore.popolaInfoTempo(prenotazioneBean, oraInizio, durata, data);
     }
 
-    public void onConfermaRichiestaClick() {
-        //da implementare
+    public void onConfermaRichiestaClick() throws DatabaseNonRaggiungibileException {
+        try {
+            GestisciRichiestePrenotazioniController gestisciRichiestePrenotazioniController = new GestisciRichiestePrenotazioniController();
+            gestisciRichiestePrenotazioniController.aggiornaStatoPrenotazione(prenotazione);
+            FxmlLoader.setPage("views1/gestisciRichiestePrenotazioniAllenatore1-view");
+        }catch (DatabaseNonRaggiungibileException _){
+            //non gestita
+        }
     }
 
     public void onAnnullaRichiestaCliick() {
-        //da implementare
+        //non implementata
     }
 }

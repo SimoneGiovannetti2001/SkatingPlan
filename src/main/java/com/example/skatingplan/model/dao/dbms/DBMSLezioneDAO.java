@@ -119,7 +119,7 @@ public class DBMSLezioneDAO implements LezioniDAO {
             }
 
         } catch (SQLException e) {
-            throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito",e);
+            throw new DatabaseNonRaggiungibileException("Database non disponibile, riprovare in seguito",e);
         }
 
         return prenotazioniRichieste;

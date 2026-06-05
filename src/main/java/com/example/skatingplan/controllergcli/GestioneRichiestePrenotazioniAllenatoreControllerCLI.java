@@ -1,8 +1,8 @@
 package com.example.skatingplan.controllergcli;
 
-public class GestioneRichiestePrenotazioniControllerCLI {
+public class GestioneRichiestePrenotazioniAllenatoreControllerCLI {
 
-    private GestioneRichiestePrenotazioniControllerCLI(){
+    private GestioneRichiestePrenotazioniAllenatoreControllerCLI(){
         //non deve essere istanziata
     }
 

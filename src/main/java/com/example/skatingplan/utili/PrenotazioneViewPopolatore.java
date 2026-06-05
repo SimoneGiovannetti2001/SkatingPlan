@@ -11,8 +11,8 @@ public class PrenotazioneViewPopolatore {
     }
 
     public static void popolaInfoAtleta(PrenotazioneBean prenotazioneBean, Label atleta, Label livello){
-        atleta.setText(prenotazioneBean.getAtleta().getNome() + " " + prenotazioneBean.getAtleta().getCognome());
-        livello.setText(prenotazioneBean.getAtleta().getLivello().toString());
+        atleta.setText(prenotazioneBean.getNomeAtleta() + " " + prenotazioneBean.getCognomeAtleta());
+        livello.setText(prenotazioneBean.getLivelloAtleta().toString());
     }
 
     public static void popolaInfoTempo(PrenotazioneBean prenotazioneBean, Label oraInizio, Label durata, Label data) {
@@ -22,8 +22,8 @@ public class PrenotazioneViewPopolatore {
     }
 
     public static void popolaInfoLuogo(PrenotazioneBean prenotazioneBean, Label pista, Label indirizzo, Label regione){
-        pista.setText(prenotazioneBean.getPistaDiPattinaggio().getNome());
-        indirizzo.setText(prenotazioneBean.getPistaDiPattinaggio().getVia() + " " + prenotazioneBean.getPistaDiPattinaggio().getCivico());
-        regione.setText(prenotazioneBean.getPistaDiPattinaggio().getRegione().toString());
+        pista.setText(prenotazioneBean.getNomePista());
+        indirizzo.setText(prenotazioneBean.getViaPista() + " " + prenotazioneBean.getCivicoPista());
+        regione.setText(prenotazioneBean.getRegionePista().toString());
     }
 }

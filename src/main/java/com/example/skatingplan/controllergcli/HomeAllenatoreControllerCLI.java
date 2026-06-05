@@ -28,7 +28,7 @@ public class HomeAllenatoreControllerCLI {
                 choice = selezionascelta();
 
                 switch (choice) {
-                    case 1 -> GestioneRichiestePrenotazioniControllerCLI.start();
+                    case 1 -> GestioneRichiestePrenotazioniAllenatoreControllerCLI.start();
                     case 2 -> GestionePrenotazioniControllerCLI.start();
                     case 3 -> GestioneDisponibilitaControllerCLI.start();
                     case 4 -> {
