@@ -3,10 +3,7 @@ package com.example.skatingplan.model.dao.dbms;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.*;
 import com.example.skatingplan.model.dao.LezioniDAO;
-import com.example.skatingplan.model.enumerazioni.Qualifica;
-import com.example.skatingplan.model.enumerazioni.Regione;
-import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
-import com.example.skatingplan.model.enumerazioni.TipoPavimento;
+import com.example.skatingplan.model.enumerazioni.*;
 import com.example.skatingplan.utili.ConnectionFactory;
 
 import java.sql.*;
@@ -87,36 +84,45 @@ public class DBMSLezioneDAO implements LezioniDAO {
     }
 
     @Override
-    public List<Prenotazione> prendiLezioniRichiesteAllenatore(Utente utente) {
+    public List<Prenotazione> prendiLezioniRichiesteAllenatore(Utente utente) throws DatabaseNonRaggiungibileException {
         List<Prenotazione> prenotazioniRichieste = new ArrayList<>();
-
 
         try(CallableStatement cs = getConnection().prepareCall("call seleziona_richieste_allenatore(?)"))  {
 
-            cs.setInt(1, utente.getIdUtente());
+            //imposto l'allenatore che è quello loggato correntemente
+            Allenatore allenatore = new Allenatore(Sessione.getSessioneCorrente());
+            Lezione lezione;
+            PistaDiPattinaggio pistaDiPattinaggio;
+            Atleta atleta;
+            Prenotazione prenotazione;
 
+            cs.setInt(1, utente.getIdUtente());
 
             if(cs.execute()) {
                 ResultSet rs = cs.getResultSet();
+
                 while (rs.next()) {
-                    //creo allenatore
-
                     //creo pista
+                    pistaDiPattinaggio = new PistaDiPattinaggio(rs.getString(6),Regione.valueOf(rs.getString(9)),rs.getString(7), rs.getString(8), TipoPavimento.valueOf(rs.getString(10)));
+
+                    //creo lezione
+                    lezione = new Lezione(rs.getInt(1),pistaDiPattinaggio,allenatore, rs.getDate(2).toLocalDate(), rs.getTime(3).toLocalTime(),rs.getInt(4), rs.getInt(5));
 
                     //creo atleta
-
-                    //creo atleta
+                    atleta = new Atleta(rs.getString(12), rs.getString(13), Livello.valueOf(rs.getString(11)));
 
                     //creo prenotazione
+                    prenotazione = new Prenotazione(lezione, atleta);
 
+                    prenotazioniRichieste.add(prenotazione);
                 }
             }
 
         } catch (SQLException e) {
-            //non gestita
-            // throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito",e);
+            throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito",e);
         }
-       return prenotazioniRichieste;
+
+        return prenotazioniRichieste;
     }
 
     @Override

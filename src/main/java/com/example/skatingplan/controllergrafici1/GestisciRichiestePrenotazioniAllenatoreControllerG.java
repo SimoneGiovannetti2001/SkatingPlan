@@ -18,6 +18,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.util.List;
 
 public class GestisciRichiestePrenotazioniAllenatoreControllerG {
 
@@ -45,28 +46,32 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
     GestisciRichiestePrenotazioniController gestisciRichiestePrenotazioniController = new GestisciRichiestePrenotazioniController();
 
     public void initialize(){
+        try {
+            //recupero le lezioni richieste
+            List<PrenotazioneBean> prenotazioniRichieste;
+            prenotazioniRichieste = gestisciRichiestePrenotazioniController.selezionaPrenotazioniRichieste();
 
-        //recupero le lezioni richieste
-        PrenotazioniBean prenotazioniRichieste;
-        prenotazioniRichieste = gestisciRichiestePrenotazioniController.selezionaPrenotazioniRichieste();
+            //se diverso da 0 le mostro a schermo
+            if (!prenotazioniRichieste.isEmpty()) {
+                vBoxLezioniRichieste.getChildren().clear();
 
-        //se diverso da 0 le mostro a schermo
-        if(prenotazioniRichieste.lunghezza() != 0) {
-            vBoxLezioniRichieste.getChildren().clear();
+                for (PrenotazioneBean prenotazioneBean : prenotazioniRichieste) {
+                    vBoxLezioniRichieste.getChildren().add(creaRiga(prenotazioneBean));
+                }
 
-            for (int i = 0; i < prenotazioniRichieste.lunghezza(); i++) {
-                vBoxLezioniRichieste.getChildren().add(creaRiga(prenotazioniRichieste.getPrenotazione(i)));
+            } else {
+                GestoreMessaggiGUI.mostraErrore(erroriLabel, "Nessuna lezione richiesta al momento");
             }
-
-        }else{
-            GestoreMessaggiGUI.mostraErrore(erroriLabel,"Nessuna lezione richiesta al momento");
+        }catch (DatabaseNonRaggiungibileException e){
+            GestoreMessaggiGUI.mostraErrore(erroriLabel, e.getMessage());
         }
 
     }
 
     private Parent creaRiga(PrenotazioneBean prenotazione){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/skatingplan/views1/rigaPrenotazioneRichiesta.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/skatingplan/views1/rigaPrenotazioneRichiesta1.fxml"));
+            System.out.println(loader);
             Parent node = loader.load();
 
             RigaPrenotazioneRichiestaControllerG rigaPrenotazioneRichiestaControllerG = loader.getController();

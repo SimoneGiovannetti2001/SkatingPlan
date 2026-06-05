@@ -51,6 +51,7 @@ public class RigaLezioneControllerG {
         LezioneViewPopolatore.popolaInfoLuogo(lezioneBean, pista, indirizzo, regione);
         LezioneViewPopolatore.popolaInfoAllenatore(lezioneBean, allenatore, qualifica, costo);
     }
+
     public void onSelezionaClick() {
         boolean confermato = RiepilogoLezioneControllerG.mostra(lezione);
 

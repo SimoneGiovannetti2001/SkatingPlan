@@ -48,6 +48,7 @@ public class HomeAllenatoreControllerG {
 
     @FXML
     public void onGestisciPrenotazioniClick() {
+
         FxmlLoader.setPage("views1/gestisciRichiestePrenotazioniAllenatore1-view");
     }
 

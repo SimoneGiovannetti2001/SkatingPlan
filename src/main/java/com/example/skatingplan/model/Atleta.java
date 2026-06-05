@@ -16,6 +16,11 @@ public class Atleta extends Utente{
         super(nome, cognome, email, ruolo, idUtente, passw);
     }
 
+    public Atleta(String nome, String cognome, Livello livello){
+        super(nome, cognome);
+        this.livello = livello;
+    }
+
 
     public Livello getLivello(){
         return this.livello;

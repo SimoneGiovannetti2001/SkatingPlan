@@ -17,7 +17,7 @@ public interface LezioniDAO {
 
     void associaAtleta(Prenotazione prenotazione) throws DatabaseNonRaggiungibileException;
 
-    List<Prenotazione> prendiLezioniRichiesteAllenatore(Utente utente);
+    List<Prenotazione> prendiLezioniRichiesteAllenatore(Utente utente) throws DatabaseNonRaggiungibileException;
 
     List<Prenotazione> prendiLezioniConfermate(Utente utente);
 }

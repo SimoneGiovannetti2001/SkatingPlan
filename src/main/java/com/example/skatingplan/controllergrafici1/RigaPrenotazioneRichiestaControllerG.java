@@ -1,6 +1,7 @@
 package com.example.skatingplan.controllergrafici1;
 
 import com.example.skatingplan.model.bean.PrenotazioneBean;
+import com.example.skatingplan.utili.PrenotazioneViewPopolatore;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -40,11 +41,11 @@ public class RigaPrenotazioneRichiestaControllerG {
 
     private PrenotazioneBean prenotazione;
 
-    public void impostaDati(PrenotazioneBean prenotazione){
-        this.prenotazione = prenotazione;
-//        LezioneViewPopolatore.popolaInfoTempo(prenotazione, oraInizio, durata, data);
-//        LezioneViewPopolatore.popolaInfoLuogo(prenotazione, pista, indirizzo, regione);
-//
+    public void impostaDati(PrenotazioneBean prenotazioneBean){
+        this.prenotazione = prenotazioneBean;
+        PrenotazioneViewPopolatore.popolaInfoLuogo(prenotazioneBean, pista, indirizzo, regione);
+        PrenotazioneViewPopolatore.popolaInfoAtleta(prenotazioneBean, atleta, livello);
+        PrenotazioneViewPopolatore.popolaInfoTempo(prenotazioneBean, oraInizio, durata, data);
     }
 
     public void onConfermaRichiestaClick() {

@@ -21,6 +21,10 @@ public class Allenatore extends Utente{
         this.tariffaOraria = tariffaOraria;
     }
 
+    public Allenatore(Utente utente){
+        super(utente.getNome(), utente.cognome, utente.getEmail(), utente.getRuolo(), utente.getIdUtente(), utente.getPassw());
+    }
+
     public Allenatore(String nomeAllenatore, String cognomeAllenatore, Qualifica qualifica) {
         super(nomeAllenatore, cognomeAllenatore);
         this.qualifica = qualifica;

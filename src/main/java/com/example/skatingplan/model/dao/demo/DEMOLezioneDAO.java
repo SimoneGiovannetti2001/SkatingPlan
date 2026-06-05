@@ -14,6 +14,7 @@ import java.util.List;
 
 public class DEMOLezioneDAO implements LezioniDAO {
     List<Lezione> lezioniFiltrate;
+
     private static final List<PistaDiPattinaggio> pisteDiPattinaggio = new ArrayList<>();
     private static final List<Allenatore> allenatori = new ArrayList<>();
     private static final List<Lezione> lezioni = new ArrayList<>();
