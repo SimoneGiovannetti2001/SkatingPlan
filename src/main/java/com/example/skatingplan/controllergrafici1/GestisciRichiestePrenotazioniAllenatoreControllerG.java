@@ -71,7 +71,7 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
     private Parent creaRiga(PrenotazioneBean prenotazione){
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/example/skatingplan/views1/rigaPrenotazioneRichiesta1.fxml"));
-            System.out.println(loader);
+
             Parent node = loader.load();
 
             RigaPrenotazioneRichiestaControllerG rigaPrenotazioneRichiestaControllerG = loader.getController();
