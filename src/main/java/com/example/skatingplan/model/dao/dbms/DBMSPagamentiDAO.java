@@ -41,12 +41,31 @@ public class DBMSPagamentiDAO implements PagamentiDAO{
 
             cs.setInt(1,pagamento.getIdLezione());
             cs.setString(2, statoPagamento.toString());
+
             if(cs.executeUpdate() != 1){
                 throw new SQLException();
             }
 
         }catch(SQLException e){
-            throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito",e);
+            throw new DatabaseNonRaggiungibileException("Database non disponibile, riprovare in seguito",e);
         }
     }
+
+    @Override
+    public void annullaPagamento(int idLezione) throws DatabaseNonRaggiungibileException {
+        Connection connection = ConnectionFactory.getConnection();
+
+        try(CallableStatement cs = connection.prepareCall("call annulla_pagamento(?)")){
+
+            cs.setInt(1,idLezione);
+
+            if(cs.executeUpdate() != 1){
+                throw new SQLException();
+            }
+
+        }catch(SQLException e){
+            throw new DatabaseNonRaggiungibileException("Database non disponibile, riprovare in seguito",e);
+        }
+    }
+
 }

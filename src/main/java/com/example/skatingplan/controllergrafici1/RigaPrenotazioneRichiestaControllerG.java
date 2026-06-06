@@ -71,6 +71,22 @@ public class RigaPrenotazioneRichiestaControllerG {
     }
 
     public void onAnnullaRichiestaCliick() {
-        //non implementata
+        try {
+            //aggiorno lo stato su persistenza
+
+            GestisciRichiestePrenotazioniController gestisciRichiestePrenotazioniController = new GestisciRichiestePrenotazioniController();
+
+            gestisciRichiestePrenotazioniController.rifiutaRichiestaPrenotazione(prenotazione);
+
+            //elimino la riga della prenotazione
+            Node riga = annullaRichiesta.getParent();
+            Pane parent = (Pane) riga.getParent();
+
+            parent.getChildren().remove(riga);
+
+
+        }catch (Exception _){
+            //non gestita
+        }
     }
 }

@@ -27,4 +27,9 @@ public class DEMOPagamentiDAO implements PagamentiDAO {
         }
     }
 
+    @Override
+    public void annullaPagamento(int idLezione) {
+        pagamenti.removeIf(pagamento -> pagamento.getIdLezione() == idLezione);
+    }
+
 }

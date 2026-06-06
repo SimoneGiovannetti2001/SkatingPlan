@@ -9,4 +9,6 @@ public interface PagamentiDAO {
     void inserisciPagamento(Pagamento pagamento) throws DatabaseNonRaggiungibileException;
 
     void aggiornaPagamento(Pagamento pagamento, StatoPagamento statoPagamento) throws DatabaseNonRaggiungibileException;
+
+    void annullaPagamento(int idLezione) throws DatabaseNonRaggiungibileException;
 }
