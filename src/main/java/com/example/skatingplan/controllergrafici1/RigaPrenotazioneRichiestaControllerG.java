@@ -56,7 +56,7 @@ public class RigaPrenotazioneRichiestaControllerG {
         try {
             //aggiorno lo stato su persistenza
             GestisciRichiestePrenotazioniController gestisciRichiestePrenotazioniController = new GestisciRichiestePrenotazioniController();
-            gestisciRichiestePrenotazioniController.aggiornaStatoPrenotazione(prenotazione);
+            gestisciRichiestePrenotazioniController.confermaRichiestaPrenotazione(prenotazione);
 
             //elimino la riga della prenotazione
             Node riga = confermaRichiesta.getParent();

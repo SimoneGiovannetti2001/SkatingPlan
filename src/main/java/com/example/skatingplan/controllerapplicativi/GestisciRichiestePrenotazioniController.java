@@ -16,8 +16,10 @@ import java.util.List;
 
 public class GestisciRichiestePrenotazioniController {
 
-    public void confermaRichiestaPrenotazione(){
-        //serve per accettare una prenotazione
+    public void confermaRichiestaPrenotazione(PrenotazioneBean prenotazionebean) throws DatabaseNonRaggiungibileException{
+        Prenotazione prenotazione = new Prenotazione(prenotazionebean);
+        LezioniDAO lezioniDAO = FactoryConfig.getDaoFactory().creaLezioniDAO();
+        lezioniDAO.aggiornastato(prenotazione.getLezione().getId(), StatoPrenotazione.CONFERMATA);
     }
 
     public void rifiutaRichiestaPrenotazione(){
@@ -36,9 +38,5 @@ public class GestisciRichiestePrenotazioniController {
         return prenotazioniRichieste;
     }
 
-    public void aggiornaStatoPrenotazione(PrenotazioneBean prenotazionebean) throws DatabaseNonRaggiungibileException {
-        Prenotazione prenotazione = new Prenotazione(prenotazionebean);
-        LezioniDAO lezioniDAO = FactoryConfig.getDaoFactory().creaLezioniDAO();
-        lezioniDAO.aggiornastato(prenotazione.getLezione().getId(), StatoPrenotazione.CONFERMATA);
-    }
+
 }

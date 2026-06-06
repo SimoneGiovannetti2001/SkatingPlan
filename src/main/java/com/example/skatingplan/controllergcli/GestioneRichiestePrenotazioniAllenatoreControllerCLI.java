@@ -41,7 +41,7 @@ public class GestioneRichiestePrenotazioniAllenatoreControllerCLI {
                     if(scelta != 0 ){
                         prenotazioneScelta = prenotazioniRichieste.get(scelta - 1);
 
-                        gestisciRichiestePrenotazioniController.aggiornaStatoPrenotazione(prenotazioneScelta);
+                        gestisciRichiestePrenotazioniController.confermaRichiestaPrenotazione(prenotazioneScelta);
 
                         scelta = GestisciRichiestePrenotazioniAllenatoreView.richiestaConfermaAltraLezione();
 
