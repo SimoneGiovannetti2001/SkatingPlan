@@ -48,7 +48,7 @@ public class GestionePrenotazioniAtletaControllerG {
 
     @FXML
     private void onGestisciPrenotazioniClick(){
-        FxmlLoader.setPage("views1/gestisciPrenotazioniAtleta1-view");
+        FxmlLoader.setPage("views1/gestisciPrenotazioni1-view");
     }
 
     @FXML

@@ -9,18 +9,18 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../filecss/Button.css" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.controllergrafici1.GestionePrenotazioniAtletaControllerG">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../filecss/Button.css" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.controllergrafici1.GestisciPrenotazioniAllenatoreControllerG">
    <ImageView fitHeight="720.0" fitWidth="1280.0" pickOnBounds="true" preserveRatio="true">
       <Image url="@../image/HomeAtleta.jpg" />
    </ImageView>
-   <Button fx:id="gestisciPrenotazioni" layoutY="190.0" mnemonicParsing="false" onAction="#onGestisciPrenotazioniClick" prefHeight="108.0" prefWidth="169.0" style="-fx-background-color: #38bdf8;" text="Gestisci&#10;prenotazione" textFill="#000066">
+   <Button fx:id="gestisciPrenotazioni" layoutY="190.0" mnemonicParsing="false" onAction="#onGestisciPrenotazioniClick" prefHeight="108.0" prefWidth="169.0" style="-fx-background-color: #38bdf8;" text="Gestisci Prenotazioni" textFill="#000066">
       <font>
-         <Font size="22.0" />
+         <Font size="18.0" />
       </font>
    </Button>
-   <Button fx:id="prenotaLezione" graphicTextGap="1.0" layoutY="80.0" mnemonicParsing="false" onAction="#onPrenotaLezioneClick" prefHeight="108.0" prefWidth="169.0" style="-fx-background-color: white;" text="Prenota&#10;lezione" textFill="#000066">
+   <Button fx:id="gestisciRichiestePrenotazioni" graphicTextGap="1.0" layoutY="80.0" mnemonicParsing="false" onAction="#onGestisciRichiestePrenotazioniClick" prefHeight="108.0" prefWidth="169.0" style="-fx-background-color: white;" text="Gestisci richieste &#10;di prenotazioni" textFill="#000066">
       <font>
-         <Font size="22.0" />
+         <Font size="18.0" />
       </font>
    </Button>
    <Label layoutX="11.0" layoutY="1.0" text="SkatingPlan" textFill="#000066">

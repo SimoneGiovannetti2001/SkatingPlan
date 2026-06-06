@@ -29,7 +29,7 @@ public class Lezione {
 
     public Lezione(LezioneBean lezioneBean) {
         this.id = lezioneBean.getIdLezione();
-        this.pistaDiPattinaggio = lezioneBean.getPistaDiPattinaggio();
+        this.pistaDiPattinaggio = new PistaDiPattinaggio(lezioneBean.getNomePista(), lezioneBean.getRegionePista(), lezioneBean.getViaPista(), lezioneBean.getCivicoPista(), lezioneBean.getTipoPavimentoPista());
         this.allenatore = new Allenatore(lezioneBean.getNomeAllenatore(), lezioneBean.getCognomeAllenatore(), lezioneBean.getQualifica());
         this.data = lezioneBean.getData();
         this.oraInizio = lezioneBean.getOraInizio();

@@ -63,7 +63,7 @@ class PrenotaControllerTest {
         //eseguo la selezione
         List<LezioneBean> lezioniDisponibili = prenotaController.selezionaLezioni(filtri);
         //verifico che venga restituita una lista vuota
-       assertEquals(0, lezioniDisponibili.size());
+        assertEquals(0, lezioniDisponibili.size());
 
     }
 

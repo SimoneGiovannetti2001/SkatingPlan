@@ -90,7 +90,7 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
 
 
     public void onGestisciPrenotazioniClick() {
-        //da implementare
+        FxmlLoader.setPage("views1/gestisciPrenotazioniAllenatore1-view");
     }
 
     public void onGestisciRichiestePrenotazioniClick() {

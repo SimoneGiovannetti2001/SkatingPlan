@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="100.0" prefWidth="960.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-padding: 10;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.controllergrafici1.RigaPrenotazioneRichiestaControllerG">
+<AnchorPane prefHeight="100.0" prefWidth="960.0" style="-fx-border-color: black; -fx-border-width: 2; -fx-padding: 10;" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.controllergrafici1.RigaPrenotazioneRichiestaControllerG">
    <Button fx:id="confermaRichiesta" layoutX="840.0" layoutY="10.0" mnemonicParsing="false" onAction="#onConfermaRichiestaClick" prefHeight="35.0" prefWidth="91.0" style="-fx-background-color: #38bdf8;" text="Conferma" textFill="#000066">
       <font>
          <Font size="15.0" />

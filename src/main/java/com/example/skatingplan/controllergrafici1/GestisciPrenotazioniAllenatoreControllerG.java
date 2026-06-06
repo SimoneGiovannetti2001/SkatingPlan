@@ -3,16 +3,21 @@ package com.example.skatingplan.controllergrafici1;
 import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
-import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.enumerazioni.Ruolo;
+import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.utili.FactoryConfig;
 import com.example.skatingplan.utili.GestoreMessaggiGUI;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
+
+public class GestisciPrenotazioniAllenatoreControllerG {
+    @FXML
+    public Button gestisciPrenotazioni;
 
 
-public class HomeAllenatoreControllerG {
     @FXML
     public Button home;
 
@@ -20,7 +25,10 @@ public class HomeAllenatoreControllerG {
     public Button logout;
 
     @FXML
-    public Button gestisciPrenotazioni;
+    public ScrollPane scrollpane;
+
+    @FXML
+    public VBox vBoxLezioniDisponibili;
 
     @FXML
     public Label erroriLabel;
@@ -28,12 +36,15 @@ public class HomeAllenatoreControllerG {
     @FXML
     public Button gestisciRichiestePrenotazioni;
 
-    @FXML
+    public void onGestisciPrenotazioniClick() {
+        FxmlLoader.setPage("views1/gestisciPrenotazioniAllenatore1-view");
+    }
+
+
     public void onHomeClick() {
         FxmlLoader.setPage("views1/homeAllenatore1-view");
     }
 
-    @FXML
     public void onLogoutClick() {
         try {
             //resetto la connessione per fare il login
@@ -45,14 +56,6 @@ public class HomeAllenatoreControllerG {
         }
         FxmlLoader.setPage("views1/login1-view");
     }
-
-    @FXML
-    public void onGestisciPrenotazioniClick() {
-        FxmlLoader.setPage("views1/gestisciPrenotazioniAllenatore1-view");
-    }
-
-
-
 
     public void onGestisciRichiestePrenotazioniClick() {
         FxmlLoader.setPage("views1/gestisciRichiestePrenotazioniAllenatore1-view");

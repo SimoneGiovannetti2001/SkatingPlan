@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxWidth="1000.0" minWidth="1000.0" prefHeight="450.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.controllergrafici1.RiepilogoLezioneControllerG">
+<AnchorPane maxWidth="1000.0" minWidth="1000.0" prefHeight="450.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17.0.6" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.skatingplan.controllergrafici1.RiepilogoLezioneControllerG">
    <Button fx:id="annulla" layoutX="550.0" layoutY="302.0" mnemonicParsing="false" onAction="#onAnnullaClick" prefHeight="100.0" prefWidth="150.0" style="-fx-background-color: #38bdf8;" text="Annulla" textFill="#000066">
       <font>
          <Font size="20.0" />

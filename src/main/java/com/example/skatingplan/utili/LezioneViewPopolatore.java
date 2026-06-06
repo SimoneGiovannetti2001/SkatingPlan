@@ -18,9 +18,9 @@ public class LezioneViewPopolatore {
     }
 
     public static void popolaInfoLuogo(LezioneBean lezioneBean, Label pista, Label indirizzo, Label regione){
-        pista.setText(lezioneBean.getPistaDiPattinaggio().getNome());
-        indirizzo.setText(lezioneBean.getPistaDiPattinaggio().getVia() + " " + lezioneBean.getPistaDiPattinaggio().getCivico());
-        regione.setText(lezioneBean.getPistaDiPattinaggio().getRegione().toString());
+        pista.setText(lezioneBean.getNomePista());
+        indirizzo.setText(lezioneBean.getViaPista() + " " + lezioneBean.getCivicoPista());
+        regione.setText(lezioneBean.getRegionePista().toString());
     }
 
 

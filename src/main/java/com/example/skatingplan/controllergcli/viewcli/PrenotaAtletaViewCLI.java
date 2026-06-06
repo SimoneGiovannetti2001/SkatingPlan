@@ -80,13 +80,13 @@ public class PrenotaAtletaViewCLI {
         for (int i = 1; i <= lezioniBean.size(); i++) {
             LezioneBean lezioneBean = lezioniBean.get(i-1);
             String nomeAllenatore = lezioneBean.getNomeAllenatore() + " " + lezioneBean.getCognomeAllenatore();
-            String indirizzo = lezioneBean.getPistaDiPattinaggio().getVia()+ " " + lezioneBean.getPistaDiPattinaggio().getCivico();
+            String indirizzo = lezioneBean.getViaPista()+ " " + lezioneBean.getCivicoPista();
             String formato = "%-35s %-35s %-15s%n";
             out.println("----------------------------------- Lezione " + i + ": --------------------------------------------");
             out.println("-------------------------------------------------------------------------------------------");
-            out.printf(formato, "Pista: " + lezioneBean.getPistaDiPattinaggio().getNome(), "Allenatore: "+ nomeAllenatore, "Data:   "+ lezioneBean.getData());
+            out.printf(formato, "Pista: " + lezioneBean.getNomePista(), "Allenatore: "+ nomeAllenatore, "Data:   "+ lezioneBean.getData());
             out.printf(formato, "Indirizzo: " + indirizzo, "Qualifica:  " + lezioneBean.getQualifica(), "Ora:    " + lezioneBean.getOraInizio());
-            out.printf(formato, "Regione: " + lezioneBean.getPistaDiPattinaggio().getRegione(), "Costo:      " + (double)lezioneBean.getCosto() + "€", "Durata: " + lezioneBean.getDurata() + " minuti");
+            out.printf(formato, "Regione: " + lezioneBean.getRegionePista(), "Costo:      " + (double)lezioneBean.getCosto() + "€", "Durata: " + lezioneBean.getDurata() + " minuti");
             out.println("-------------------------------------------------------------------------------------------");
         }
     }
@@ -105,16 +105,16 @@ public class PrenotaAtletaViewCLI {
         String delimitatore = "+---------------------------+---------------------------+---------------------------+";
         String formato = "| %-25s | %-25s | %-25s |%n";
         String nomeAllenatore = lezioneBean.getNomeAllenatore() + " " + lezioneBean.getCognomeAllenatore();
-        String indirizzo = lezioneBean.getPistaDiPattinaggio().getVia()+ " " + lezioneBean.getPistaDiPattinaggio().getCivico();
+        String indirizzo = lezioneBean.getViaPista()+ " " + lezioneBean.getCivicoPista();
         String costo = Double.toString(lezioneBean.getCosto());
         out.println(delimitatore);
         out.printf(formato, "Pista", "Allenatore", "Lezione");
         out.println(delimitatore);
-        out.printf(formato, lezioneBean.getPistaDiPattinaggio().getNome(), nomeAllenatore, lezioneBean.getData());
+        out.printf(formato, lezioneBean.getNomePista(), nomeAllenatore, lezioneBean.getData());
         out.println(delimitatore);
         out.printf(formato, indirizzo, lezioneBean.getQualifica(), lezioneBean.getOraInizio());
         out.println(delimitatore);
-        out.printf(formato, lezioneBean.getPistaDiPattinaggio().getRegione(), costo + "€", lezioneBean.getDurata() + "minuti");
+        out.printf(formato, lezioneBean.getRegionePista(), costo + "€", lezioneBean.getDurata() + "minuti");
         out.println(delimitatore);
     }
 

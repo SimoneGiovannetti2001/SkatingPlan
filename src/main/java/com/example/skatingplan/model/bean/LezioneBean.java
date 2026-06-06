@@ -1,8 +1,9 @@
 package com.example.skatingplan.model.bean;
 
 import com.example.skatingplan.model.Lezione;
-import com.example.skatingplan.model.PistaDiPattinaggio;
 import com.example.skatingplan.model.enumerazioni.Qualifica;
+import com.example.skatingplan.model.enumerazioni.Regione;
+import com.example.skatingplan.model.enumerazioni.TipoPavimento;
 
 
 import java.time.LocalDate;
@@ -16,7 +17,11 @@ public class LezioneBean {
     private LocalDate data;
     private LocalTime oraInizio;
     private int durata;
-    private PistaDiPattinaggio pistaDiPattinaggio;
+    private String nomePista;
+    private Regione regionePista;
+    private String viaPista;
+    private String civicoPista;
+    private TipoPavimento tipoPavimentoPista;
     private int costo;
 
     public LezioneBean(Lezione lezione) {
@@ -27,7 +32,11 @@ public class LezioneBean {
         this.data = lezione.getData();
         this.oraInizio = lezione.getOraInizio();
         this.durata = lezione.getDurata();
-        this.pistaDiPattinaggio = lezione.getPistaDiPattinaggio();
+        this.nomePista = lezione.getPistaDiPattinaggio().getNome();
+        this.regionePista = lezione.getPistaDiPattinaggio().getRegione();
+        this.viaPista = lezione.getPistaDiPattinaggio().getVia();
+        this.civicoPista = lezione.getPistaDiPattinaggio().getCivico();
+        this.tipoPavimentoPista = lezione.getPistaDiPattinaggio().getTipoPavimento();
         this.costo = lezione.getCosto();
     }
 
@@ -80,11 +89,40 @@ public class LezioneBean {
         this.durata = durata;
     }
 
-    public PistaDiPattinaggio getPistaDiPattinaggio() {
-        return pistaDiPattinaggio;
+    public void setNomePista(String nomePista) {
+        this.nomePista = nomePista;
     }
-    public void setPistaDiPattinaggio(PistaDiPattinaggio pistaDiPattinaggio) {
-        this.pistaDiPattinaggio = pistaDiPattinaggio;
+    public String getNomePista() {
+        return nomePista;
+    }
+
+    public void setRegionePista(Regione regionePista) {
+        this.regionePista = regionePista;
+    }
+    public Regione getRegionePista() {
+        return regionePista;
+    }
+
+    public void setViaPista(String viaPista) {
+        this.viaPista = viaPista;
+    }
+    public String getViaPista() {
+        return viaPista;
+    }
+
+    public void setCivicoPista(String civicoPista) {
+        this.civicoPista = civicoPista;
+    }
+    public String getCivicoPista() {
+        return civicoPista;
+    }
+
+
+    public void setTipoPavimentoPista(TipoPavimento tipoPavimentoPista) {
+        this.tipoPavimentoPista = tipoPavimentoPista;
+    }
+    public TipoPavimento getTipoPavimentoPista() {
+        return tipoPavimentoPista;
     }
 
     public int getCosto() {
