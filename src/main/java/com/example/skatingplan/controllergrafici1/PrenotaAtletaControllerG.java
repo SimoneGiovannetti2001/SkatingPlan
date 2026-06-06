@@ -84,13 +84,11 @@ public class PrenotaAtletaControllerG {
     @FXML
     private void onCercaClick(){
         try {
-
+            vBoxLezioniDisponibili.getChildren().clear();
             FiltriBean filtriBean = controllaFiltri(data.getValue(), oraComboBox.getValue(), regioneComboBox.getValue());
             PrenotaController prenotaController = new PrenotaController();
             List<LezioneBean> lezioniDisponibili = prenotaController.selezionaLezioni(filtriBean);
             if (!lezioniDisponibili.isEmpty()) {
-                vBoxLezioniDisponibili.getChildren().clear();
-
                 for (LezioneBean lezioneBean : lezioniDisponibili) {
                     vBoxLezioniDisponibili.getChildren().add(creaRiga(lezioneBean));
                 }
