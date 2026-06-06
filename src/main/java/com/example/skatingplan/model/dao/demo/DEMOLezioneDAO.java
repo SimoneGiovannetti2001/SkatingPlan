@@ -92,10 +92,6 @@ public class DEMOLezioneDAO implements LezioniDAO {
         return prenotazioniRichieste;
     }
 
-    @Override
-    public List<Prenotazione> prendiLezioniConfermate(Utente utente) {
-        return new ArrayList<>();
-    }
 
 
 }

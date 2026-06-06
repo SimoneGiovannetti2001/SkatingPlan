@@ -125,11 +125,6 @@ public class DBMSLezioneDAO implements LezioniDAO {
         return prenotazioniRichieste;
     }
 
-    @Override
-    public List<Prenotazione> prendiLezioniConfermate(Utente utente) {
-        return new ArrayList<>();
-    }
-
 
     private Connection getConnection(){
         return ConnectionFactory.getConnection();

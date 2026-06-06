@@ -19,5 +19,4 @@ public interface LezioniDAO {
 
     List<Prenotazione> prendiLezioniRichiesteAllenatore(Utente utente) throws DatabaseNonRaggiungibileException;
 
-    List<Prenotazione> prendiLezioniConfermate(Utente utente);
 }
