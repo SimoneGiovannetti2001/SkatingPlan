@@ -26,8 +26,6 @@ public class Utente {
         this.cognome = cognome;
     }
 
-
-
     public String getNome(){
         return this.nome;
     }

@@ -25,10 +25,6 @@ public class DBMSFactory extends DAOFactory {
         return new DBMSAtletaDAO();
     }
 
-    @Override
-    public AllenatoreDAO creaAlleantoreDAO() {
-        return new DBMSAllenatoreDAO();
-    }
 
 
 }

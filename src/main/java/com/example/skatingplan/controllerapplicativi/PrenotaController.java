@@ -32,7 +32,7 @@ public class PrenotaController {
 
 
     public void registraRichiestaPrenotazione(LezioneBean lezioneBean) throws DatabaseNonRaggiungibileException {
-        Lezione lezione = new Lezione(lezioneBean);
+
         LezioniDAO lezioniDAO = FactoryConfig.getDaoFactory().creaLezioniDAO();
         Utente utenteCorrente = Sessione.getSessioneCorrente();
         AtletaDAO atletaDAO = FactoryConfig.getDaoFactory().creaAtletaDAO();
@@ -40,9 +40,8 @@ public class PrenotaController {
 
         Atleta atletaCorrente = new Atleta(utenteCorrente.getNome(), utenteCorrente.getCognome(), utenteCorrente.getEmail(), utenteCorrente.getRuolo(), utenteCorrente.getIdUtente(), utenteCorrente.getPassw(), livello);
         Prenotazione prenotazione = new Prenotazione(new Lezione(lezioneBean), atletaCorrente);
-
-        lezioniDAO.aggiornastato(lezione.getId(), StatoPrenotazione.RICHIESTA);
         prenotazione.setStatoPrenotazione(StatoPrenotazione.RICHIESTA);
+        lezioniDAO.aggiornastato(prenotazione);
         lezioniDAO.associaAtleta(prenotazione);
 
     }
@@ -69,7 +68,8 @@ public class PrenotaController {
         PagamentiDAO pagamentiDAO = FactoryConfig.getDaoFactory().creaPagamentiDAO();
 
         if (pagamento.getTipoPagamento().toString().equals("ONLINE")) {
-            pagamentiDAO.aggiornaPagamento(pagamento, StatoPagamento.COMPLETATO);
+            pagamento.setStatoPagamento(StatoPagamento.COMPLETATO);
+            pagamentiDAO.aggiornaPagamento(pagamento);
         }
 
     }

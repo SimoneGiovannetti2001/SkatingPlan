@@ -8,5 +8,4 @@ public abstract class DAOFactory {
 
     public abstract AtletaDAO creaAtletaDAO();
 
-    public abstract AllenatoreDAO creaAlleantoreDAO();
 }

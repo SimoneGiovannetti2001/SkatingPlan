@@ -1,7 +1,6 @@
 package com.example.skatingplan.model.dao.demo;
 
 import com.example.skatingplan.model.dao.*;
-import com.example.skatingplan.model.dao.dbms.DBMSAllenatoreDAO;
 
 
 public class DEMOFactory extends DAOFactory {
@@ -30,10 +29,7 @@ public class DEMOFactory extends DAOFactory {
         return new DEMOAtletaDAO();
     }
 
-    @Override
-    public AllenatoreDAO creaAlleantoreDAO() {
-        return new DBMSAllenatoreDAO();
-    }
+
 
 
 }

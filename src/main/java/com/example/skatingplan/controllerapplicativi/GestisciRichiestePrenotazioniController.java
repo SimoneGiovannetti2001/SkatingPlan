@@ -20,15 +20,17 @@ public class GestisciRichiestePrenotazioniController {
     public void confermaRichiestaPrenotazione(PrenotazioneBean prenotazionebean) throws DatabaseNonRaggiungibileException{
         Prenotazione prenotazione = new Prenotazione(prenotazionebean);
         LezioniDAO lezioniDAO = FactoryConfig.getDaoFactory().creaLezioniDAO();
-        lezioniDAO.aggiornastato(prenotazione.getLezione().getId(), StatoPrenotazione.CONFERMATA);
+        prenotazione.setStatoPrenotazione(StatoPrenotazione.CONFERMATA);
+        lezioniDAO.aggiornastato(prenotazione);
     }
 
     public void rifiutaRichiestaPrenotazione(PrenotazioneBean prenotazionebean) throws DatabaseNonRaggiungibileException {
 
         Prenotazione prenotazione = new Prenotazione(prenotazionebean);
         LezioniDAO lezioniDAO = FactoryConfig.getDaoFactory().creaLezioniDAO();
-        //rimetto la lezione disponibile
-        lezioniDAO.aggiornastato(prenotazione.getLezione().getId(), StatoPrenotazione.CANCELLATA);
+
+        prenotazione.setStatoPrenotazione(StatoPrenotazione.CANCELLATA);
+        lezioniDAO.aggiornastato(prenotazione);
 
         //annullo il pagamento
         //l'annullo non è stato implementanto in quando è stato implementato un vero pagamento online

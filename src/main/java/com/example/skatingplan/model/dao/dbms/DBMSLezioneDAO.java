@@ -48,12 +48,12 @@ public class DBMSLezioneDAO implements LezioniDAO {
     }
 
     @Override
-    public void aggiornastato(int idLezione, StatoPrenotazione statoPrenotazione) throws DatabaseNonRaggiungibileException{
+    public void aggiornastato(Prenotazione prenotazione) throws DatabaseNonRaggiungibileException{
 
         try(CallableStatement cs = getConnection().prepareCall("call cambia_stato(?,?)")) {
 
-            cs.setInt(1, idLezione);
-            cs.setString(2, statoPrenotazione.toString().toUpperCase());
+            cs.setInt(1, prenotazione.getLezione().getId());
+            cs.setString(2, prenotazione.getStatoPrenotazione().toString().toUpperCase());
 
             if(cs.executeUpdate() != 1){
                 throw new DatabaseNonRaggiungibileException("Database non diusponibile, riprovare in seguito");

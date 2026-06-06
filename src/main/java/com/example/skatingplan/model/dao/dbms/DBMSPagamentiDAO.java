@@ -4,7 +4,6 @@ import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.utili.ConnectionFactory;
 import com.example.skatingplan.model.Pagamento;
 import com.example.skatingplan.model.dao.PagamentiDAO;
-import com.example.skatingplan.model.enumerazioni.StatoPagamento;
 
 import java.sql.CallableStatement;
 import java.sql.Connection;
@@ -35,12 +34,12 @@ public class DBMSPagamentiDAO implements PagamentiDAO{
     }
 
     @Override
-    public void aggiornaPagamento(Pagamento pagamento, StatoPagamento statoPagamento) throws DatabaseNonRaggiungibileException{
+    public void aggiornaPagamento(Pagamento pagamento) throws DatabaseNonRaggiungibileException{
         Connection connection = ConnectionFactory.getConnection();
         try(CallableStatement cs = connection.prepareCall("call aggiorna_pagamento(?,?)")){
 
             cs.setInt(1,pagamento.getIdLezione());
-            cs.setString(2, statoPagamento.toString());
+            cs.setString(2, pagamento.getStatoPagamento().toString());
 
             if(cs.executeUpdate() != 1){
                 throw new SQLException();

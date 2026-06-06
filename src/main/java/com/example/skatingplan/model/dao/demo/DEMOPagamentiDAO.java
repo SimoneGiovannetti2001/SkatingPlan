@@ -3,7 +3,6 @@ package com.example.skatingplan.model.dao.demo;
 
 import com.example.skatingplan.model.Pagamento;
 import com.example.skatingplan.model.dao.PagamentiDAO;
-import com.example.skatingplan.model.enumerazioni.StatoPagamento;
 
 
 import java.util.ArrayList;
@@ -19,10 +18,10 @@ public class DEMOPagamentiDAO implements PagamentiDAO {
     }
 
     @Override
-    public void aggiornaPagamento(Pagamento newpagamento, StatoPagamento statoPagamento) {
+    public void aggiornaPagamento(Pagamento newpagamento) {
         for(Pagamento pagamento : pagamenti){
             if(pagamento.getIdLezione() == newpagamento.getIdLezione()){
-                pagamento.setStatoPagamento(statoPagamento);
+                pagamento.setStatoPagamento(newpagamento.getStatoPagamento());
             }
         }
     }

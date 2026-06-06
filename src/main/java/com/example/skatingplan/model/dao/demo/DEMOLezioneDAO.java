@@ -58,10 +58,10 @@ public class DEMOLezioneDAO implements LezioniDAO {
     }
 
     @Override
-    public void aggiornastato(int idLezione, StatoPrenotazione statoPrenotazione) {
-        for (Prenotazione prenotazione: prenotazioni) {
-            if ((prenotazione.getLezione().getId() == idLezione)) {
-                prenotazione.setStatoPrenotazione(statoPrenotazione);
+    public void aggiornastato(Prenotazione prenotazione) {
+        for (Prenotazione prenotazionecorrente: prenotazioni) {
+            if ((prenotazionecorrente.getLezione().getId() == prenotazione.getLezione().getId())) {
+                prenotazionecorrente.setStatoPrenotazione(prenotazione.getStatoPrenotazione());
             }
         }
 

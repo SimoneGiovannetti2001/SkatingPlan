@@ -27,9 +27,5 @@ public class FSFactoryDAO extends DAOFactory {
         return null;
     }
 
-    @Override
-    public AllenatoreDAO creaAlleantoreDAO() {
-        //non implementato
-        return null;
-    }
+
 }
