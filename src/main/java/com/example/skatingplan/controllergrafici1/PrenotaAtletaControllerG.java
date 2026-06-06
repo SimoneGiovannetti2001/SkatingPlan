@@ -4,14 +4,12 @@ import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.eccezioni.InputIllegaleException;
+import com.example.skatingplan.model.Sessione;
 import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.LezioneBean;
-import com.example.skatingplan.model.dao.dbms.DBMSFactory;
 import com.example.skatingplan.model.enumerazioni.Regione;
-import com.example.skatingplan.model.enumerazioni.Ruolo;
-import com.example.skatingplan.utili.ConnectionFactory;
-import com.example.skatingplan.utili.FactoryConfig;
 import com.example.skatingplan.utili.GestoreMessaggiGUI;
+import com.example.skatingplan.utili.NavigazioneBase;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -144,19 +142,11 @@ public class PrenotaAtletaControllerG {
 
     @FXML
     private void onHomeClick(){
-        FxmlLoader.setPage("views1/homeAtleta1-view");
+        NavigazioneBase.home(Sessione.getSessioneCorrente().getRuolo());
     }
 
     @FXML
     public void onLogoutClick() {
-        try {
-            //resetto la connessione per fare il login
-            if(FactoryConfig.getDaoFactory() instanceof DBMSFactory){
-                ConnectionFactory.changeRole(Ruolo.LOGIN);
-            }
-        }catch (DatabaseNonRaggiungibileException e){
-            GestoreMessaggiGUI.mostraErrore(erroriLabel, e.getMessage());
-        }
-        FxmlLoader.setPage("views1/login1-view");
+        NavigazioneBase.logout(erroriLabel);
     }
 }

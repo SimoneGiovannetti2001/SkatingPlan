@@ -3,10 +3,12 @@ package com.example.skatingplan.controllergrafici1;
 import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
+import com.example.skatingplan.model.Sessione;
 import com.example.skatingplan.model.bean.InfoPagamentoBean;
 import com.example.skatingplan.model.enumerazioni.StatoPagamento;
 import com.example.skatingplan.model.enumerazioni.TipoPagamento;
 import com.example.skatingplan.utili.GestoreMessaggiGUI;
+import com.example.skatingplan.utili.NavigazioneBase;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -28,7 +30,7 @@ public class PagaControllerG {
 
     @FXML
     private void onHomeClick(){
-        FxmlLoader.setPage("views1/homeAtleta1-view");
+        NavigazioneBase.home(Sessione.getSessioneCorrente().getRuolo());
     }
 
     public void onPagaAllaLezione() {
