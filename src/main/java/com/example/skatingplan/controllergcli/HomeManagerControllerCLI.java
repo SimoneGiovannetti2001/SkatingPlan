@@ -1,6 +1,8 @@
 package com.example.skatingplan.controllergcli;
 
 
+import com.example.skatingplan.utili.MessaggiCLI;
+
 public class HomeManagerControllerCLI {
 
     private HomeManagerControllerCLI(){
@@ -8,6 +10,7 @@ public class HomeManagerControllerCLI {
     }
 
     public static void start(){
+        MessaggiCLI.mostraMessaggio("Non implementato");
        //da implementare
     }
 

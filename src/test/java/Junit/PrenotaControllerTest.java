@@ -23,6 +23,8 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
+/* Simone Giovannetti 0293682 */
+
 class PrenotaControllerTest {
 
     @Test

@@ -85,7 +85,7 @@ public class DEMOLezioneDAO implements LezioniDAO {
         List<Prenotazione> prenotazioniRichieste = new ArrayList<>();
 
         for(Prenotazione prenotazione: prenotazioni){
-            if(prenotazione.getLezione().getAllenatore().getIdUtente() == utente.getIdUtente() ){
+            if(prenotazione.getLezione().getAllenatore().getIdUtente() == utente.getIdUtente() && prenotazione.getStatoPrenotazione().equals(StatoPrenotazione.RICHIESTA)){
                 prenotazioniRichieste.add(prenotazione);
             }
         }

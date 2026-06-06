@@ -1,5 +1,7 @@
 package com.example.skatingplan.controllergcli;
 
+import com.example.skatingplan.utili.MessaggiCLI;
+
 public class GestioneDisponibilitaControllerCLI {
 
     private GestioneDisponibilitaControllerCLI(){
@@ -7,6 +9,7 @@ public class GestioneDisponibilitaControllerCLI {
     }
 
     public static void start(){
+        MessaggiCLI.mostraMessaggio("Non implementato");
         //non implementato
     }
 

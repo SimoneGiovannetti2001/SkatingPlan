@@ -1,5 +1,7 @@
 package com.example.skatingplan.controllergcli;
 
+import com.example.skatingplan.utili.MessaggiCLI;
+
 public class GestionePrenotazioniControllerCLI {
 
     private GestionePrenotazioniControllerCLI(){
@@ -8,6 +10,7 @@ public class GestionePrenotazioniControllerCLI {
 
 
     public static void start(){
+        MessaggiCLI.mostraMessaggio("Non implementato");
         //non implementato
     }
 }

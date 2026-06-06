@@ -86,7 +86,7 @@ public class PrenotaAtletaViewCLI {
             out.println("-------------------------------------------------------------------------------------------");
             out.printf(formato, "Pista: " + lezioneBean.getPistaDiPattinaggio().getNome(), "Allenatore: "+ nomeAllenatore, "Data:   "+ lezioneBean.getData());
             out.printf(formato, "Indirizzo: " + indirizzo, "Qualifica:  " + lezioneBean.getQualifica(), "Ora:    " + lezioneBean.getOraInizio());
-            out.printf(formato, "Regione: " + lezioneBean.getPistaDiPattinaggio().getRegione(), "Costo:      " + (double)lezioneBean.getCosto() + "€", "Durata: " + lezioneBean.getDurata() + "minuti");
+            out.printf(formato, "Regione: " + lezioneBean.getPistaDiPattinaggio().getRegione(), "Costo:      " + (double)lezioneBean.getCosto() + "€", "Durata: " + lezioneBean.getDurata() + " minuti");
             out.println("-------------------------------------------------------------------------------------------");
         }
     }
