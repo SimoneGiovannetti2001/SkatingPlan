@@ -2,6 +2,7 @@ package com.example.skatingplan.controllergcli.viewcli;
 
 import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.PrenotazioneBean;
+import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -35,7 +36,7 @@ public class GestisciRichiestePrenotazioniAllenatoreView {
 
     public static int scegliPrenotazioneDaConfermare() throws InputIllegaleException {
         try{
-            out.println("Scegliere una prenotazione richiesta da confermare (exit per uscire)");
+            out.println("Scegliere una prenotazione richiesta da confermare o annullare (exit per uscire)");
             String input = reader.readLine().toLowerCase();
             if(input.equals("exit")){
                 return 0;
@@ -47,7 +48,22 @@ public class GestisciRichiestePrenotazioniAllenatoreView {
         }
     }
 
-    public static int richiestaConfermaAltraLezione() throws InputIllegaleException {
+    public static String confermaOCancella() throws InputIllegaleException {
+        try{
+            out.println("Si vuole confermare o cancellare? (conferma/cancella)");
+            String input = reader.readLine().toLowerCase();
+            return switch (input) {
+                case "exit" -> "exit";
+                case "conferma" -> StatoPrenotazione.CONFERMATA.toString();
+                case "cancella" -> StatoPrenotazione.CANCELLATA.toString();
+                default -> throw new InputIllegaleException("input non valido, riprovare");
+            };
+        } catch (IOException e) {
+            throw new InputIllegaleException("Input non valido, riprovare", e);
+        }
+    }
+
+    public static int confermaOCancellaAltraLezione() throws InputIllegaleException {
         try{
             out.println("Si vuole confermare un altra prenotazione? (si/no)");
             String scelta = reader.readLine().toLowerCase();

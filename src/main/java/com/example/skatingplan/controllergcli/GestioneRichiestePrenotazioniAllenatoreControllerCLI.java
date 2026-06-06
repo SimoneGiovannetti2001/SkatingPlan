@@ -6,6 +6,7 @@ import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 
 import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.PrenotazioneBean;
+import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
 import com.example.skatingplan.utili.MessaggiCLI;
 
 
@@ -24,8 +25,6 @@ public class GestioneRichiestePrenotazioniAllenatoreControllerCLI {
             boolean continua = true;
             while(continua) {
                 List<PrenotazioneBean> prenotazioniRichieste;
-                int scelta;
-                PrenotazioneBean prenotazioneScelta;
 
                 prenotazioniRichieste = gestisciRichiestePrenotazioniController.selezionaPrenotazioniRichieste();
 
@@ -34,21 +33,7 @@ public class GestioneRichiestePrenotazioniAllenatoreControllerCLI {
                     break;
                 } else {
 
-                    GestisciRichiestePrenotazioniAllenatoreView.mostraPrenotazioniRichieste(prenotazioniRichieste);
-
-                    scelta = GestisciRichiestePrenotazioniAllenatoreView.scegliPrenotazioneDaConfermare();
-
-                    if(scelta != 0 ){
-                        prenotazioneScelta = prenotazioniRichieste.get(scelta - 1);
-
-                        gestisciRichiestePrenotazioniController.confermaRichiestaPrenotazione(prenotazioneScelta);
-
-                        scelta = GestisciRichiestePrenotazioniAllenatoreView.richiestaConfermaAltraLezione();
-
-                        if(scelta == 0){
-                            continua = false;
-                        }
-                    }
+                    continua = gestisciPrenotazione(gestisciRichiestePrenotazioniController, prenotazioniRichieste);
 
                 }
             }
@@ -57,6 +42,42 @@ public class GestioneRichiestePrenotazioniAllenatoreControllerCLI {
             MessaggiCLI.mostraErrore(e.getMessage());
         }
     }
+
+    private static boolean gestisciPrenotazione(GestisciRichiestePrenotazioniController gestisciRichiestePrenotazioniController, List<PrenotazioneBean> prenotazioniRichieste) throws InputIllegaleException, DatabaseNonRaggiungibileException {
+
+        int scelta;
+        PrenotazioneBean prenotazioneScelta;
+        String nuovoStato;
+
+        GestisciRichiestePrenotazioniAllenatoreView.mostraPrenotazioniRichieste(prenotazioniRichieste);
+
+        scelta = GestisciRichiestePrenotazioniAllenatoreView.scegliPrenotazioneDaConfermare();
+
+        if(scelta == 0 ) {
+            return false;
+        }
+
+        prenotazioneScelta = prenotazioniRichieste.get(scelta - 1);
+
+        nuovoStato = GestisciRichiestePrenotazioniAllenatoreView.confermaOCancella();
+
+        if(nuovoStato.equals(StatoPrenotazione.CONFERMATA.toString())){
+            gestisciRichiestePrenotazioniController.confermaRichiestaPrenotazione(prenotazioneScelta);
+        } else if (nuovoStato.equals(StatoPrenotazione.CANCELLATA.toString())) {
+            gestisciRichiestePrenotazioniController.rifiutaRichiestaPrenotazione(prenotazioneScelta);
+        } else if (nuovoStato.equals("exit")) {
+            return false;
+        }
+
+
+        scelta = GestisciRichiestePrenotazioniAllenatoreView.confermaOCancellaAltraLezione();
+
+        return scelta != 0;
+
+
+    }
+
+
 
 
 }
