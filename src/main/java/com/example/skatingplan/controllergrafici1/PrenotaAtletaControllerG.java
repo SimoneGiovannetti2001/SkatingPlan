@@ -84,6 +84,7 @@ public class PrenotaAtletaControllerG {
     @FXML
     private void onCercaClick(){
         try {
+
             vBoxLezioniDisponibili.getChildren().clear();
             FiltriBean filtriBean = controllaFiltri(data.getValue(), oraComboBox.getValue(), regioneComboBox.getValue());
             PrenotaController prenotaController = new PrenotaController();
