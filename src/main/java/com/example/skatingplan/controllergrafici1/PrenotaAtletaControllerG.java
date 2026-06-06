@@ -3,6 +3,7 @@ package com.example.skatingplan.controllergrafici1;
 import com.example.skatingplan.FxmlLoader;
 import com.example.skatingplan.controllerapplicativi.PrenotaController;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
+import com.example.skatingplan.eccezioni.InputIllegaleException;
 import com.example.skatingplan.model.bean.FiltriBean;
 import com.example.skatingplan.model.bean.LezioneBean;
 import com.example.skatingplan.model.dao.dbms.DBMSFactory;
@@ -18,6 +19,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -84,7 +86,8 @@ public class PrenotaAtletaControllerG {
     @FXML
     private void onCercaClick(){
         try {
-            FiltriBean filtriBean = new FiltriBean(data.getValue(), oraComboBox.getValue(), regioneComboBox.getValue());
+
+            FiltriBean filtriBean = controllaFiltri(data.getValue(), oraComboBox.getValue(), regioneComboBox.getValue());
             PrenotaController prenotaController = new PrenotaController();
             List<LezioneBean> lezioniDisponibili = prenotaController.selezionaLezioni(filtriBean);
             if (!lezioniDisponibili.isEmpty()) {
@@ -96,10 +99,29 @@ public class PrenotaAtletaControllerG {
             } else {
                 GestoreMessaggiGUI.mostraErrore(erroriLabel, "Lezioni non disponibili, riprovare");
             }
-        }catch (DatabaseNonRaggiungibileException e){
+        }catch (DatabaseNonRaggiungibileException | InputIllegaleException e){
             GestoreMessaggiGUI.mostraErrore(erroriLabel, e.getMessage());
         }
 
+    }
+
+    private FiltriBean controllaFiltri(LocalDate data, LocalTime oraInizio, Regione regione) throws InputIllegaleException {
+
+        if (regione == null){
+            throw new InputIllegaleException("Inserire regione per continuare");
+        }
+
+        if (data == null){
+            throw new InputIllegaleException("Inserire data per continuare");
+        }
+
+        if (oraInizio == null){
+            throw new InputIllegaleException("Inserire ora di inizio per continuare");
+        }
+
+
+
+        return new FiltriBean(data, oraInizio, regione);
     }
 
     private Parent creaRiga(LezioneBean lezioneBean){
