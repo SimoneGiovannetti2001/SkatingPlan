@@ -27,11 +27,11 @@ public class DEMOLezioneDAO implements LezioniDAO {
         pisteDiPattinaggio.add(new PistaDiPattinaggio("Ice Arena Assago", Regione.LOMBARDIA, "Via milanofiori", "1", TipoPavimento.PARQUET));
         pisteDiPattinaggio.add(new PistaDiPattinaggio("IceLab Bergamo", Regione.ABRUZZO, "Via gramsci", "45", TipoPavimento.CEMENTO));
 
-        allenatori.add(new Allenatore(new Utente("Francesco", "Filippi", "fra.filippi@gmail.com", Ruolo.ALLENATORE, 1,"francesco"), Qualifica.FISR2, 35));
-        allenatori.add(new Allenatore(new Utente("Damiano", "Foglietta", "dam.foglietta@gmail.com", Ruolo.ALLENATORE, 2, "damiano"), Qualifica.FISR1, 40));
-        allenatori.add(new Allenatore(new Utente("Daniele", "Giovannini", "dan.giovannini@gmail.com", Ruolo.ALLENATORE, 3, "daniele"), Qualifica.FISR2, 35));
-        allenatori.add(new Allenatore(new Utente("Filippo", "Rizzo", "fil.rizzo@gmail.com", Ruolo.ALLENATORE, 4, "filippo"), Qualifica.FISR3,50));
-        allenatori.add(new Allenatore(new Utente("Marcus", "Pagliari", "mar.pagliati@gmail.com", Ruolo.ALLENATORE, 5, "marcus"), Qualifica.FISR3,60));
+        allenatori.add(new Allenatore(new Utente("Francesco", "Filippi", "fra.filippi@gmail.com", Ruolo.ALLENATORE, 5,"francesco"), Qualifica.FISR2, 35));
+        allenatori.add(new Allenatore(new Utente("Floriana", "Foglietta", "flo.foglietta@gmail.com", Ruolo.ALLENATORE, 6, "floriana"), Qualifica.FISR1, 40));
+        allenatori.add(new Allenatore(new Utente("Daniele", "Giovannini", "dan.giovannini@gmail.com", Ruolo.ALLENATORE, 7, "daniele"), Qualifica.FISR2, 35));
+        allenatori.add(new Allenatore(new Utente("Flavio", "Rizzo", "fla.rizzo@gmail.com", Ruolo.ALLENATORE, 8, "flavio"), Qualifica.FISR3,50));
+        allenatori.add(new Allenatore(new Utente("Marcus", "Pagliari", "mar.pagliati@gmail.com", Ruolo.ALLENATORE, 9, "marcus"), Qualifica.FISR3,60));
 
         lezioni.add(new Lezione(1, pisteDiPattinaggio.get(0), allenatori.get(0), LocalDate.of(2026, Month.JULY, 10),LocalTime.of(16,30), 60, 35));
         lezioni.add(new Lezione(2, pisteDiPattinaggio.get(1), allenatori.get(1), LocalDate.of(2026, Month.JULY, 16),LocalTime.of(15,0), 120, 80));
@@ -42,6 +42,7 @@ public class DEMOLezioneDAO implements LezioniDAO {
 
     @Override
     public List<Lezione> selezionaLezioni(LocalDate data, LocalTime oraInizio, String regione) {
+
         lezioniFiltrate = new ArrayList<>();
 
 
@@ -71,6 +72,7 @@ public class DEMOLezioneDAO implements LezioniDAO {
         for (Lezione lezione: lezioni){
             if(prenotazione.getLezione().getId() == lezione.getId()){
                 Atleta atleta = prenotazione.getAtleta();
+                System.out.println(atleta.getLivello());
                 prenotazioni.add(new Prenotazione(lezione, atleta, StatoPrenotazione.RICHIESTA));
 
                 lezioni.remove(lezione);
@@ -81,7 +83,14 @@ public class DEMOLezioneDAO implements LezioniDAO {
 
     @Override
     public List<Prenotazione> prendiLezioniRichiesteAllenatore(Utente utente) {
-        return new ArrayList<>();
+        List<Prenotazione> prenotazioniRichieste = new ArrayList<>();
+
+        for(Prenotazione prenotazione: prenotazioni){
+            if(prenotazione.getLezione().getAllenatore().getIdUtente() == utente.getIdUtente() ){
+                prenotazioniRichieste.add(prenotazione);
+            }
+        }
+        return prenotazioniRichieste;
     }
 
     @Override

@@ -3,8 +3,10 @@ package com.example.skatingplan.controllerapplicativi;
 import com.example.skatingplan.eccezioni.DatabaseNonRaggiungibileException;
 import com.example.skatingplan.model.*;
 import com.example.skatingplan.model.bean.*;
+import com.example.skatingplan.model.dao.AtletaDAO;
 import com.example.skatingplan.model.dao.LezioniDAO;
 import com.example.skatingplan.model.dao.PagamentiDAO;
+import com.example.skatingplan.model.enumerazioni.Livello;
 import com.example.skatingplan.model.enumerazioni.StatoPagamento;
 import com.example.skatingplan.model.enumerazioni.StatoPrenotazione;
 import com.example.skatingplan.utili.FactoryConfig;
@@ -33,7 +35,10 @@ public class PrenotaController {
         Lezione lezione = new Lezione(lezioneBean);
         LezioniDAO lezioniDAO = FactoryConfig.getDaoFactory().creaLezioniDAO();
         Utente utenteCorrente = Sessione.getSessioneCorrente();
-        Atleta atletaCorrente = new Atleta(utenteCorrente.getNome(), utenteCorrente.getCognome(), utenteCorrente.getEmail(), utenteCorrente.getRuolo(), utenteCorrente.getIdUtente(), utenteCorrente.getPassw());
+        AtletaDAO atletaDAO = FactoryConfig.getDaoFactory().creaAtletaDAO();
+        Livello livello = atletaDAO.recuperaProfiloAtleta(utenteCorrente.getIdUtente());
+
+        Atleta atletaCorrente = new Atleta(utenteCorrente.getNome(), utenteCorrente.getCognome(), utenteCorrente.getEmail(), utenteCorrente.getRuolo(), utenteCorrente.getIdUtente(), utenteCorrente.getPassw(), livello);
         Prenotazione prenotazione = new Prenotazione(new Lezione(lezioneBean), atletaCorrente);
 
         lezioniDAO.aggiornastato(lezione.getId(), StatoPrenotazione.RICHIESTA);

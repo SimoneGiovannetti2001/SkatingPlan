@@ -49,6 +49,7 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
         try {
             //recupero le lezioni richieste
             List<PrenotazioneBean> prenotazioniRichieste;
+
             prenotazioniRichieste = gestisciRichiestePrenotazioniController.selezionaPrenotazioniRichieste();
 
             //se diverso da 0 le mostro a schermo
@@ -86,6 +87,7 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
         }
         return null;
     }
+
 
     public void onGestisciPrenotazioniClick() {
         //da implementare
