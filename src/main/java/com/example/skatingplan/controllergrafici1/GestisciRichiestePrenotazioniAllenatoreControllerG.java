@@ -90,7 +90,7 @@ public class GestisciRichiestePrenotazioniAllenatoreControllerG {
 
 
     public void onGestisciPrenotazioniClick() {
-        FxmlLoader.setPage("views1/gestisciPrenotazioniAllenatore1-view");
+        GestoreMessaggiGUI.mostraErrore(erroriLabel, "non implementato");
     }
 
     public void onGestisciRichiestePrenotazioniClick() {

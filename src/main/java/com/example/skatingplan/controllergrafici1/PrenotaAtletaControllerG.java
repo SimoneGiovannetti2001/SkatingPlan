@@ -80,7 +80,7 @@ public class PrenotaAtletaControllerG {
 
     @FXML
     private void onGestisciPrenotazioniClick(){
-        FxmlLoader.setPage("views1/gestisciPrenotazioniAtleta1-view");
+        GestoreMessaggiGUI.mostraErrore(erroriLabel, "non implementato");
     }
 
     @FXML
