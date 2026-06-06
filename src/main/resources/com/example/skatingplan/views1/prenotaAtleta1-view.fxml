@@ -47,7 +47,7 @@
       <ScrollPane fx:id="scrollpane" hbarPolicy="NEVER" layoutX="76.0" layoutY="199.0" prefHeight="350.0" prefWidth="1000.0" stylesheets="@../filecss/focus-scrollpane.css">
          <VBox fx:id="vBoxLezioniDisponibili" prefHeight="350.0" prefWidth="975.0" spacing="3.0" />
       </ScrollPane>
-      <Label fx:id="erroriLabel" layoutX="335.0" layoutY="144.0" maxHeight="50.0" maxWidth="400.0" minHeight="50.0" minWidth="400.0" prefHeight="50.0" prefWidth="400.0">
+      <Label fx:id="erroriLabel" alignment="CENTER" layoutX="335.0" layoutY="144.0" maxHeight="50.0" maxWidth="400.0" minHeight="50.0" minWidth="400.0" prefHeight="50.0" prefWidth="400.0">
          <font>
             <Font size="20.0" />
          </font>
