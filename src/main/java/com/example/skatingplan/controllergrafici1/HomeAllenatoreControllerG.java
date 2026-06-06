@@ -48,7 +48,7 @@ public class HomeAllenatoreControllerG {
 
     @FXML
     public void onGestisciPrenotazioniClick() {
-        FxmlLoader.setPage("views1/gestisciPrenotazioniAllenatore1-view");
+        GestoreMessaggiGUI.mostraErrore(erroriLabel, "non implementato");
     }
 
 
