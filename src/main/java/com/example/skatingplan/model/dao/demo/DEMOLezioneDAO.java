@@ -72,7 +72,6 @@ public class DEMOLezioneDAO implements LezioniDAO {
         for (Lezione lezione: lezioni){
             if(prenotazione.getLezione().getId() == lezione.getId()){
                 Atleta atleta = prenotazione.getAtleta();
-                System.out.println(atleta.getLivello());
                 prenotazioni.add(new Prenotazione(lezione, atleta, StatoPrenotazione.RICHIESTA));
 
                 lezioni.remove(lezione);
